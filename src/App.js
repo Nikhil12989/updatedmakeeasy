@@ -102,10 +102,9 @@ import Passport_Fresh from './pages/All_Services/Passport_Fresh';
 import Passport_reissue from './pages/All_Services/Passport_reissue';
 import ApplicationConsole from './pages/AdminDashboard/ApplicationConsole';
 import Application_localfoodlicense from './pages/AdminDashboard/Application_localfoodlicense';
-import Application_companypan from './pages/AdminDashboard/Application_companypan';
-
-
-
+import Application_companypancard from "./pages/AdminDashboard/Application_companypancard"
+import Application_permanent from './pages/AdminDashboard/Application_permanent';
+import Application_learning from './pages/AdminDashboard/Application_learning';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -256,8 +255,10 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path="adashboard" element={<ADashboard />} />
             <Route path='applicationconsole' element={<ApplicationConsole/>}/>
             <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense/>}/>
-            <Route path='application_companypan/:id' element={<Application_companypan/>}/>
-          </Routes>
+            <Route path='application_companypancard/:id' element={<Application_companypancard/>}/>
+            <Route path='application_permanent/:id' element={<Application_permanent/>}/>
+            <Route path='application_learning/:id' element={<Application_learning/>}/>
+            </Routes>
         </main>
       </div>
     </div>

@@ -87,8 +87,8 @@ const Applicationconsole = () => {
       case "Shop Act":
         navigate(`/admin/application_shopact/${id}`);
         break;
-      case "Learning DL":
-        navigate(`/admin/application_learningdl/${id}`);
+      case "Learning License":
+        navigate(`/admin/application_learning/${id}`);
         break;
       case "Company GST":
         navigate(`/admin/application_companygst/${id}`);
@@ -99,13 +99,17 @@ const Applicationconsole = () => {
       case "Local Food License":
         navigate(`/admin/application_localfoodlicense/${id}`);
         break;
-      case "Company PAN":
-        navigate(`/admin/application_companypan/${id}`);
+      case "Company Pancard":
+        navigate(`/admin/application_companypancard/${id}`);
+        break;
+      case "Permanent License":
+        navigate(`/admin/application_permanent/${id}`);
         break;
       default:
         console.log("Unknown application type:", applicationType);
     }
   };
+  
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
@@ -130,10 +134,11 @@ const Applicationconsole = () => {
             <option value="Company GST">Company GST</option>
             <option value="Individual GST">Individual GST</option>
             <option value="Local Food License">Local Food License</option>
-            <option value="Company PAN">Company PAN</option>
+            <option value="Company Pancard">Company Pancard</option>
           </select>
         </div>
       </div>
+
       <div className="mx-5 mb-4">
         <input
           type="text"
@@ -180,9 +185,7 @@ const Applicationconsole = () => {
                   </td>
                   <td
                     className="py-2 px-4 text-blue-600 cursor-pointer hover:font-bold"
-                    onClick={() =>
-                      handleApplicationTypeClick(item.application_type, item.id)
-                    }
+                    onClick={() => handleApplicationTypeClick(item.application_type, item.id)}
                   >
                     {item.application_type}
                   </td>

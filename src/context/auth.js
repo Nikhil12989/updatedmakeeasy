@@ -5,20 +5,32 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     user: null,
-    token: "",
+    token: null, // Use null for better clarity when checking
   });
 
   useEffect(() => {
-    // Fetch authentication data from localStorage on component mount
     const data = localStorage.getItem("auth");
     if (data) {
-      const parseData = JSON.parse(data);
-      setAuth({
-        user: parseData.user,
-        token: parseData.token,
-      });
+      try {
+        const parsedData = JSON.parse(data);
+        setAuth({
+          user: parsedData.user,
+          token: parsedData.token,
+        });
+      } catch (error) {
+        console.error("Failed to parse auth data:", error);
+        localStorage.removeItem("auth"); // Remove corrupted data
+      }
     }
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
+
+  useEffect(() => {
+    if (auth.token) {
+      localStorage.setItem("auth", JSON.stringify(auth)); // Store in localStorage when auth changes
+    } else {
+      localStorage.removeItem("auth"); // Remove if no token
+    }
+  }, [auth]);
 
   return (
     <AuthContext.Provider value={[auth, setAuth]}>

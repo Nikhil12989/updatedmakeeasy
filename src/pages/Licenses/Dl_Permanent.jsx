@@ -69,7 +69,7 @@ const Dl_Permanent = () => {
 
     try {
       // Post form data to API
-      const response = await axios.post('http://192.168.1.49:5000/api/permanentLicense/createPermanentDL', form, {
+      const response = await axios.post('http://192.168.1.50:5000/api/permanentLicense/createPermanentDL', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${auth.token}` // Use backticks for string interpolation

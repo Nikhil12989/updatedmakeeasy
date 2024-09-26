@@ -68,7 +68,7 @@ const Dl_Learning = () => {
 
     try {
       // Post form data to API
-      const response = await axios.post('http://192.168.1.49:5000/api/learningLicense/createLearningDL', form, {
+      const response = await axios.post('http://192.168.1.50:5000/api/learningLicense/createLearningDL', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${auth.token}` // Use backticks for string interpolation
