@@ -29,7 +29,7 @@ const Applicationconsole = () => {
           id: item._id,
           application_type: item.application_type,
           applicantName: item.fullName,
-          status: item.status || "inProgress",
+          Status: item.Status || "inProgress",
           createdAt: item.createdAt,
           updatedAt: item.updatedAt,
         }));
@@ -109,7 +109,6 @@ const Applicationconsole = () => {
         console.log("Unknown application type:", applicationType);
     }
   };
-  
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
@@ -185,12 +184,15 @@ const Applicationconsole = () => {
                   </td>
                   <td
                     className="py-2 px-4 text-blue-600 cursor-pointer hover:font-bold"
-                    onClick={() => handleApplicationTypeClick(item.application_type, item.id)}
+                    onClick={() =>
+                      handleApplicationTypeClick(item.application_type, item.id)
+                    }
                   >
                     {item.application_type}
                   </td>
                   <td className="py-2 px-4">{item.applicantName}</td>
-                  <td className="py-2 px-4">{item.status}</td>
+                  {/* Display Status as text */}
+                  <td className="py-2 px-4">{item.Status}</td>
                   <td className="py-2 px-4">
                     {new Date(item.createdAt).toLocaleString()}
                   </td>

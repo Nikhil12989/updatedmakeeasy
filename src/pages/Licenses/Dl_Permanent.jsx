@@ -500,6 +500,7 @@ const Dl_Permanent = () => {
           </button>
         </div>
       </form>
+      <ToastContainer/>
       <Footer />
     </div>
   );
