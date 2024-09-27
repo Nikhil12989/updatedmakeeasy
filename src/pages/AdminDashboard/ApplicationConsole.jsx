@@ -29,7 +29,7 @@ const Applicationconsole = () => {
           id: item._id,
           application_type: item.application_type,
           applicantName: item.fullName,
-          Status: item.Status || "inProgress",
+          Status: item.Status || "In-Progress",
           createdAt: item.createdAt,
           updatedAt: item.updatedAt,
         }));
@@ -107,6 +107,22 @@ const Applicationconsole = () => {
         break;
       default:
         console.log("Unknown application type:", applicationType);
+    }
+  };
+
+  // Function to get the status class based on the status value
+  const getStatusClass = (status) => {
+    switch (status) {
+      case "In-Progress":
+        return "text-yellow-500 font-bold"; // Yellow for In-Progress
+      case "Submitted":
+        return "text-blue-500 font-bold"; // Blue for Submitted
+      case "Completed":
+        return "text-green-500 font-bold"; // Green for Completed
+      case "Rejected":
+        return "text-red-500 font-bold"; // Red for Rejected
+      default:
+        return "text-gray-500 font-bold"; // Default color for unknown status
     }
   };
 
@@ -191,8 +207,10 @@ const Applicationconsole = () => {
                     {item.application_type}
                   </td>
                   <td className="py-2 px-4">{item.applicantName}</td>
-                  {/* Display Status as text */}
-                  <td className="py-2 px-4">{item.Status}</td>
+                  {/* Display Status with color */}
+                  <td className={`py-2 px-4 ${getStatusClass(item.Status)}`}>
+                    {item.Status}
+                  </td>
                   <td className="py-2 px-4">
                     {new Date(item.createdAt).toLocaleString()}
                   </td>

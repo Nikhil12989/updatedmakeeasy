@@ -28,15 +28,7 @@ const ApplicationPermanent = () => {
     fetchLicenseData();
   }, [id]);
 
-  const handleFileChange = (event) => {
-    const { name, files: selectedFiles } = event.target;
-    if (selectedFiles && selectedFiles.length > 0) {
-      setFiles((prevFiles) => ({
-        ...prevFiles,
-        [name]: selectedFiles[0],
-      }));
-    }
-  };
+ 
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -107,15 +99,7 @@ const ApplicationPermanent = () => {
       </div>
 
       {/* Application Status */}
-      <div className="bg-white shadow-md p-6 rounded-lg mb-10 space-y-4">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">Application Status</h2>
-        <p className="text-gray-800"><strong className="text-gray-600">Submitted At:</strong> {licenseData.submitedAt || 'Not submitted'}</p>
-        <p className="text-gray-800"><strong className="text-gray-600">Completed At:</strong> {licenseData.CompletedAt || 'Not completed'}</p>
-        <p className="text-gray-800"><strong className="text-gray-600">Rejected At:</strong> {licenseData.rejectedAt || 'Not rejected'}</p>
-        {licenseData.rejectedNote && (
-          <p className="text-gray-800"><strong className="text-gray-600">Rejection Note:</strong> {licenseData.rejectedNote}</p>
-        )}
-      </div>
+      
 
       {/* Documents Section */}
       <div className="bg-white shadow-md p-6 rounded-lg mb-10">
