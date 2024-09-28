@@ -74,11 +74,9 @@ const Nidhi_registration_lic = () => {
 
             </h1>
             <p className="mb-4">
-              A Nidhi Company is a type of Non-Banking Financial Company (NBFC) dedicated to lending or borrowing money to all its members as required. According to the Nidhi Rules, 2014, members can borrow money against tangible collateral such as property mortgage, gold, etc. Nidhi companies have to register under the Companies Act, 2013.
-            </p>
-            <p className="mb-4">The conception of Nidhi Company was initiated to practice thrift amongst its members, receiving deposits and lending money for mutual benefit. A Nidhi company is regulated by the Ministry of Corporate Affairs but it does not need to receive any license from the Reserve Bank of India (RBI). </p>
+              Nidhi company registration is a great option for people who would like to encourage savings and offer financial services to members of a particular society. There is limited liability, ease of borrowing, and it is all about mutual benefit, Nidhi Companies work as a viable community-based financial aid assistance business model.            </p>
             <p className="mb-4">
-              These companies will be registered as public limited companies, and you can mention them as “Nidhi Limited” following the names of the companies. If you like to Register a Nidhi company, we can assist you. We have dedicated CA/CS services for your customized needs. So, what are you waiting for? Contact us today.</p>
+              If you plan on pursuing the incorporation of a Nidhi Company, it is advisable that you seek the services of professionals who will assist you in the incorporation process without violating any laws. Make Easy Documents helps you in the smooth Nidhi Company registration process.</p>
           </div>
         </div>
       </div>

@@ -68,10 +68,7 @@ const Credit_management_analysis = () => {
 <h1 className='text-center font-semibold text-xl'>Fundamentals of Credit Management Analysis Report</h1>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-10">
               <br />
-              <p>   Credit Management Analysis (C.M.A.) is a way to review the financial statements of a startup or a project where a detailed analysis of credit will be displayed. Analysis of cash flows, drainage of cash, replaying of loan amount strategy, and the profitable amount of the project are mentioned. Hence, it is the analysis of borrowers’ ability to repay loans and profit generation analytical report. </p>
-              <br />
-              <p>The quality of the business compared to market trends in the competitive landscape is the way to assess the borrower's creditworthiness. If the CMA report is positive, it will generate profit. Then only the investors or banks will offer a reasonable loan to your business.</p>
-
+              <p> A Credit Management Analysis Report is of great importance to firms that offer credit to customers. It involves a complete assessment of credit management practices to assist the businesses in risk identification, cash flow improvement and profitability enhancement. By following the suggestions made in such reports, enterprises are able to fine-tune their credit policies, resulting in better yields. </p>
               <br />
             </div>
 

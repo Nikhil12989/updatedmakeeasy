@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ApplicationPermanent = () => {
+
   const { id } = useParams();
   const [licenseData, setLicenseData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -27,9 +28,7 @@ const ApplicationPermanent = () => {
 
     fetchLicenseData();
   }, [id]);
-
- 
-
+  
   const handleUpdate = async (event) => {
     event.preventDefault();
     const formData = new FormData();

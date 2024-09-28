@@ -49,15 +49,15 @@ const Business_registration = () => {
         </div>
       </div>
       <div className="container mx-auto px-4 lg:px-16 py-8">
-      <div className="text-center mb-8">
+        <div className="text-center mb-8">
           <h2 className="text-2xl lg:text-2xl font-bold border-b-4 border-red-600 inline-block pb-2">
-          Quickest Business Registration in India. 
+            Quickest Business Registration in India.
 
           </h2>
           <h3 className='pt-4 text-base font-semibold'>Our Expert consultation will help you to get the Trademark registration online seamlessly from the government.
           </h3>
           <p className='pt-4'>Get Your Business Registered at lowest fees. <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> is an MCA (Ministry of Corporate Affairs) & MSME registered company in India.
-         <br /> Our experienced (10 Yrs+) CA/CS will draft & complete all the documentations on the same day.</p>
+            <br /> Our experienced (10 Yrs+) CA/CS will draft & complete all the documentations on the same day.</p>
         </div>
         <hr class="h-px my-9 bg-gray-700 border-none dark:bg-gray-700" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -68,16 +68,13 @@ const Business_registration = () => {
           {/* Right side - Content */}
           <div>
             <h1 className="text-2xl font-bold mb-4 mt-10">
-            Overview
+              Overview
             </h1>
             <p className="mb-4">
-            Thinking about getting your business registered? Our team of experts helps you create a distinct business identity.
+              Formalizing one’s business presence is a step that every entrepreneur must undertake. Business registration not only helps in adhering to the legal requirements but also offers several advantages such as protection from losses, room for funding, and establishing one’s presence in the market.
             </p>
-            <p className="mb-4">Any entrepreneur who wants to start a business in India always faces a unique set of hurdles. At every level of the business, an owner must make informed decisions. 
-              The form of corporate entity that the business should mature into is one of the essential decisions that must be made at the earliest stages. </p>
-            <p className="mb-4">
-            While the process of registering a business is difficult and time-consuming, it does come with a number of indisputable benefits when done with the guidance of specialists from <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> .
-            </p>
+
+            <p>If you are thinking about signing up for your business, it is wise to speak to experts who can help you with the entire process and ensure legal compliance is carried out. Make Easy Documents provides expert help for easy business registration.</p>
           </div>
         </div>
       </div>

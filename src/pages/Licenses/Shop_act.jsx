@@ -69,16 +69,15 @@ const Shop_act = () => {
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                   <h3 className="text-lg font-semibold text-orange-600 mb-2">
-                    शॉप / गुमास्ता लायसेन्स (Shop Act Registration) :
+                    Shop Act Registration :
                   </h3>
                   <p className="text-gray-600">
-                  &nbsp;&nbsp;&nbsp;&nbsp; दुकाने, व्यापारी संस्था, राहण्याची सोय असलेली हॉटेले, विश्रांतीगृहे, भोजनगृहे, थिएटर्स व सार्वजनिक करमणुकीची अथवा मनोरंजनाची इतर ठिकाणे आणि संस्था यांमध्ये काम करणारे सेवक गुमास्ता या संज्ञेखाली मोडतात.                  </p>
+                  &nbsp;&nbsp;&nbsp;&nbsp;The term Clerks includes those employed in the hospitality sector, in shops, commercial establishments, and even rest houses, restaurants, movie halls, and other entertainment places and institutions.</p>
                   <br />
                   
-                  <p> &nbsp;&nbsp;&nbsp;&nbsp;  या सेवकांसंबंधी व त्यांच्या कामासंबंधी शासनाने गुमास्ता अधिनियम संमत केलेले आहेत.जगातील बहुतेक देशांत एकूण कामगारवर्गाची स्थिती औद्योगिक क्रांतीपूर्वी हलाखीचीच होती, असा इतिहास आढळतो.
-                    औद्योगिक क्रांतीनंतर कामगारवर्गासंबंधीच्या विचारसरणीत आमूलाग्र बदल झाले व कामगारवर्गाची स्थिती झपाट्याने सुधारू लागली, त्यांच्यासाठी विविध कायदे निर्माण झाले.</p>
+                  <p> &nbsp;&nbsp;&nbsp;&nbsp; As regards to these servants and the work they perform, the state has enacted Gamasta Act. In the majority of countries around the globe, the situation of the working class as a whole remained as it was before the industrial revolution</p>
                 <br />
-                <p>फॅक्टरी अधिनियमांन्वये लहान कारखान्यांतील सेवकांनाही त्यांचा लाभ मिळाला.</p>
+                <p>After the industrial revolution there was an about turn in the paradigm of employment relations and the position of the working class began to improve very fast, several legislations were enacted for them.</p>
                 
                 </div>
               </div>

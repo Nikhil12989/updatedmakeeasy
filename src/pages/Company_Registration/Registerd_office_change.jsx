@@ -74,15 +74,9 @@ const Registerd_office_change = () => {
             </h1>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p>While getting incorporated under the Ministry of Corporate Affairs of the Indian Govt., a business entity is mandated to register a particular Location as their workplace.
-                This specific Location is known as the Registered Office of that business entity.</p>
+              <p>Altering the location of the registered office of a company is a vital step that can influence the functioning and statutory obligations of such company. So long as the correct steps are taken, and all interested parties are notified in good time, there should be no difficulties that managers encounter when relocating to a new registered address.</p>
 
-              <h1 className="text-xl font-semibold mb-4 mt-3">What is the Registered Office Change process?</h1>
-              <p>Any business entity being registered under the Ministry of Corporate Affairs (MCA) and Registrars of Companies (ROC) can Change / Alter its registered workplace.
-                This process is known as the Registered Office Change.</p>
-
-              <h1 className="text-xl font-semibold mb-4 mt-3">Which Act of the Indian Govt. oversees the Registered Office Change procedure?</h1>
-              <p>The Companies Act, 2013 oversees the Registered Office Change procedure in India with the administrative supervision of the Registrars of Companies (ROC) and the Ministry of Corporate Affairs (MCA).</p>
+              
             </div>
 
           </div>

@@ -67,11 +67,10 @@ const One_person_company = () => {
           {/* Right side - Content */}
           <div>
             
-            <p className="mt-10 mb-4">With the introduction of the Companies Act, 2013 the concept of the One Person Company came into existence to motivate the small traders and entrepreneurs who has the potentiality to start their own business and build up their own identity. The biggest advantages of starting a One Person Company are that only one person is required to start the business.</p>
+            <p className="mt-10 mb-4">A One Person Company (OPC) is the best solution for all those enterprising individuals who wish to set up a limited liability business structure in a formal way. <br /> An OPC enables a person to enjoy the advantages of a corporate entity while avoiding the intricacies of running a company on a day-to-day basis enhancing his or her business pursuits.</p>
             
-            <p className="mb-4">An entrepreneur can be the master of their own domain in case of One Person Company (OPC). Wherein in case of Private Limited Company or LLP, minimum of two members is needed to be incorporated..</p>
+            <p className="mb-4">When you think about commencing an OPC, it is usually knowing what to do to register it that makes it elusive. <br /> Thus, professional help is recommended in such matters for effective registration. At Make Easy Documents, we offer quality service on how to register an OPC without hassle.</p>
             
-            <p className="mb-4">One Person Company was introduced in the J.J Report to create empowerment for the entrepreneurs where they can give a shape to their ideas. As there is a progress in the use of information technology and growth in the service sector in India, government has launched the concept of OPC.</p>
           </div>
         </div>
       </div>

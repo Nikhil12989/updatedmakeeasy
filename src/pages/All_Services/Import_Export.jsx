@@ -66,13 +66,11 @@ const Import_Export = () => {
               What is Import Export Code (IEC)?
             </h1>
             <p className="mb-4">
-              An Importer Exporter Code (IEC) is a key business identification number which is mandatory for export from India or Import to India.  No export or import shall be made by any person without obtaining an IEC. <br /> For services exports however, IEC shall not be necessary except when the service provider is taking benefits under the Foreign Trade Policy. An individual or a business entity needs a 10 digit code to import or export products or services. This code is known as Import Export Code or IEC and it is issued by DGFT, Ministry of Commerce and Industries, Govt. of India.            </p>
+              An Importer Exporter Code (IEC) is one of the most crucial business identification numbers and is necessary while exporting from India or importing to India. IEC number is mandatory for any export or import transaction by any individual.</p>
             <h2 className="text-xl font-semibold mb-2">  Who can apply for IEC Code?</h2>
             <p>
-              The IEC code registration is applicable for all business registrations:
-
-              Proprietorship , <br /> Partnership , LLP
-              Limited Company , Trust , HUF , Society </p>
+              For services exports however, IEC shall not be necessary except when the service provider is taking benefits under the Foreign Trade Policy. To import or export goods or service a person or an organization requires to have a ten digit code called 
+              Import Export Code or IEC which is being issued by DGFT, Ministry of Commerce and Industries, Govt. of India. </p>
           </div>
         </div>
       </div>

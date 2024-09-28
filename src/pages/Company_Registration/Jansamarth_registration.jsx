@@ -68,10 +68,7 @@ const Jansamarth_registration = () => {
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-10">
               <br />
-              <p>  JanSamarth schemes are available after registering the beneficiary on the JanSamarth portal of the government of India. These schemes are endowed for the growth and development of the people in their ultimate progress of careers. So, education, business, livelihood development, and Agri-Infrastructure development are brought under the segments. In these verticals, you will get a total of 13 schemes for enjoying the loan.</p>
-              <br />
-              <p>The JanSamarth schemes are entailed with the government of India, and a person can get easy digital approval for the loans. The portal ensures providing facilities digitally through end-to-end coverage.</p>
-
+              <p> For entrepreneurs aiming to use government assistance for their business development initiatives, JanSamarth Registration is a crucial step. JanSamarth acts as an instrument in promoting entrepreneurship and economic development in the country by making financial support and other aid available more easily.</p>
               <br />
             </div>
 

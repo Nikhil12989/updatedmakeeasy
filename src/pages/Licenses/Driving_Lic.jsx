@@ -71,9 +71,7 @@ const Driving_Lic = () => {
                   <span className="font-bold"> : Your Key to Driving Freedom!</span>
                 </p>
                 <p className="text-gray-700 mb-8">
-                  Your driving License is the key to your independence and mobility on the roads. Driving without one will inevitably
-                  lead to a higher chance of accidents, chaos at every corner, speed limit breaches, and an absolute mockery of law and
-                  order.
+                A driving license is a crucial document that enables the owner to legally drive a vehicle. It also acts as a certificate that a person is able to drive and understands the basic rules of the road. However, the importance of such a document is not limited to its legal aspect. Here are few reasons as to why one should have a driving license in order to enjoy ‘freedom of the road’
                 </p>
               </div>
 

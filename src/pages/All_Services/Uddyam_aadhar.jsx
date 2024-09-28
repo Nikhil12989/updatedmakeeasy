@@ -92,7 +92,7 @@ const Uddyam_aadhar = () => {
       <Header />
       <div className="page-title py-6 bg-slate-300" data-aos="fade">
         <div className="container mx-auto px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-start lg:items-center">
-          <h1 className="text-black text-xl md:text-2xl font-semibold">Uddyam Aadhar </h1>
+          <h1 className="text-black text-xl md:text-2xl font-semibold">Udyam Aadhar </h1>
           <style jsx>{`
           @keyframes intenseBlink {
             0%, 100% { opacity: 1; color: #f20000; }
@@ -125,7 +125,7 @@ const Uddyam_aadhar = () => {
 
         {/* Owner Details Section */}
         <div className="mt-10 text-center pb-6">
-          <h2 className="text-green-600 font-semibold text-2xl">- Uddyam Aadhar  -</h2>
+          <h2 className="text-green-600 font-semibold text-2xl">- Udyam Aadhar  -</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,7 +172,7 @@ const Uddyam_aadhar = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="typeOfCast" className="block text-gray-600 font-semibold mb-2">Select Type Of Cast</label>
+            <label htmlFor="typeOfCast" className="block text-gray-600 font-semibold mb-2">Select Type Of Caste</label>
             <select
               name="typeOfCast"
               id="typeOfCast"
@@ -181,7 +181,7 @@ const Uddyam_aadhar = () => {
               onChange={handleInputChange}
               required
             >
-              <option value="" disabled>Select Type Of Cast</option>
+              <option value="" disabled>Select Type Of Caste</option>
               <option value="Open/OBC">Open / OBC</option>
               <option value="SC">SC</option>
               <option value="SBC">SBC</option>

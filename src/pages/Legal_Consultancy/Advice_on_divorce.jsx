@@ -55,8 +55,7 @@ const Advice_on_divorce = () => {
           </h2>
           <h3 className='pt-4 text-base font-semibold'>Our Expert consultation will help you to get the Trademark registration online seamlessly from the government.
           </h3>
-          <p className='pt-4'>Trademark Registration gives the owner an exclusive right to protect the Logo, Symbol, and Words as the identity of the Brand.
-            To Protect your brand with our trademark registration services.</p>
+          
         </div>
         <hr class="h-px my-9 bg-gray-700 border-none dark:bg-gray-700" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -67,20 +66,12 @@ const Advice_on_divorce = () => {
           {/* Right side - Content */}
           <div>
 
-            <p className="mb-4">
+            <h2 className="text-lg font-semibold mt-14"> We can help, you seek legal advice from our legal practitioners of <br /> <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> and make this entire process seamless.</h2>
+            <p className="mb-4"> <br />
               Divorce or Dissolution Of Marriage a process of separation ensue's when cohabiting married partners no longer desire to cohabit to the sacred bond and wish to part ways either mutually or by contest.
             </p>
-            <h2 className="text-base font-semibold mb-2"> We can help, you seek legal advice from our legal practitioners of <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> and make this entire process seamless.</h2>
-            <h2 className="text-xl font-semibold mb-2 text-center">Kinds of Divorce : </h2>
-            <p>
-              <span className='font-semibold'>Contested Divorce </span> : <br />
-              • Under this form of divorce, one party agrees for divorce and the opposition party disagree for the same. <br />
-              • This form of divorce takes a long time for dissolution of marriage, where the decision is pending upon the honourable presiding judge.
-
-              <br />  <span className='font-semibold'>Mutual Divorce </span>  : <br />
-              • Under this form, both parties agree to part ways under mutual consent. <br />
-              • The decisions are taken mutually by both the parties where they decide to exchange the items/goods which they have taken form one another during the time of marriage. <br />
-              • Under this form both the parties settle everything between them according to their convenience. </p>
+            <p className='pt-4'>Trademark Registration gives the owner an exclusive right to protect the Logo, Symbol, and Words as the identity of the Brand.
+            To Protect your brand with our trademark registration services.</p>
           </div>
         </div>
       </div>

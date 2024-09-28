@@ -65,11 +65,10 @@ const LLP_registration = () => {
           {/* Right side - Content */}
           <div>
             
-            <p className="mt-10 mb-4">LLP states Limited Liability Partnership and it is governed by the Limited Liability Partnership Act, 2008. It has got limited liability to the partners. In case of LLP, there are two partners involved, where there is no minimum limit of capital investment and one must be resident of India, i.e., he must be staying or have stayed for 182 days in India. </p>
+            <p className="mt-10 mb-4">If you are an entrepreneur, the registration of LLP is one of the options which offers the flexibility of operations coupled with a certain level of security in business dealings. Operationally, LLCs provide limited liability and at the same time easy to operate, hence most suited to professionals, start-ups and small enterprises. </p>
             
-            <p className="mb-4">LLP is often done for the small type of businesses in India. However, a LLP due to its nature does not allow to issue equity shares, thus it cannot raise money from the general public. One can register a LLP through us in a very less time.</p>
+            <p className="mb-4">In the event you are also thinking of registering and LLP, it will be wise to see professionals who know the ropes in following all the necessary steps that help in establishing this kind of organization. <br /> <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> helps with all the legal requirements for fast and easy LLP registration.</p>
             
-            <p className="mb-4">The biggest advantage of LLP form of business over a Pvt Ltd Company is in the fact that there is less compliance requirement in comparison to a Company.</p>
           </div>
         </div>
       </div>

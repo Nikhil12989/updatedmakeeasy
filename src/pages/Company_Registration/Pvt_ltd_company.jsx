@@ -64,13 +64,13 @@ const Pvt_ltd_company = () => {
 
           {/* Right side - Content */}
           <div>
-            <h1 className="text-2xl font-bold mb-4">
+            <h1 className="text-2xl font-bold mt-8 mb-6">
             Fastest Private Limited (Pvt. Ltd.) Company Registration In India | Same Day Process
             </h1>
             <p className="mb-4">
-            Register your startup company as private limited with <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span>™ at the lowest Fees. <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> is an MCA (Ministry of Corporate Affairs) & MSME registered company in India. Our experienced (10 Yrs+) CA/CS will draft & complete all the documentations on the same day.            </p>
-            <h2 className="text-xl font-semibold mb-2"> Overview </h2>
-            <p>Private Limited Company in India is one of the popular forms of business entities. Approximately 90% of companies in India are registered under Private Limited Company. There are more than 150,000 companies that are being registered on a yearly basis. It is a separate legal entity with limited liability and perpetual existence incorporated now under the Companies Act, 2013.</p>
+            Register your Private Limited company today with Make easy Documents . <br /> We start the  Process in A Day or Less than a day
+Get the fastest Private limited registration with Make Easy Documents™ at the least possible costs. <br />   <br /> Viransh Global Legal Private Limited is a registered company in both the MCA (Ministry of Corporate Affairs) & MSME of India 
+</p>
           </div>
         </div>
       </div>

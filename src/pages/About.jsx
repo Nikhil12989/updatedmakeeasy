@@ -46,19 +46,18 @@ const AboutUs = () => {
                                 <h2 className="text-2xl font-semibold">VISION & MISSION</h2>
                             </div>
                             <p className="text-justify leading-relaxed">
-                                <span className="text-green-500">Make Easy</span> <span className="text-red-500">Documents</span> is a company providing legal help with ease, resolving customer issues efficiently. Our vision is to solve customer problems smoothly, building trust with our clients.
-                            </p>
+                            <span className="text-green-500">Make Easy</span>
+                                <span className="text-red-500">Documents</span> in the simplest way presents reputable legal services while addressing clients’ needs in a timely manner. Our mission is to overcome any challenges that our clients may face in a simple manner, creating confidence among our users.                            </p>
                         </div>
 
                         <div data-aos="fade-up" data-aos-delay="250">
                             <div className="content">
                                 <p className="italic mb-4 text-justify">
-                                    <span className="text-green-500">Make Easy</span> <span className="text-red-500">Documents</span> is registered under the Companies Act, 2014, recognized by the Govt. of India. We specialize in providing legal help and making legal information accessible to everyone.
-                                </p>
+                                Viransh Global Legal Private Limited is a company incorporated under the Companies Act, 2013 and Make Easy is a project registered and approved by the Government of India for the purpose of allowed business activity. Our aim is to help people with the law and to make legal information available to everybody.                                </p>
                                 <ul className="list-disc pl-5 space-y-2">
-                                    <li><span>Skilled and qualified Advocates and professionals under one roof.</span></li>
-                                    <li><span>Providing solutions to individuals, businesses, and corporate bodies.</span></li>
-                                    <li><span>Helping people resolve everyday legal issues efficiently.</span></li>
+                                    <li><span>Experienced and competent Lawyers and experts in one place.</span></li>
+                                    <li><span>Focusing on strategies for individual, commercial, and corporate clients.</span></li>
+                                    <li><span>Helping individuals cope with the day-to-day legal challenges in an expedient manner.</span></li>
                                 </ul>
 
                                 <div className="relative mt-6 overflow-hidden rounded-lg">
@@ -73,7 +72,7 @@ const AboutUs = () => {
                             <h2 className="text-2xl font-semibold">OUR AIM</h2>
                         </div>
                         <p className="italic max-w-xl mx-auto text-justify leading-relaxed">
-                            <span className="text-green-500">Make Easy</span> <span className="text-red-500">Documents</span> aims to provide top-quality services, understanding client needs, and filing complaints with sincerity to resolve issues efficiently.
+                            <span className="text-green-500">Make Easy</span> <span className="text-red-500">Documents</span> aspires to render services of the highest quality, comprehend the requirements of the clients, and lodge complaints honestly in order to solve problems effectively.
                         </p>
                     </div>
                 </div>

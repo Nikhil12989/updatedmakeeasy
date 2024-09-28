@@ -11,6 +11,7 @@ import brand1 from '../assets/brands/brand1.png';
 import brand2 from '../assets/brands/brand2.png';
 import brand3 from '../assets/brands/brand3.png';
 import brand4 from '../assets/brands/brand4.png';
+import brand5 from '../assets/brands/brand6.png';
 // why us img
 import feature1 from '../assets/why/recognized.svg'
 import feature2 from '../assets/why/happy_customers.svg'
@@ -86,7 +87,10 @@ const Home = () => {
                         <div className="xl:col-span-2">
                             <h3 className="text-4xl font-bold text-orange-600">Call to Action <span className='text-black'>&</span> <span className='text-green-600'> View All Services </span></h3>
                             <p className="text-gray-700 mt-4">
-                                Become digital and self-reliant and create all the documents required for your business yourself through our website and mobile application with our unparalleled services and take your business to new heights by securing it. At <span className="text-green-600">Make Easy</span><span className="text-red-600"> Documents</span>, we are committed to delivering excellence and exceeding your expectations every step of the way. Whether you want to streamline operations, increase efficiency or unlock. New opportunities, our dedicated team is here to take charge of your success and contact us to achieve your goals faster and smarter.
+
+                                Get digital and self-sufficient and make up all the necessary documents that your business / personal needs via our website and mobile application with our unmatched services and bring your company to new heights by securing it. <br /> At <span className="text-green-600">Make Easy</span><span className="text-red-600"> Documents</span>,
+                                we are dedicated to providing top-notch quality and exceptional customer service throughout the entire process.
+                                Whether you want to improve the efficiency of your operations, increase productivity, or unlock new possibilities, our skilled team is ready to take the driver seat of your success and get in touch with us to better and quicker achieve your goals.
                             </p>
                         </div>
 
@@ -134,7 +138,7 @@ const Home = () => {
                                 PAN Services
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Being a Consumer, at the time of purchase, one if deceived by the seller should be aware
+                                Receive Your PAN Card Online Easily and with Convenience of Your Home via make easy documents
                             </span>
                         </div>
                     </Link>
@@ -151,8 +155,7 @@ const Home = () => {
                                 Trademark Registration
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Get your Trademark registration from anywhere in India and protect your Brand Name/Logo/Slogan.
-                            </span>
+                                Apply for trademark registration in any part of India and safeguard your Brand Name/Logo/Slogan.                            </span>
                         </div>
                     </Link>
 
@@ -168,7 +171,7 @@ const Home = () => {
                                 GST Services
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Outsource your GST compliance to Online Legal India. India’s fastest growing online corporate services.
+                                Outsource your GST compliance to Make Easy Documents. India’s fastest growing online corporate services.
                             </span>
                         </div>
                     </Link>
@@ -185,7 +188,7 @@ const Home = () => {
                                 FSSAI Registration
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Get FSSAI certificate & license no. to utilize on your products and website as well.
+                                Make Easy Documents makes it easy to renew FSSAI registration and obtain an FSSAI license. As the date approaches the time allowed for continued service, reach out to us.
                             </span>
                         </div>
                     </Link>
@@ -206,8 +209,7 @@ const Home = () => {
                                 Company Registration
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                It includes all the forms of company registration, compliances, PAN and TAN, GST, change of Registered Address
-                            </span>
+                                Company registration has never been fast and easy before. The entire process can be done from your house with little or no effort channeled towards it. Just upload your documents, and everything else will be done for you!                            </span>
                         </div>
                     </Link>
 
@@ -223,7 +225,7 @@ const Home = () => {
                                 Import Export Code
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Register your import export business under Directorate General of Foreign Trade, Ministry of Commerce and Industry, Govt. of India.
+                                We offer online registration service for Import Export Code (IEC) through makes easy documents apply for your IEC from the ease of your home with our procedure as well as secure.
                             </span>
                         </div>
                     </Link>
@@ -240,8 +242,7 @@ const Home = () => {
                                 Digital Signature
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                Instant apply paperless aadhaar eKYC digital signature certificate through Online Legal India™ an authorized partner of eMudhra.
-                            </span>
+                                .Apply for a digital signature because it is very easy and fast which does not require you to step out of your residence.                            </span>
                         </div>
                     </Link>
 
@@ -257,8 +258,7 @@ const Home = () => {
                                 Legal Consultancy
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                We provide the legal services to the weaker section of the society so that they get the opportunity.
-                            </span>
+                                We provide legal advice online by qualified lawyers, so you can have easier access to professional legal services right in the comfort of your house                            </span>
                         </div>
                     </Link>
                 </div>
@@ -278,8 +278,7 @@ const Home = () => {
                                 ITR Filing
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                An Income tax return (ITR) is a form used to file information about your income and tax to the Income Tax Department.
-                            </span>
+                                Through Make Easy Documents, you can easily and accurately prepare and file your income tax returns without stepping out of your home. All you need is to upload your documents and that’s it! We take care of everything else!                            </span>
                         </div>
                     </Link>
 
@@ -292,11 +291,10 @@ const Home = () => {
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
-                                FSSAI Food
+                                FSSAI Annual return filling
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                FSSAI license is mandatory to be renewed before the expiry validity time, otherwise, apply for a new license.
-                            </span>
+                                Make Easy Documents provides online annual return filing services with FSSAI that are easy and convenient to use.                             </span>
                         </div>
                     </Link>
 
@@ -312,8 +310,7 @@ const Home = () => {
                                 PF ESIC Registration
                             </div>
                             <span className="text-sm text-gray-700 dark:text-gray-200">
-                                OLI Accountant will help you to register & filing PF, ESIC, Ptax, TDS & Online HR service.
-                            </span>
+                                Blend your compliance concerns and make it a little easier to cover your employees without wasting any more time and effort from your place.                            </span>
                         </div>
                     </Link>
 
@@ -339,30 +336,35 @@ const Home = () => {
 
             {/* Our brands */}
             <div className="bg-slate-100 mt-5 mb-5">
-    <h3 className="text-4xl font-semibold text-orange-900 text-center pt-5">Our Brands</h3>
-    <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-x-10 md:space-y-0">
-        <img
-            className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
-            src={brand1}
-            alt="Brand 1"
-        />
-        <img
-            className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
-            src={brand2}
-            alt="Brand 2"
-        />
-        <img
-            className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
-            src={brand3}
-            alt="Brand 3"
-        />
-        <img
-            className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
-            src={brand4}
-            alt="Brand 4"
-        />
-    </div>
-</div>
+                <h3 className="text-4xl font-semibold text-orange-900 text-center pt-5">Our Brands</h3>
+                <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-x-10 md:space-y-0">
+                    <img
+                        className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
+                        src={brand1}
+                        alt="maharashtra e seva"
+                    />
+                    <img
+                        className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
+                        src={brand2}
+                        alt="Make easy Documents"
+                    />
+                    <img
+                        className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
+                        src={brand3}
+                        alt="Ambiance"
+                    />
+                    <img
+                        className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
+                        src={brand5}
+                        alt="Viransh global legal"
+                    />
+                    <img
+                        className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
+                        src={brand4}
+                        alt="Digital legal india"
+                    />
+                </div>
+            </div>
 
 
             {/* why us */}
@@ -463,12 +465,12 @@ const Home = () => {
                                 <span className="text-green-600"> Make Easy </span> <span className="text-red-600">Documents</span><br />
                                 Ensure Customer Satisfaction
                             </h3>
-                            <p className="mt-4 text-black">
-                                We have created the system of <span className="font-bold">HAPPY CODE</span> to measure customer satisfaction. As part of this, our customers are
-                                sent a unique alphanumeric code, consisting of 8 characters. We track customer satisfaction by asking the
-                                clients to share their happy codes with our agents only if they are generally pleased with our services. Since
-                                we are a customer-centric company always prioritizing the success of our clients, the <span
-                                    className="font-bold">HAPPY CODE</span> program helps us gauge the customers’ happiness and loyalty in our products or services.
+                            <p className="mt-4 text-black">Our <span className="font-bold"> HAPPY CODE </span> system has been developed to measure customer satisfaction. In line with this, our customers are sent a unique alphanumeric code,
+                                consisting of 8 characters. <br /> We monitor the customer's happiness by requesting the
+                                customers to give us their agents only if they are satisfied with our services. <br /> We are,
+                                therefore, a client-focused organization that emphasizes the success of our clients and the
+                                <span className="font-bold"> HAPPY CODE </span> program measures the customer’s happiness and loyalty
+                                to our products or services.
                             </p>
                         </div>
                         <div className="lg:w-5/12 mt-6 lg:mt-0">

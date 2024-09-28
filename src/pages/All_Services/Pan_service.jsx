@@ -10,7 +10,7 @@ const Pan_service = () => {
     <div>
       <Header />
       {/* Page Title */}
-      
+
       <div className="page-title py-6 bg-slate-300" data-aos="fade">
         <div className="container mx-auto px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-start lg:items-center">
           {/* Title */}
@@ -70,16 +70,11 @@ const Pan_service = () => {
                   <span className="text-red-600 font-bold">Documents</span>
                   <span className="font-bold"> "PAN Card: Your Key to Unlocking Financial Freedom!"</span>
                 </p>
-                <p className="text-gray-700 mb-8">
-                  &nbsp;&nbsp; At our company, we streamline the process of opening a PAN card with a focus on simplicity
-                  and efficiency. By providing clear, step-by-step instructions and ensuring all necessary
-                  documentation is easily accessible, we make the entire procedure hassle-free. <br /> Our team is
-                  dedicated to assisting you with each requirement, from filling out forms to submitting the
-                  necessary documents, ensuring that you can complete your PAN card application smoothly and
-                  quickly.<br /> Our approach is designed to minimize paperwork and maximize convenience, allowing
-                  you to focus on your core tasks without getting bogged down by administrative details.
+                <p className="text-gray-700 mb-2">
+                  &nbsp;&nbsp; In our organization, we make the process of opening a PAN card simple and efficient. We provide clear, gradual procedures and make all documents required for the process available to ensure the entire procedure is stress free.
                 </p>
-
+                <p className="text-gray-700 mb-2">We help with every single thing, starting from the completion of forms and ending with the delivery of necessary papers, which allows you to fill in a PAN card application quickly and efficiently.</p>
+<p className="text-gray-700">This particular strategy has been developed in such a way as to reduce the amount of work that has to be done and to increase levels of convenience, so that you are able to concentrate on carrying out your main duties without getting caught up with administrative work.</p>
               </div>
 
               {/* Buttons Section */}

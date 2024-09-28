@@ -17,7 +17,7 @@ const Applicationconsole = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/getAll/Form11",
+          "http://192.168.1.50:5000/api/getAll/Form11",
           {
             headers: {
               Authorization: `Bearer ${auth.token}`,
@@ -28,8 +28,9 @@ const Applicationconsole = () => {
         const modifiedData = response.data.map((item) => ({
           id: item._id,
           application_type: item.application_type,
-          applicantName: item.fullName,
+          applicantName: item.fullName || item.companyFullName,
           Status: item.Status || "In-Progress",
+          viewed: item.viewed || false, // Assuming you have a 'viewed' property
           createdAt: item.createdAt,
           updatedAt: item.updatedAt,
         }));
@@ -111,158 +112,156 @@ const Applicationconsole = () => {
   };
 
   // Function to get the status class based on the status value
-  const getStatusClass = (status) => {
+  const getStatusClass = (status, viewed) => {
+    let className = "font-bold "; // Default bold for all statuses
     switch (status) {
       case "In-Progress":
-        return "text-yellow-500 font-bold"; // Yellow for In-Progress
+        className += "text-yellow-500"; // Yellow for In-Progress
+        break;
       case "Submitted":
-        return "text-blue-500 font-bold"; // Blue for Submitted
+        className += "text-blue-500"; // Blue for Submitted
+        break;
       case "Completed":
-        return "text-green-500 font-bold"; // Green for Completed
+        className += "text-green-500"; // Green for Completed
+        break;
       case "Rejected":
-        return "text-red-500 font-bold"; // Red for Rejected
+        className += "text-red-500"; // Red for Rejected
+        break;
       default:
-        return "text-gray-500 font-bold"; // Default color for unknown status
+        className += "text-gray-500"; // Default color for unknown status
+        break;
     }
+    return viewed ? className : `${className} font-bold`; // Additional bold if not viewed
   };
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
-      <h2 className="mt-6 mb-6 ml-5 text-2xl text-white bg-blue-900 p-8 rounded-lg shadow-lg transition-transform duration-300">
+      <h2 className="mt-6 mb-6 ml-5 mr-5 text-2xl text-white text text-center bg-blue-900 p-6 rounded-lg shadow-lg transition-transform duration-300 ">
         Application Console
       </h2>
 
-      <div className="mx-5 mb-4">
-        <div className="flex flex-col">
-          <label htmlFor="certificateName" className="text-gray-700 mb-2">
-            Certificate Name*
-          </label>
-          <select
-            id="certificateName"
-            className="border border-gray-300 rounded-md p-2"
-            onChange={(e) => setApplicationType(e.target.value)}
-          >
-            <option value="">--Select Certificate Name--</option>
-            <option value="Voter Card">Voter Card</option>
-            <option value="Shop Act">Shop Act</option>
-            <option value="Learning DL">Learning DL</option>
-            <option value="Company GST">Company GST</option>
-            <option value="Individual GST">Individual GST</option>
-            <option value="Local Food License">Local Food License</option>
-            <option value="Company Pancard">Company Pancard</option>
-          </select>
-        </div>
-      </div>
+      <div className="mx-5 mb-4 md:mx-8 lg:mx-12">
+  <div className="flex flex-col md:flex-row md:space-x-4">
+    {/* Certificate Name */}
+    <div className="flex flex-col w-full md:w-1/2">
+      <label
+        htmlFor="certificateName"
+        className="text-gray-700 mb-2 text-sm md:text-base lg:text-lg"
+      >
+        Certificate Name*
+      </label>
+      <select
+        id="certificateName"
+        className="border border-gray-300 rounded-md p-2 w-full"
+        onChange={(e) => setApplicationType(e.target.value)}
+      >
+        <option value="">--Select Certificate Name--</option>
+        <option value="Voter Card">Voter Card</option>
+        <option value="Shop Act">Shop Act</option>
+        <option value="Learning DL">Learning DL</option>
+        <option value="Company GST">Company GST</option>
+        <option value="Individual GST">Individual GST</option>
+        <option value="Local Food License">Local Food License</option>
+        <option value="Company Pancard">Company Pancard</option>
+      </select>
+    </div>
 
-      <div className="mx-5 mb-4">
-        <input
-          type="text"
-          value={searchData}
-          onChange={handleSearch}
-          placeholder="Search by applicant name"
-          className="border border-gray-300 rounded-md p-2"
-        />
-      </div>
+    {/* Applicant Name */}
+    <div className="flex flex-col w-full md:w-1/2 mt-4 md:mt-0">
+      <label
+        htmlFor="applicantName"
+        className="text-gray-700 mb-2 text-sm md:text-base lg:text-lg"
+      >
+        Applicant Name*
+      </label>
+      <input
+        type="text"
+        id="applicantName"
+        value={searchData}
+        onChange={handleSearch}
+        placeholder="Search by applicant name"
+        className="border border-gray-300 rounded-md p-1.5 w-full text-sm md:text-base lg:text-lg"
+      />
+    </div>
+  </div>
+</div>
 
-      <div className="overflow-x-auto mx-5 mt-10">
-        <table className="min-w-full bg-white border-collapse">
-          <thead>
-            <tr className="bg-gradient-to-r from-blue-500 to-blue-950">
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                New
-              </th>
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                Application Type
-              </th>
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                Applicant
-              </th>
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                Status
-              </th>
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                Created On
-              </th>
-              <th className="text-white text-left py-2 px-4 whitespace-nowrap">
-                Updated
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.length > 0 ? (
-              currentItems.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className="border-b hover:bg-gray-100 transition duration-300"
-                >
-                  <td className="py-2 px-4 text-center">
-                    {indexOfFirstItem + index + 1}
-                  </td>
-                  <td
-                    className="py-2 px-4 text-blue-600 cursor-pointer hover:font-bold"
-                    onClick={() =>
-                      handleApplicationTypeClick(item.application_type, item.id)
-                    }
-                  >
-                    {item.application_type}
-                  </td>
-                  <td className="py-2 px-4">{item.applicantName}</td>
-                  {/* Display Status with color */}
-                  <td className={`py-2 px-4 ${getStatusClass(item.Status)}`}>
-                    {item.Status}
-                  </td>
-                  <td className="py-2 px-4">
-                    {new Date(item.createdAt).toLocaleString()}
-                  </td>
-                  <td className="py-2 px-4">
-                    {new Date(item.updatedAt).toLocaleDateString()}
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="6" className="text-center py-2">
-                  No Data Found
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+{/* Responsive Table */}
+<div className="overflow-x-auto mx-5 mt-10">
+  <table className="min-w-full bg-white border-collapse">
+    <thead>
+      <tr className="bg-gradient-to-r from-blue-500 to-blue-950">
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">New</th>
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">Application Type</th>
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">Applicant</th>
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">Status</th>
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">Created On</th>
+        <th className="text-white text-left py-2 px-4 whitespace-nowrap">Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {currentItems.length > 0 ? (
+        currentItems.map((item) => (
+          <tr key={item.id} className="border-b hover:bg-gray-100 transition duration-300">
+            <td className="py-2 px-4 text-center">
+              {!item.viewed && <span className="text-red-500">New</span>}
+            </td>
+            <td
+              className="py-2 px-4 text-blue-600 cursor-pointer hover:font-bold"
+              onClick={() => handleApplicationTypeClick(item.application_type, item.id)}
+            >
+              {item.application_type}
+            </td>
+            <td className="py-2 px-4">{item.applicantName}</td>
+            <td className={`py-2 px-4 ${getStatusClass(item.Status, item.viewed)}`}>{item.Status}</td>
+            <td className="py-2 px-4">{new Date(item.createdAt).toLocaleString()}</td>
+            <td className="py-2 px-4">{new Date(item.updatedAt).toLocaleDateString()}</td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="6" className="text-center py-2">
+            No Data Found
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
 
-      <div className="flex justify-center mt-4">
-        <button
-          className={`mx-1 px-4 py-2 text-white bg-blue-500 rounded-md ${
-            currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Prev
-        </button>
+{/* Responsive Pagination */}
+<div className="flex flex-wrap justify-center mt-4">
+  <button
+    className={`mx-1 px-3 py-1 md:px-4 md:py-2 text-white bg-blue-500 rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+    onClick={() => paginate(currentPage - 1)}
+    disabled={currentPage === 1}
+  >
+    Prev
+  </button>
 
-        {[...Array(totalPages)].map((_, i) => (
-          <button
-            key={i}
-            className={`mx-1 px-4 py-2 text-white bg-blue-500 rounded-md ${
-              currentPage === i + 1 ? "bg-blue-700" : ""
-            }`}
-            onClick={() => paginate(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
+  {[...Array(totalPages)].map((_, i) => (
+    <button
+      key={i}
+      className={`mx-1 px-3 py-1 md:px-4 md:py-2 text-white bg-blue-500 rounded-md ${currentPage === i + 1 ? "bg-blue-700" : ""
+        }`}
+      onClick={() => paginate(i + 1)}
+    >
+      {i + 1}
+    </button>
+  ))}
 
-        <button
-          className={`mx-1 px-4 py-2 text-white bg-blue-500 rounded-md ${
-            currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          onClick={() => paginate(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+  <button
+    className={`mx-1 px-3 py-1 md:px-4 md:py-2 text-white bg-blue-500 rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+    onClick={() => paginate(currentPage + 1)}
+    disabled={currentPage === totalPages}
+  >
+    Next
+  </button>
+</div>
+
+
     </div>
   );
 };

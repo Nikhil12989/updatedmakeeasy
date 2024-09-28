@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from "../assets/footer_logo.png";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Show or hide the button based on scroll position
+    const toggleVisibility = () => {
+        if (window.pageYOffset > 300) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    };
+
+    // Scroll to top smoothly
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', toggleVisibility);
+        return () => {
+            window.removeEventListener('scroll', toggleVisibility);
+        };
+    }, []);
     return (
         <footer class="bg-center bg-fixed bg-gradient-to-t from-blue-800 to-blue-900">
             <div class="container p-6 mx-auto">
@@ -17,16 +42,17 @@ const Footer = () => {
                                 1034, 10th Floor, Gera Imperium Rise, Wipro Circle,
                                 Rajiv Gandhi InfoTech Park - Phase 2, Hinjawadi, Pune.
                             </p>
-
                         </div>
                     </div>
-
 
                     <div class="mt-6 lg:mt-0 lg:flex-1">
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                             <div class="text-center lg:text-left">
                                 <h3 class="text-white uppercase dark:text-white font-bold">Usefull Links</h3> <br />
-                                <Link to={'/about'} class="block mt-2 text-sm text-white dark:text-white hover:underline">About us</Link>
+                                <Link to={'/about'
+
+                                    
+                                } class="block mt-2 text-sm text-white dark:text-white hover:underline">About us</Link>
                                 <Link to={'/all_service'} class="block mt-2 text-sm text-white dark:text-white hover:underline">ALL Services</Link>
                                 <Link to={'/contact'} class="block mt-2 text-sm text-white dark:text-white hover:underline">Contact Us</Link>
                                 <Link to={'/gst'} class="block mt-2 text-sm text-white dark:text-white hover:underline">GST Services</Link>
@@ -95,7 +121,7 @@ const Footer = () => {
             <div>
                 {/* Telephone Button */}
                 <a href="tel:+919158241711" target="_blank" rel="noopener noreferrer">
-                    <div className="fixed bottom-16 left-3 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,3)] transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <div className="fixed bottom-20 left-3 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,3)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="28"
@@ -111,7 +137,7 @@ const Footer = () => {
 
                 {/* WhatsApp Button */}
                 <a href="https://wa.me/9158241711" target="_blank" rel="noopener noreferrer">
-                    <div className="fixed bottom-16 right-3 z-50 bg-gradient-to-r from-green-500 to-green-600 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <div className="fixed bottom-20 right-3 z-50 bg-gradient-to-r from-green-500 to-green-600 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
@@ -124,9 +150,24 @@ const Footer = () => {
                         </svg>
                     </div>
                 </a>
-
-
             </div>
+
+            {/* Back-to-Top Button */}
+            {isVisible && (
+                <div
+                    onClick={scrollToTop}
+                    className="fixed bottom-5 right-5 z-50 bg-[#FD3400] w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transition-opacity duration-400 opacity-100 hover:bg-green-500">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="white"
+                        className="bi bi-arrow-up-short"
+                        viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M8 12a.5.5 0 0 1-.5-.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5A.5.5 0 0 1 8 12z" />
+                    </svg>
+                </div>
+            )}
         </footer>
 
     )

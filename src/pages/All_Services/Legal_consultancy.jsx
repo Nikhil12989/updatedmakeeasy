@@ -165,8 +165,7 @@ const Legal_consultancy = () => {
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
                   Legal Advice Online
                 </div>
-                <span className="text-sm text-gray-700 dark:text-gray-200">Online Legal Help is the way to provide assistance to the people who is not
-                  able to access the court easily.
+                <span className="text-sm text-gray-700 dark:text-gray-200">Make Easy Documents has an online platform for professional legal advice services
                 </span>
               </div>
             </Link>
@@ -182,10 +181,7 @@ const Legal_consultancy = () => {
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
                   Send Legal Notice
                 </div>
-                <span className="text-sm text-gray-700 dark:text-gray-200">
-                  Draft your Legal Notice online with help of experienced advocates in India
-                  through <span
-                    className='text-green-600'> Make Easy </span> <span className='text-red-600'>Documents </span>.
+                <span className="text-sm text-gray-700 dark:text-gray-200">We present an easier way to serve legal notice online with the assistance of Make Easy Documents
                 </span>
               </div>
             </Link>
@@ -202,8 +198,7 @@ const Legal_consultancy = () => {
                   Rent Deed Drafting
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  Draft your rent agreement by top lawyers online. Save Money, Save Time,
-                  Hassle Free Service, 100% Online.                            </span>
+                Make Easy Documents helps you draft a rent agreement with the help of professionals.                          </span>
               </div>
             </Link>
 
@@ -219,8 +214,7 @@ const Legal_consultancy = () => {
                   Partnership Deed Drafting
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  A team of lawyers from Online Legal India will draft your partnership deed
-                  online. No need to visit office.
+                Through Make Easy Documents, we offer professional services in drafting a partnership deed.
                 </span>
               </div>
             </Link>
@@ -241,8 +235,7 @@ const Legal_consultancy = () => {
                   Sale Deed Drafting
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  A team of expert from Online Legal India will draft your sale deed. No need
-                  to visit office.                            </span>
+                Speaking of your selling or buying any property, our team makes sure that the sale deed is well drafted as per the applicable laws and as per your interests.                           </span>
               </div>
             </Link>
 
@@ -258,8 +251,7 @@ const Legal_consultancy = () => {
                   Lease Deed Drafting
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  A team of expert from Online Legal India will draft your Lease Deed. No need
-                  to visit office.                            </span>
+                Be it a landlord or a rental, you can be assured that our experts will draft a complete lease agreement to meet your requirements and within the confines of the law.                           </span>
               </div>
             </Link>
 
@@ -275,8 +267,7 @@ const Legal_consultancy = () => {
                   Divorce Online
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  Get Advice from An Experienced Divorce Lawyer | On Call Support | Divorce
-                  Filing </span>
+                We provide all-inclusive online divorce facilitation services at Make Easy Documents </span>
               </div>
             </Link>
 
@@ -292,8 +283,7 @@ const Legal_consultancy = () => {
                   Joint Venture Deed
                 </div>
                 <span className="text-sm text-gray-700 dark:text-gray-200">
-                  Lawyer of Online Legal India can assist you to draft Joint Venture Agreement
-                  online..                            </span>
+                Best Experts of Make Easy will guide to draft Joint Venture Agreement                             </span>
               </div>
             </Link>
           </div>

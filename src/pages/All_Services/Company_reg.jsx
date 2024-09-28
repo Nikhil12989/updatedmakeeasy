@@ -70,13 +70,13 @@ const Company_reg = () => {
                   <span className="font-bold"> "<span className='text-orange-600'> Company Registration </span> : Building the Foundation for Your Business Success ! "</span>
                 </p>
                 <p className="text-gray-700 mb-8">
-                  &nbsp;&nbsp;   At our company, we simplify the company registration process to make it as seamless as possible. We offer a straightforward, step-by-step guide to help you navigate the necessary paperwork and compliance requirements effortlessly.
+                  &nbsp;&nbsp;  We at the firm understand how complicated it may be to register a company and hence find ways to make it simple and bother-free. We provide an easy to follow step-by-step walkthrough to assist you in filling out the necessary documents and complying with legal obligations
                 </p>
                 <p className="text-gray-700 mb-8">
-                  &nbsp;&nbsp;   From gathering and preparing essential documents to submitting forms and completing legal formalities, our team is here to support you every step of the way.
+                  &nbsp;&nbsp;   Vetting and collating required documentation, filing of forms and undertaking any legal registration processes, our team is ready to assist you in each and every aspect.
                 </p>
                 <p className="text-gray-700 mb-8">
-                  &nbsp;&nbsp;   By reducing complexity and providing clear instructions, we ensure that your company registration is completed efficiently, allowing you to focus on launching and growing your business with peace of mind.
+                  &nbsp;&nbsp;   In providing simplicity and clear guidelines, we guarantee that the registration of your company is effectively done allowing you to direct your energy into starting up and expanding your business without any worries.
                 </p>
 
               </div>

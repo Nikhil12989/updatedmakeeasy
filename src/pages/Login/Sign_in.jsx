@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Sign_in = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const [auth, setAuth] = useAuth(); // access auth context
+  const [setAuth] = useAuth(); // access auth context
   const navigate = useNavigate(); // to redirect users
 
   const handleChange = (e) => {

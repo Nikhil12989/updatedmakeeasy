@@ -55,7 +55,7 @@ const Legal_notice = () => {
           </h2>
           <h3 className='pt-4 text-base font-semibold'>Online Legal Advice | Guaranteed Solution To Every Legal Issue
           </h3>
-          <p className='pt-4'>Resolve your Legal Dispute | Intimation sent on Virtual Mode! We give Legal Advice and provide a solution to every legal disagreement.
+          <p className='pt-4'>A Legal Notice refers to the written communication sent by one entity to another, usually to remind a person of some legal duty, demand, or intention to sue. It also constitutes the important prerequisite for any legal action, its scope of application in civil and criminal issues.
 
           </p>
         </div>

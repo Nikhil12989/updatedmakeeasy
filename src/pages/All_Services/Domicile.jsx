@@ -83,7 +83,7 @@ const Gazzette_name_change = () => {
       >
         <div className="mt-10 text-center">
           <h2 className="text-green-600 font-semibold text-2xl">
-            - Domicile -
+            - Domicile Certificate -
           </h2>
         </div> <br /> <br />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
