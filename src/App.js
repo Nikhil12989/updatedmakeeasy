@@ -105,6 +105,7 @@ import Application_localfoodlicense from './pages/AdminDashboard/Application_loc
 import Application_companypancard from "./pages/AdminDashboard/Application_companypancard"
 import Application_permanent from './pages/AdminDashboard/Application_permanent';
 import Application_learning from './pages/AdminDashboard/Application_learning';
+import Application_centralfoodlicense from './pages/AdminDashboard/Application_centralfoodlicense';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -216,9 +217,6 @@ function App() {
         />
         <Route />
       </Routes>
-
-
-
     </div>
   );
 }
@@ -253,12 +251,13 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
           <Routes>
             <Route path="admin_dashboard" element={<ADashboard />} />
             <Route path="adashboard" element={<ADashboard />} />
-            <Route path='applicationconsole' element={<ApplicationConsole/>}/>
-            <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense/>}/>
-            <Route path='application_companypancard/:id' element={<Application_companypancard/>}/>
-            <Route path='application_permanent/:id' element={<Application_permanent/>}/>
-            <Route path='application_learning/:id' element={<Application_learning/>}/>
-            </Routes>
+            <Route path='applicationconsole' element={<ApplicationConsole />} />
+            <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense />} />
+            <Route path='application_companypancard/:id' element={<Application_companypancard />} />
+            <Route path='application_permanent/:id' element={<Application_permanent />} />
+            <Route path='application_learning/:id' element={<Application_learning />} />
+            <Route path='application_centralfoodlicense/:id' element={<Application_centralfoodlicense />} />
+          </Routes>
         </main>
       </div>
     </div>

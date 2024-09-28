@@ -16,7 +16,7 @@ const Application_centralfoodlicense = () => {
     useEffect(() => {
       const fetchLicenseData = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/permanentLicense/getPermanentDL/${id}`);
+          const response = await axios.get(`http://localhost:5000/api/centralFoodLicense/getCentralFoodLicense/${id}`);
           setLicenseData(response.data);
         } catch (err) {
           setError('Error fetching license data');
@@ -40,7 +40,7 @@ const Application_centralfoodlicense = () => {
   
       try {
         const response = await axios.put(
-          `http://localhost:5000/api/permanentLicense/updatePermanentLicense/${id}`,
+          `http://localhost:5000/api/centralFoodLicense/getCentralFoodLicense/${id}`,
           formData,
           {
             headers: {
@@ -76,8 +76,8 @@ const Application_centralfoodlicense = () => {
           <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
             <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Personal Information</h2>
             <p className="text-gray-800"><strong className="text-gray-600">Full Name:</strong> {licenseData.fullName}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">RTO:</strong> {licenseData.rto}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Learning License Number:</strong> {licenseData.learningLicenseNumber}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">licenseRequireYears:</strong> {licenseData.licenseRequireYears}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">natureOfBusiness</strong> {licenseData.natureOfBusiness}</p>
             <p className="text-gray-800"><strong className="text-gray-600">Vehicle Type:</strong> {licenseData.vehicleType}</p>
             <p className="text-gray-800"><strong className="text-gray-600">Father/Husband Name:</strong> {licenseData.fatherOrHusbandFullName}</p>
             <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>

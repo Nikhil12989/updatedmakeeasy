@@ -16,8 +16,8 @@ const Application_companypancard = () => {
   useEffect(() => {
     const fetchLicenseData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/permanentLicense/getPermanentDL/${id}`);
-        setLicenseData(response.data);
+        const response = await axios.get(`http://localhost:5000/api/companyPancard/getCompanyPancard/${id}`);
+        setLicenseData(response.data.pancard);  // Accessing pancard object from response
       } catch (err) {
         setError('Error fetching license data');
       } finally {
@@ -27,7 +27,7 @@ const Application_companypancard = () => {
 
     fetchLicenseData();
   }, [id]);
-  
+
   const handleUpdate = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -40,7 +40,7 @@ const Application_companypancard = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/permanentLicense/updatePermanentLicense/${id}`,
+        `http://localhost:5000/api/companyPancard/updateCompanyPancard/${id}`,
         formData,
         {
           headers: {
@@ -69,37 +69,30 @@ const Application_companypancard = () => {
 
   return (
     <div className="p-8 max-w-5xl mx-auto bg-gray-50 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Permanent License Application</h1>
+      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Company Pancard Application</h1>
 
       {/* License Data */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
           <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Personal Information</h2>
-          <p className="text-gray-800"><strong className="text-gray-600">Full Name:</strong> {licenseData.fullName}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">RTO:</strong> {licenseData.rto}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Learning License Number:</strong> {licenseData.learningLicenseNumber}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Vehicle Type:</strong> {licenseData.vehicleType}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Father/Husband Name:</strong> {licenseData.fatherOrHusbandFullName}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Date of Birth:</strong> {new Date(licenseData.dateOfBirth).toLocaleDateString()}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Company Name:</strong> {licenseData.companyFullName}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Owner Full Name:</strong> {licenseData.ownerFullName}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Company Register Number:</strong> {licenseData.companyRegisterNumber}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Mobile Number:</strong> {licenseData.mobileNumber}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Email:</strong> {licenseData.email}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Company Address:</strong> {licenseData.companyAddress}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Pincode:</strong> {licenseData.pincode}</p>
         </div>
 
         <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
-          <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Contact Information</h2>
-          <p className="text-gray-800"><strong className="text-gray-600">Qualification:</strong> {licenseData.qualification}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Blood Group:</strong> {licenseData.bloodGroup}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Email:</strong> {licenseData.email}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Emergency Contact:</strong> {licenseData.emergencyContact}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">State:</strong> {licenseData.state}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">District:</strong> {licenseData.district}</p>
-          <p className="text-gray-800"><strong className="text-gray-600">Taluka:</strong> {licenseData.taluka}</p>
+          <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Additional Information</h2>
+          <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Date of Birth:</strong> {new Date(licenseData.dateOfBirth).toLocaleDateString()}</p>
+          <p className="text-gray-800"><strong className="text-gray-600">Application Type:</strong> {licenseData.application_type}</p>
         </div>
       </div>
 
       {/* Application Status */}
-      
-
-      {/* Documents Section */}
       <div className="bg-white shadow-md p-6 rounded-lg mb-10">
         <h2 className="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">Documents</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -182,4 +175,4 @@ const Application_companypancard = () => {
   );
 };
 
-export default Application_companypancard
+export default Application_companypancard;

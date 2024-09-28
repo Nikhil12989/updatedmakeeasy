@@ -81,7 +81,9 @@ const Applicationconsole = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleApplicationTypeClick = (applicationType, id) => {
-    switch (applicationType) {
+    const trimmedApplicationType = applicationType.trim(); // Trim the application type
+    console.log("Navigating to:", trimmedApplicationType, "with ID:", id); // Debugging line
+    switch (trimmedApplicationType) {
       case "Voter Card":
         navigate(`/admin/application_votercard/${id}`);
         break;
@@ -100,6 +102,9 @@ const Applicationconsole = () => {
       case "Local Food License":
         navigate(`/admin/application_localfoodlicense/${id}`);
         break;
+      case "Central Food License":  // Ensure this matches exactly
+        navigate(`/admin/application_centralfoodlicense/${id}`);
+        break;
       case "Company Pancard":
         navigate(`/admin/application_companypancard/${id}`);
         break;
@@ -107,9 +112,11 @@ const Applicationconsole = () => {
         navigate(`/admin/application_permanent/${id}`);
         break;
       default:
-        console.log("Unknown application type:", applicationType);
+        console.log("Unknown application type:", trimmedApplicationType); // Logging unknown types
     }
   };
+  
+  
 
   // Function to get the status class based on the status value
   const getStatusClass = (status, viewed) => {
