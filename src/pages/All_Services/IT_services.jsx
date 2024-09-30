@@ -53,9 +53,6 @@ const IT_services = () => {
           <h2 className="text-2xl lg:text-3xl font-bold border-b-4 border-red-600 inline-block pb-2">
             IT Services
           </h2>
-
-          <h3 className='pt-4 text-base font-semibold'>Income Tax Return | e-Filing Anywhere Anytime through Make Easy Documents
-          </h3>
         </div>
         <hr class="h-px my-9 bg-gray-700 border-none dark:bg-gray-700" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

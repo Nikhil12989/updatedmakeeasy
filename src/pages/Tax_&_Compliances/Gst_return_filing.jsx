@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
-import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'
+import dr1 from '../../assets/gst/2.jpg'
+import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'; // Import the simpler icon
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../context/auth';
 
-const Online_legal_advice = () => {
+const Gst_return_filing = () => {
 
   // Define the initial form data
   const initialFormData = {
-    typeofadvice: '',
+    gstnumber: '',
     fullName: '',
     email: '',
     address: '',
@@ -58,21 +59,21 @@ const Online_legal_advice = () => {
       <div className="page-title py-6 bg-slate-300" data-aos="fade">
         <div className="container mx-auto px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-start lg:items-center">
           {/* Title */}
-          <h1 className=" text-black text-xl md:text-2xl font-semibold">Online Legal Advice</h1>
+          <h1 className=" text-black text-xl md:text-2xl font-semibold">GST Return Filing</h1>
 
           {/* Refund message */}
           <style jsx>{`
-      @keyframes intenseBlink {
-        0%, 100% { opacity: 1; color: #f20000; }
-        20% { opacity: 1; color: #000000; }
-      }
-    `}</style>
+    @keyframes intenseBlink {
+      0%, 100% { opacity: 1; color: #f20000; }
+      20% { opacity: 1; color: #000000; }
+    }
+  `}</style>
           <h1
             className="
-        text-lg md:text-xl font-bold underline underline-offset-8 
-        mb-2 lg:mb-0 lg:ml-4 
-        animate-[intenseBlink_1s_ease-in-out_infinite]
-      "
+      text-lg md:text-xl font-bold underline underline-offset-8 
+      mb-2 lg:mb-0 lg:ml-4 
+      animate-[intenseBlink_1s_ease-in-out_infinite]
+    "
           >
             100% Fees Refundable, if Service is not Completed!
           </h1>
@@ -93,42 +94,40 @@ const Online_legal_advice = () => {
           </nav>
         </div>
       </div>
-      <div className="container mx-auto px-4 lg:px-16 py-8">
+
+
+      <div className="container mx-auto py-10 px-4">
+        {/* Main Container */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl lg:text-3xl font-bold border-b-4 border-red-600 inline-block pb-2">
-            Online Legal Advice
+          <h2 className="text-2xl lg:text-3xl font-bold border-b-4 border-orange-600 inline-block pb-2">
+            GST Return Filing
           </h2>
-          <h3 className='pt-4 text-base font-semibold'>Online Legal Advice | Guaranteed Solution To Every Legal Issue
-          </h3>
-          <p className='pt-4'>Resolve your Legal Dispute | Intimation sent on Virtual Mode! We give Legal Advice and provide a solution to every legal disagreement.
-
-          </p>
         </div>
-        <hr class="h-px my-9 bg-gray-700 border-none dark:bg-gray-700" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left side - Form */}
 
-          {/* Left side - Form */}
+        {/* Flex container to separate content */}
+        <div className="flex flex-col pl-7 pr-7 lg:flex-row justify-between items-center gap-8">
+
+          {/* Left Section (Text & Buttons) */}
           <div className="bg-white p-10 rounded-lg shadow-xl">
             <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Type Of Advice ?</label>
-                  <input
-                    type="text"
-                    name="typeofadvice"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Describe Your Problem..."
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
-                    required
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-semibold mb-2">Enter Full Name</label>
                   <input
                     type="text"
                     name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="---"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">GST Number</label>
+                  <input
+                    type="text"
+                    name="gstnumber"
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="---"
@@ -220,21 +219,17 @@ const Online_legal_advice = () => {
             </form>
           </div>
 
-          {/* Right side - Content */}
-          <div> <br />
-            <h1 className="text-2xl font-bold mb-4">
-              " <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span>  : Simplifying Legal Complexity "
-            </h1>
-            <p>
-              Legal Help is the way to assist the people who are not able to access the court easily. Legal Help includes various kinds of advice, providing service, forming draft or agreement etc. Legal advice is the way of giving professional opinion relating to any factual matter or any situation.
-            </p> <br />
-            <p className="mb-4">
-              Our company provides the solution by taking aid from virtual support to serve our clients based on the requirement. We provide the best of advice in exchange for monetary compensation.</p>
-            <h2 className="text-xl font-semibold mb-2">We can help, you seek legal advice from <span className='text-green-600'>Make Easy</span> <span className='text-orange-600'>Documents</span> and make this entire process seamless.</h2>
-            <p>
-              In our common law system, in criminal and civil law, the advice is being provided by the advocates or lawyers, or other professionals (such as tax experts, professional advisors, etc). </p>
+          {/* Image section with hover effect */}
+          <div className="flex-1 flex justify-center items-center">
+            <img
+              src={dr1} // Replace with the correct path for the driving license image
+              alt="Driving License"
+              className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl object-contain transform transition-transform duration-500 hover:scale-105 hover:rotate-0 shadow-lg hover:shadow-2xl rounded-lg"
+            />
           </div>
+
         </div>
+
       </div>
       <ToastContainer />
       <Footer />
@@ -242,4 +237,4 @@ const Online_legal_advice = () => {
   )
 }
 
-export default Online_legal_advice
+export default Gst_return_filing

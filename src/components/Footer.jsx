@@ -60,7 +60,7 @@ const Footer = () => {
 
                             <div class="text-center lg:text-left">
                                 <h3 class="text-white uppercase dark:text-white font-bold">Our Services</h3> <br />
-                                <Link to={'/driving_Lic'} class="block mt-2 text-sm text-white dark:text-white hover:underline">Driving , Food Licenses</Link>
+                                <Link to={'/driving_Lic'} class="block mt-2 text-sm text-white dark:text-white hover:underline">Driving  Licenses</Link>
                                 <Link to={'/company_registration'} class="block mt-2 text-sm text-white dark:text-white hover:underline">Company Registration</Link>
                                 <Link to={'/legal_consultancy'} class="block mt-2 text-sm text-white dark:text-white hover:underline">Legal Consultancy</Link>
                                 <Link to={'/pan_service'} class="block mt-2 text-sm text-white dark:text-white hover:underline">PAN Services </Link>
@@ -76,8 +76,8 @@ const Footer = () => {
 
                             <div class="text-center lg:text-left">
                                 <h3 class="text-white uppercase  font-bold">Contact</h3> <br />
-                                <span class="block mt-2 text-sm text-white dark:text-white">+ 91 1155226633</span>
-                                <span class="block mt-2 text-sm text-white dark:text-white">info@example.com</span>
+                                <span class="block mt-2 text-sm text-white dark:text-white">+ 91 9168741515</span>
+                                <span class="block mt-2 text-sm text-white dark:text-white">info@makeeasydocuments.com</span>
 
                                 <div class="flex justify-center mt-6 -mx-2 lg:justify-start">
                                     <a href="#" class="mx-2 text-white transition-colors duration-300 hover:text-green-400 " aria-label="WhatsApp">
@@ -115,12 +115,12 @@ const Footer = () => {
 
                 <div>
                     <p class="text-center text-white">© Copyright <span className='font-bold'>Viransh Global Legal Pvt Ltd </span> .  All Rights Reserved</p>
-                    <p className='text-center text-white'>Designed by <a href="#" className='hover:underline'> <span className='text-red-600 hover:text-red-300'>Maharashtra Informatics Opc Pvt Ltd</span> </a> </p>
+                    <p className='text-center text-white'>Designed by <a href="https://maharashtrainformatics.com/" target='/' className='hover:underline'> <span className='text-red-600 hover:text-red-300'>Maharashtra Informatics Opc Pvt Ltd</span> </a> </p>
                 </div>
             </div>
             <div>
                 {/* Telephone Button */}
-                <a href="tel:+919158241711" target="_blank" rel="noopener noreferrer">
+                <a href="tel:+919168741515" target="_blank" rel="noopener noreferrer">
                     <div className="fixed bottom-20 left-3 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,3)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ const Footer = () => {
                 </a>
 
                 {/* WhatsApp Button */}
-                <a href="https://wa.me/9158241711" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/9168741515" target="_blank" rel="noopener noreferrer">
                     <div className="fixed bottom-20 right-3 z-50 bg-gradient-to-r from-green-500 to-green-600 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

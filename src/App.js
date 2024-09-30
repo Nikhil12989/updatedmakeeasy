@@ -10,7 +10,6 @@ import Forgot_password from './pages/Login/Forgot_password';
 import All_service from './pages/All_Services/All_service';
 import Company_reg from './pages/All_Services/Company_reg';
 import Company_Reg_ApplyNew from './pages/All_Services/Company_Reg_ApplyNew';
-import Domicile from './pages/All_Services/Domicile';
 import Gazzette_DOB_change from './pages/All_Services/Gazzette_DOB_change';
 import Gazzette_name_change from './pages/All_Services/Gazzette_name_change';
 import Gazzette_religon_change from './pages/All_Services/Gazzette_religon_change';
@@ -76,8 +75,15 @@ import Shop_act from './pages/Licenses/Shop_act';
 import ShopAct_New from './pages/Licenses/ShopAct_New';
 // tax
 import Annual_compliances_other from './pages/Tax_&_Compliances/Annual_compliances_other';
-import GST from './pages/Tax_&_Compliances/GST';
 import Payroll_compliance from './pages/Tax_&_Compliances/Payroll_compliance';
+import GST from './pages/Tax_&_Compliances/GST';
+import Gst_return_filing from './pages/Tax_&_Compliances/Gst_return_filing';
+import Gst_eway_bills from './pages/Tax_&_Compliances/Gst_eway_bills';
+import Gst_modification from './pages/Tax_&_Compliances/Gst_modification';
+import Gst_nil_return from './pages/Tax_&_Compliances/Gst_nil_return';
+import Gstr from './pages/Tax_&_Compliances/Gstr';
+import Gst_lutt from './pages/Tax_&_Compliances/Gst_lutt';
+import Gst_cancle from './pages/Tax_&_Compliances/Gst_cancle';
 // more
 import Team from './pages/More/Team';
 import Blogs from './pages/More/Blogs';
@@ -102,10 +108,24 @@ import Passport_Fresh from './pages/All_Services/Passport_Fresh';
 import Passport_reissue from './pages/All_Services/Passport_reissue';
 import ApplicationConsole from './pages/AdminDashboard/ApplicationConsole';
 import Application_localfoodlicense from './pages/AdminDashboard/Application_localfoodlicense';
+import Application_centralfoodlicense from "./pages/AdminDashboard/Application_centralfoodlicense"
 import Application_companypancard from "./pages/AdminDashboard/Application_companypancard"
 import Application_permanent from './pages/AdminDashboard/Application_permanent';
 import Application_learning from './pages/AdminDashboard/Application_learning';
-import Application_centralfoodlicense from './pages/AdminDashboard/Application_centralfoodlicense';
+import Application_gstregistration from "./pages/AdminDashboard/Application_gstregistration"
+import Userdetails from './pages/AdminDashboard/Userdetails';
+import Formprice from './pages/AdminDashboard/Formprice';
+import Addlinks from './pages/AdminDashboard/Addlinks';
+import Carousel1 from './pages/AdminDashboard/Carousel1';
+import Carousel2 from './pages/AdminDashboard/Carousel2';
+import Carousel3 from './pages/AdminDashboard/Carousel3';
+import Add_team from './pages/AdminDashboard/Add_team';
+import Reports from './pages/AdminDashboard/Reports';
+import Change_password from './pages/AdminDashboard/Change_password';
+import Application_udyam from './pages/AdminDashboard/Application_udyam';
+import Application_statefoodlicense from './pages/AdminDashboard/Application_statefoodlicense';
+
+
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -126,7 +146,6 @@ function App() {
         <Route path="/all_service" element={<All_service />} />
         <Route path="/company_registration" element={<Company_reg />} />
         <Route path="/company_reg_new" element={<Company_Reg_ApplyNew />} />
-        <Route path="/domicile" element={<Domicile />} />
         <Route path="/gazzette_dob" element={<Gazzette_DOB_change />} />
         <Route path="/gazzette_name" element={<Gazzette_name_change />} />
         <Route path="/gazzette_religon" element={<Gazzette_religon_change />} />
@@ -198,8 +217,15 @@ function App() {
 
         {/* tax */}
         <Route path="/annual_compliances_other" element={<Annual_compliances_other />} />
-        <Route path="/gst" element={<GST />} />
         <Route path="/payroll_compliance" element={<Payroll_compliance />} />
+        <Route path="/gst" element={<GST />} />
+        <Route path="/gstreturn" element={<Gst_return_filing />} />
+        <Route path="/gstEwaybill" element={<Gst_eway_bills />} />
+        <Route path="/gstmodification" element={<Gst_modification/>} />
+        <Route path="/gstnillreturn" element={<Gst_nil_return/>} />
+        <Route path="/gstr" element={<Gstr/>} />
+        <Route path="/gstlutt" element={<Gst_lutt/>} />
+        <Route path="/gstcancle" element={<Gst_cancle/>} />
 
         {/* More */}
         <Route path="/team" element={<Team />} />
@@ -217,6 +243,9 @@ function App() {
         />
         <Route />
       </Routes>
+
+
+
     </div>
   );
 }
@@ -251,13 +280,25 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
           <Routes>
             <Route path="admin_dashboard" element={<ADashboard />} />
             <Route path="adashboard" element={<ADashboard />} />
-            <Route path='applicationconsole' element={<ApplicationConsole />} />
-            <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense />} />
-            <Route path='application_companypancard/:id' element={<Application_companypancard />} />
-            <Route path='application_permanent/:id' element={<Application_permanent />} />
-            <Route path='application_learning/:id' element={<Application_learning />} />
-            <Route path='application_centralfoodlicense/:id' element={<Application_centralfoodlicense />} />
-          </Routes>
+            <Route path='applicationconsole' element={<ApplicationConsole/>}/>
+            <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense/>}/>
+            <Route path='application_centralfoodlicense/:id' element={<Application_centralfoodlicense/>}/>
+            <Route path='application_companypancard/:id' element={<Application_companypancard/>}/>
+            <Route path='application_permanent/:id' element={<Application_permanent/>}/>
+            <Route path='application_learning/:id' element={<Application_learning/>}/>
+            <Route path='application_udhyam/:id' element={<Application_udyam/>}/>
+            <Route path='application_statefoodlicense/:id' element={<Application_statefoodlicense/>}/>
+            <Route path='application_gstregistration/:id' element={<Application_gstregistration/>}/>
+            <Route path='userdetails' element={< Userdetails />}/>
+            <Route path='formprice' element={< Formprice />}/>
+            <Route path='addlinks' element={< Addlinks />}/>
+            <Route path='ccarousel1' element={< Carousel1 />}/>
+            <Route path='carousel2' element={< Carousel2 />}/>
+            <Route path='carousel3' element={< Carousel3 />}/>
+            <Route path='addteam' element={< Add_team />}/>
+            <Route path='report' element={< Reports />}/>
+            <Route path='changepassword' element={< Change_password />}/>
+            </Routes>
         </main>
       </div>
     </div>

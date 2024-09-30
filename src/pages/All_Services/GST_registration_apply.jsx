@@ -5,7 +5,7 @@ import { IoArrowBackCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast , ToastContainer } from 'react-toastify';
 
 const GST_registration_apply = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +71,7 @@ const GST_registration_apply = () => {
     try {
       // Post form data to API
       const response = await axios.post(
-        'http://192.168.1.49:5000/api/gstRegistration/creategst-registration',
+        'http://192.168.1.50:5000/api/gstRegistration/creategst-registration',
         form,
         {
           headers: {

@@ -63,7 +63,7 @@ const PAN_Company_trust = () => {
 
     try {
       // Post form data to API
-      const response = await axios.post('http://192.168.1.49:5000/api/companyPancard/createCompanyPancard', form, {
+      const response = await axios.post('http://192.168.1.50:5000/api/companyPancard/createCompanyPancard', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${auth.token}` // Use backticks for string interpolation

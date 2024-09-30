@@ -40,7 +40,7 @@ const Application_centralfoodlicense = () => {
   
       try {
         const response = await axios.put(
-          `http://localhost:5000/api/centralFoodLicense/getCentralFoodLicense/${id}`,
+          `http://localhost:5000/api/centralFoodLicense/updatecentralfoodlicense/${id}`,
           formData,
           {
             headers: {
@@ -78,21 +78,15 @@ const Application_centralfoodlicense = () => {
             <p className="text-gray-800"><strong className="text-gray-600">Full Name:</strong> {licenseData.fullName}</p>
             <p className="text-gray-800"><strong className="text-gray-600">licenseRequireYears:</strong> {licenseData.licenseRequireYears}</p>
             <p className="text-gray-800"><strong className="text-gray-600">natureOfBusiness</strong> {licenseData.natureOfBusiness}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Vehicle Type:</strong> {licenseData.vehicleType}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Father/Husband Name:</strong> {licenseData.fatherOrHusbandFullName}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Date of Birth:</strong> {new Date(licenseData.dateOfBirth).toLocaleDateString()}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">Vehicle Type:</strong> {licenseData.businessName}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">Father/Husband Name:</strong> {licenseData.natureOfBusiness}</p>
           </div>
   
           <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
             <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Contact Information</h2>
-            <p className="text-gray-800"><strong className="text-gray-600">Qualification:</strong> {licenseData.qualification}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Blood Group:</strong> {licenseData.bloodGroup}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">mobileNumber:</strong> {licenseData.mobileNumber}</p>
+            <p className="text-gray-800"><strong className="text-gray-600">Blood Group:</strong> {licenseData.businessAddress}</p>
             <p className="text-gray-800"><strong className="text-gray-600">Email:</strong> {licenseData.email}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Emergency Contact:</strong> {licenseData.emergencyContact}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">State:</strong> {licenseData.state}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">District:</strong> {licenseData.district}</p>
-            <p className="text-gray-800"><strong className="text-gray-600">Taluka:</strong> {licenseData.taluka}</p>
           </div>
         </div>
   

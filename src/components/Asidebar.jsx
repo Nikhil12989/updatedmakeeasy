@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { X, Home, BarChart2, Users, Settings } from 'lucide-react';
 import { AnimatePresence, motion } from "framer-motion";
-import { UserRoundCog,CircleEllipsis, ChevronDown, Globe } from "lucide-react";
+import { UserRoundCog, CircleEllipsis, ChevronDown, Globe } from "lucide-react";
 
 const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -17,7 +17,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
     `;
 
     return (
-        <div 
+        <div
             className={`${adminSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                 } fixed inset-y-0 left-0 z-50 w-64 bg-blue-100 shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
         >
@@ -82,7 +82,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                 exit={{ height: 0, opacity: 0 }}
                                 className='pl-8 overflow-auto max-h-96'  // Added max height and overflow
                             >
-                                <Link to="/dashboard/userdetails">
+                                <Link to="/admin/userdetails">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -100,25 +100,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/changeuser">
-                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
-                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
-                                        <AnimatePresence>
-                                            {isSidebarOpen && (
-                                                <motion.span
-                                                    className='ml-4 whitespace-nowrap text-black'
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: "auto" }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    transition={{ duration: 0.2, delay: 0.3 }}
-                                                >
-                                                    Change User
-                                                </motion.span>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                </Link>
-                                <Link to="/dashboard/formprice">
+                                <Link to="/admin/formprice">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -136,7 +118,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/addlinks">
+                                <Link to="/admin/addlinks">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -154,43 +136,8 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/addyoutubelinks">
-                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
-                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
-                                        <AnimatePresence>
-                                            {isSidebarOpen && (
-                                                <motion.span
-                                                    className='ml-4 whitespace-nowrap text-black'
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: "auto" }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    transition={{ duration: 0.2, delay: 0.3 }}
-                                                >
-                                                    Add Youtube Links
-                                                </motion.span>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                </Link>
-                                <Link to="/dashboard/addmemberkit">
-                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
-                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
-                                        <AnimatePresence>
-                                            {isSidebarOpen && (
-                                                <motion.span
-                                                    className='ml-4 whitespace-nowrap text-black'
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: "auto" }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    transition={{ duration: 0.2, delay: 0.3 }}
-                                                >
-                                                    Add Member Kit
-                                                </motion.span>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                </Link>
-                                <Link to="/dashboard/carousel1">
+
+                                <Link to="/admin/ccarousel1">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -208,7 +155,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/carousel2">
+                                <Link to="/admin/carousel2">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -226,7 +173,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/carousel3">
+                                <Link to="/admin/carousel3">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -244,7 +191,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/dashboard/addourteam">
+                                <Link to="/admin/addteam">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -262,14 +209,32 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
+                                <Link to="/admin/changepassword">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Change Password
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
                             </motion.div>
                         )}
                     </AnimatePresence>
                 </div>
 
                 <Link
-                    to="/admin/reports"
-                    className={linkClasses("/admin/reports")}
+                    to="/admin/report"
+                    className={linkClasses("/admin/report")}
                 >
                     <Users className="h-5 w-5 mr-3" />
                     Reports

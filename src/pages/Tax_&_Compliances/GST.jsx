@@ -86,7 +86,7 @@ const GST = () => {
           </Link>
 
           {/* Card 2 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstreturn'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst2}
@@ -104,7 +104,7 @@ const GST = () => {
           </Link>
 
           {/* Card 3 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstEwaybill'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst8}
@@ -121,7 +121,7 @@ const GST = () => {
           </Link>
 
           {/* Card 4 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstmodification'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst4}
@@ -145,7 +145,7 @@ const GST = () => {
       <div className="flex justify-center px-4 sm:px-0 pt-6 pb-11">
         <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-4">
           {/* Card 1 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstnillreturn'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst5}
@@ -162,7 +162,7 @@ const GST = () => {
           </Link>
 
           {/* Card 2 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstr'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst6}
@@ -179,7 +179,7 @@ const GST = () => {
           </Link>
 
           {/* Card 3 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstlutt'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst7}
@@ -197,7 +197,7 @@ const GST = () => {
           </Link>
 
           {/* Card 4 */}
-          <Link to={'/gst'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+          <Link to={'/gstcancle'} className="group w-full max-w-[18rem] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
             <img
               className="object-cover w-full h-48"
               src={gst3}

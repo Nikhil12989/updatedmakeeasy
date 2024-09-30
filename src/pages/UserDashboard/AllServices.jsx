@@ -72,7 +72,7 @@ const AllServices = () => {
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 2px 3px rgba(255, 165, 0, 0.5)')} // Revert to orange after hover
           >
-            <h5 className="text-xl font-semibold mt-3">Gazzette</h5>
+            <h5 className="text-xl font-semibold mt-3">Gazette</h5>
           </Link>
           <Link
             to="/gst_registration"
@@ -132,7 +132,7 @@ const AllServices = () => {
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 2px 3px rgba(255, 105, 180, 0.5)')} // Revert to pink after hover
           >
-            <h5 className="text-xl font-semibold mt-3">Uddyam aadhar</h5>
+            <h5 className="text-xl font-semibold mt-3">Udyam aadhar</h5>
           </Link>
           <Link
             to="/itr_filing_online"
@@ -159,7 +159,7 @@ const AllServices = () => {
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 2px 3px rgba(255, 165, 0, 0.5)')} // Revert to orange after hover
           >
-            <h5 className="text-xl font-semibold mt-3">Votter id</h5>
+            <h5 className="text-xl font-semibold mt-3">Voter id</h5>
           </Link>
         </div>
 
@@ -171,7 +171,7 @@ const AllServices = () => {
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 2px 3px rgba(0, 128, 0, 0.5)')} // Revert to green after hover
           >
-            <h5 className="text-xl font-semibold mt-3">It services</h5>
+            <h5 className="text-xl font-semibold mt-3">IT services</h5>
           </Link>
           <Link
             to="/kisan_point"
@@ -189,7 +189,7 @@ const AllServices = () => {
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 2px 3px rgba(255, 105, 180, 0.5)')} // Revert to pink after hover
           >
-            <h5 className="text-xl font-semibold mt-3">Mahsul Legal</h5>
+            <h5 className="text-xl font-semibold mt-3">Mahsul / Revenue Legal</h5>
           </Link>
           <Link
             to="/legal_notice"

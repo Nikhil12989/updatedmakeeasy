@@ -41,8 +41,8 @@ const Reviews = () => {
       <Header />
       <main className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">Customer Reviews</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">Customer Reviews</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
               <div
                 key={index}
@@ -52,14 +52,14 @@ const Reviews = () => {
                   <img
                     src={`https://via.placeholder.com/50?text=${review.name.charAt(0)}`}
                     alt="Reviewer"
-                    className="w-12 h-12 rounded-full"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
                   />
                   <div>
-                    <p className="text-lg font-semibold text-gray-800">{review.name}</p>
-                    <p className="text-sm text-gray-600">Verified Buyer</p>
+                    <p className="text-md sm:text-lg font-semibold text-gray-800">{review.name}</p>
+                    <p className="text-xs sm:text-sm text-gray-600">Verified Buyer</p>
                   </div>
                 </div>
-                <p className="text-gray-700">{review.review}</p>
+                <p className="text-sm sm:text-base text-gray-700">{review.review}</p>
                 <div className="mt-4 flex items-center">
                   <span className="text-yellow-500">
                     {'★'.repeat(review.rating)}

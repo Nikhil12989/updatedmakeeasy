@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Sign_in = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const [setAuth] = useAuth(); // access auth context
+  const [auth, setAuth] = useAuth(); // access auth context
   const navigate = useNavigate(); // to redirect users
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ const Sign_in = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://192.168.1.50:5000/api/auth/signin', {
+      const response = await fetch('http://localhost:5000/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Sign_in = () => {
 
         // Redirect based on user role
         if (data.user.role === 1) {
-          navigate('/admin/dashboard');
+          navigate('/admin/adashboard');
         } else {
           navigate('/dashboard/dashboard');
         }
