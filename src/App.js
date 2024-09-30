@@ -124,6 +124,8 @@ import Reports from './pages/AdminDashboard/Reports';
 import Change_password from './pages/AdminDashboard/Change_password';
 import Application_udyam from './pages/AdminDashboard/Application_udyam';
 import Application_statefoodlicense from './pages/AdminDashboard/Application_statefoodlicense';
+import Application_manufacturingfoodlicense from './pages/AdminDashboard/Application_manufacturingfoodlicense';
+import Application_votternew from "./pages/AdminDashboard/Application_votternew"
 
 
 
@@ -289,6 +291,8 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='application_udhyam/:id' element={<Application_udyam/>}/>
             <Route path='application_statefoodlicense/:id' element={<Application_statefoodlicense/>}/>
             <Route path='application_gstregistration/:id' element={<Application_gstregistration/>}/>
+            <Route path='application_foodmanufacturing/:id' element={<Application_manufacturingfoodlicense/>}/>
+            <Route path='application_newVoterid/:id' element={<Application_votternew/>}/>
             <Route path='userdetails' element={< Userdetails />}/>
             <Route path='formprice' element={< Formprice />}/>
             <Route path='addlinks' element={< Addlinks />}/>

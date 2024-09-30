@@ -109,6 +109,12 @@ const Applicationconsole = () => {
       case "Central Food License":  // Ensure this matches exactly
         navigate(`/admin/application_centralfoodlicense/${id}`);
         break;
+      case "New VoterCard":  // Ensure this matches exactly
+        navigate(`/admin/application_newVoterid/${id}`);
+        break;
+      case "Food Manufacturing License":  // Ensure this matches exactly
+        navigate(`/admin/application_foodmanufacturing/${id}`);
+        break;
       case "GST Registration":  // Ensure this matches exactly
         navigate(`/admin/application_gstregistration/${id}`);
         break;

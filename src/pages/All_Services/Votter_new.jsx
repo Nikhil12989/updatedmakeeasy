@@ -14,7 +14,7 @@ const Votter_new = () => {
     gender: "",
     dateOfBirth: "",
     mobileNumber: "",
-    emailId: "",
+    email: "",
     placeOfBirth: "",
     birthState: "",
     birthDistrict: "",
@@ -24,6 +24,7 @@ const Votter_new = () => {
     tehsil: "",
     relationPincode: "",
     livingAddressSince: "",
+    relationAddress:"",
     aadharNumber: "",
     aadharCard: null,
     panCard: null,
@@ -204,14 +205,14 @@ const Votter_new = () => {
 
           {/* Email Id */}
           <div className="form-group">
-            <label htmlFor="emailId" className="block text-gray-600 font-semibold mb-2">Email Id</label>
+            <label htmlFor="email" className="block text-gray-600 font-semibold mb-2">Email Id</label>
             <input
               type="email"
-              name="emailId"
-              id="emailId"
+              name="email"
+              id="email"
               placeholder=" - - - "
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-              value={formData.emailId}
+              value={formData.email}
               onChange={handleInputChange}
               required
             />
@@ -302,6 +303,19 @@ const Votter_new = () => {
               placeholder=" - - - "
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
               value={formData.fullAddress}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="relationAddress" className="block text-gray-600 font-semibold mb-2">Full Address</label>
+            <input
+              type="text"
+              name="relationAddress"
+              id="relationAddress"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.relationAddress}
               onChange={handleInputChange}
               required
             />
