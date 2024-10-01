@@ -73,8 +73,10 @@ const MyApplications = () => {
                     <table className="min-w-full table-auto border-collapse border border-gray-300">
                         <thead className="bg-gray-50">
                             <tr>
-                                <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">ID</th>
                                 <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Application Name</th>
+                                <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">First Name</th>
+                                <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Last Name</th>
+                                <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Email</th>
                                 <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Created Date</th>
                                 <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Status</th>
                                 <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Updated Date</th>
@@ -83,8 +85,10 @@ const MyApplications = () => {
                         <tbody className="bg-white">
                             {currentItems.map((app) => (
                                 <tr key={app._id} className="hover:bg-gray-50">
-                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app._id}</td>
-                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.application_type}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.application_type}</td> {/* Display application name */}
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.firstname}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.lastname}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.email}</td>
                                     <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{new Date(app.createdAt).toLocaleDateString()}</td>
                                     <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">
                                         <span className={statusStyles[app.Status]}>
