@@ -24,44 +24,61 @@ const Sign_in = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        toast.error(data.error); // handle error
-      } else {
-        // Set auth state and store in local storage
-        setAuth({
-          user: data.user,
-          token: data.token,
+        const response = await fetch('http://localhost:5000/api/auth/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
         });
-        localStorage.setItem('auth', JSON.stringify(data));
 
-        // Redirect based on user role
-        if (data.user.role === 1) {
-          navigate('/admin/adashboard');
+        const data = await response.json();
+
+        if (data.error) {
+            toast.error(data.error); // handle error
         } else {
-          navigate('/dashboard/dashboard');
-        }
+            // Extract user ID from the JWT token manually
+            const tokenParts = data.token.split('.');
+            if (tokenParts.length !== 3) {
+                throw new Error('Invalid token format');
+            }
 
-        toast.success('Logged in successfully!');
-      }
+            const payload = JSON.parse(atob(tokenParts[1])); // Decode the payload
+            const userId = payload._id; // Extract the user ID
+
+            // Set auth state and store in local storage
+            const userWithId = {
+                ...data.user,  // Include the existing user data
+                _id: userId,   // Add user ID from decoded token
+            };
+
+            setAuth({
+                user: userWithId,
+                token: data.token,
+            });
+            localStorage.setItem('auth', JSON.stringify({ user: userWithId, token: data.token })); // Store user data with ID
+
+            // Redirect based on user role
+            if (data.user.role === 1) {
+                navigate('/admin/adashboard');
+            } else {
+                navigate('/dashboard/dashboard');
+            }
+
+            toast.success('Logged in successfully!');
+        }
     } catch (err) {
-      console.error(err);
-      toast.error('Something went wrong!');
+        console.error(err);
+        toast.error('Something went wrong!');
     }
-  };
+};
+
 
   return (
     <div>

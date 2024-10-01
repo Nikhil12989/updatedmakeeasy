@@ -135,6 +135,7 @@ import Application_gazette_name from './pages/AdminDashboard/Application_gazette
 import Application_gazette_dob from './pages/AdminDashboard/Application_gazette_dob';
 import Application_gazette_religon from "./pages/AdminDashboard/Application_gazette_religon"
 import Application_domicile from './pages/AdminDashboard/Application_domicile';
+import Application_passport_reissue from './pages/AdminDashboard/Application_passport_reissue';
 
 
 
@@ -306,7 +307,8 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='application_gazettedobchange/:id' element={<Application_gazette_dob/>}/>
             <Route path='application_gazettereligionchange/:id' element={<Application_gazette_religon/>}/>
             <Route path='application_domicile/:id' element={<Application_domicile/>}/>
-            <Route path='application_newpassport/:id' element={<Application_passport_fresh/>}/>
+            <Route path='Application_passport_fresh/:id' element={<Application_passport_fresh/>}/>
+            <Route path='Application_passport_reissue/:id' element={<Application_passport_reissue/>}/>
             <Route path='userdetails' element={< Userdetails />}/>
             <Route path='formprice' element={< Formprice />}/>
             <Route path='addlinks' element={< Addlinks />}/>

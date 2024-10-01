@@ -1,53 +1,69 @@
-
-import React, { useState } from 'react';
-
-const applications = [
-    { id: 1, applicationName: 'Application One',createdDate: '2024-09-01',time:'4:00PM', status: 'Completed', updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 2, applicationName: 'Application Two',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 3, applicationName: 'Application Three',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 4, applicationName: 'Application Four',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 5, applicationName: 'Application Five',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 6, applicationName: 'Application Six',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 7, applicationName: 'Application Seven',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 8, applicationName: 'Application Eight',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 9, applicationName: 'Application Nine',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 10, applicationName: 'Application Ten',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 11, applicationName: 'Application Eleven',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 12, applicationName: 'Application Twelve',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 13, applicationName: 'Application Thirteen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 14, applicationName: 'Application Fourteen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 15, applicationName: 'Application Fifteen', createdDate: '2024-09-01',time:'4:00PM', status: 'Rejected',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 16, applicationName: 'Application Sixteen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 17, applicationName: 'Application Seventeen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 18, applicationName: 'Application Eighteen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 19, applicationName: 'Application Nineteen',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 20, applicationName: 'Application Twenty',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 21, applicationName: 'Application Twenty-One',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 22, applicationName: 'Application Twenty-Two',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 23, applicationName: 'Application Twenty-Three',createdDate: '2024-09-01',time:'4:00PM',  status: 'Pending',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-    { id: 24, applicationName: 'Application Twenty-Four',createdDate: '2024-09-01',time:'4:00PM',  status: 'Rejected', updateddate: '2024-09-01',updatedtime:'2:30 PM'},
-    { id: 25, applicationName: 'Application Twenty-Five',createdDate: '2024-09-01',time:'4:00PM',  status: 'Completed',updateddate: '2024-09-01',updatedtime:'2:30 PM' },
-];
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useAuth } from '../../context/auth'; // Import the useAuth hook
 
 const statusStyles = {
-    Pending: 'bg-yellow-200 text-yellow-800 py-1 px-2 text-xs font-semibold rounded',
-    Completed: 'bg-green-200 text-green-800 py-1 px-2 text-xs font-semibold rounded',
-    Rejected: 'bg-red-200 text-red-800 py-1 px-2 text-xs font-semibold rounded',
+    "In-Progress": 'bg-yellow-200 text-yellow-800 py-1 px-2 text-xs font-semibold rounded',
+    "Completed": 'bg-green-200 text-green-800 py-1 px-2 text-xs font-semibold rounded',
+    "Rejected": 'bg-red-200 text-red-800 py-1 px-2 text-xs font-semibold rounded',
 };
 
 const MyApplications = () => {
+    const [applications, setApplications] = useState([]); // State to hold all applications data
+    const [filteredApplications, setFilteredApplications] = useState([]); // State for filtered applications
+    const [loading, setLoading] = useState(true); // State for loading
+    const [error, setError] = useState(null); // State for errors
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10; // Number of items per page
 
-    const totalPages = Math.ceil(applications.length / itemsPerPage);
+    const [auth] = useAuth(); // Use the Auth context to get user data
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://192.168.1.50:5000/api/getAll/Form11');
+                
+                // Log the response to check if the data is correct
+                console.log('API Response:', response.data);
+                
+                // Assuming API returns an array of applications
+                if (Array.isArray(response.data)) {
+                    setApplications(response.data);
+                    
+                    // Check if user is available in auth context
+                    if (auth.user && auth.user._id) {
+                        // Filter the applications based on user ID
+                        const filtered = response.data.filter(item => item.user === auth.user._id);
+                        setFilteredApplications(filtered);
+                    } else {
+                        setError('User information is not available');
+                    }
+                } else {
+                    setError('Unexpected data format');
+                }
+                setLoading(false); // Set loading to false when data is fetched
+            } catch (err) {
+                console.error('API Error:', err);
+                setError('Failed to fetch applications');
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [auth]); // Include auth in the dependency array
+
+    const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = applications.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = filteredApplications.slice(indexOfFirstItem, indexOfLastItem);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
+
+    if (loading) return <div>Loading...</div>; // Show loading message
+    if (error) return <div>{error}</div>; // Show error message
 
     return (
         <div className="min-h-screen bg-slate-100 p-4 sm:p-6">
@@ -60,26 +76,22 @@ const MyApplications = () => {
                                 <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">ID</th>
                                 <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Application Name</th>
                                 <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Created Date</th>
-                                <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Time</th>
-                                <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Status</th>
+                                <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Status</th>
                                 <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Updated Date</th>
-                                <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase border border-gray-300">Updated Time</th>
                             </tr>
                         </thead>
                         <tbody className="bg-white">
                             {currentItems.map((app) => (
-                                <tr key={app.id} className="hover:bg-gray-50">
-                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.id}</td>
-                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.applicationName}</td>
-                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{app.createdDate}</td>
-                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{app.time}</td>
+                                <tr key={app._id} className="hover:bg-gray-50">
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app._id}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.application_type}</td>
+                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{new Date(app.createdAt).toLocaleDateString()}</td>
                                     <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">
-                                        <span className={statusStyles[app.status]}>
-                                            {app.status}
+                                        <span className={statusStyles[app.Status]}>
+                                            {app.Status}
                                         </span>
                                     </td>
-                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{app.updateddate}</td>
-                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{app.updatedtime}</td>
+                                    <td className="hidden sm:table-cell px-4 py-3 text-sm text-gray-600 border border-gray-300">{new Date(app.updatedAt).toLocaleDateString()}</td>
                                 </tr>
                             ))}
                         </tbody>

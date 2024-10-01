@@ -124,6 +124,12 @@ const Applicationconsole = () => {
       case "Company Pancard":
         navigate(`/admin/application_companypancard/${id}`);
         break;
+      case "Fresh Passport":
+        navigate(`/admin/Application_passport_fresh/${id}`);
+        break;
+      case "Re-Issue Passport":
+        navigate(`/admin/Application_passport_reissue/${id}`);
+        break;
       case "Permanent License":
         navigate(`/admin/application_permanent/${id}`);
         break;

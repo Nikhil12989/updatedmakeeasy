@@ -11,18 +11,25 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const data = localStorage.getItem("auth");
     if (data) {
-      try {
-        const parsedData = JSON.parse(data);
-        setAuth({
-          user: parsedData.user,
-          token: parsedData.token,
-        });
-      } catch (error) {
-        console.error("Failed to parse auth data:", error);
-        localStorage.removeItem("auth"); // Remove corrupted data
-      }
+        try {
+            const parsedData = JSON.parse(data);
+            console.log("Parsed Auth Data:", parsedData); // Log the parsed data
+            setAuth({
+                user: {
+                    firstname: parsedData.user.firstname,
+                    lastname: parsedData.user.lastname,
+                    email: parsedData.user.email,
+                    role: parsedData.user.role,
+                    _id: parsedData.user._id || null, // Include user ID
+                },
+                token: parsedData.token,
+            });
+        } catch (error) {
+            console.error("Failed to parse auth data:", error);
+            localStorage.removeItem("auth");
+        }
     }
-  }, []);
+}, []);
 
   useEffect(() => {
     if (auth.token) {
