@@ -5,7 +5,7 @@ import { IoArrowBackCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast , ToastContainer } from 'react-toastify';
 
 
 const Gazzette_religon_change = () => {
@@ -70,7 +70,7 @@ const Gazzette_religon_change = () => {
     try {
       // Post form data to API
       const response = await axios.post(
-        'http://192.168.1.49:5000/api/gazetteReligionChange/creategazette-religion-change',
+        'http://192.168.1.50:5000/api/gazetteReligionChange/creategazette-religion-change',
         form,
         {
           headers: {
@@ -378,7 +378,7 @@ const Gazzette_religon_change = () => {
           </button>
         </div>
       </form>
-
+      <ToastContainer/>
       <Footer />
     </div>
   )

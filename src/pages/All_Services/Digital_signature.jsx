@@ -73,7 +73,7 @@ const Digital_signature = () => {
             <div className="flex-1   flex justify-center items-center">
               <img
                 src={dr1} // Replace with the correct path for the driving license image
-                alt="Driving License"
+                alt="Digital signature from home"
                 className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl object-contain transform transition-transform duration-500 hover:scale-95 hover:rotate-0 shadow-lg hover:shadow-2xl rounded-lg"
               />
             </div>

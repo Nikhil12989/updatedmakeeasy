@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AllServices = () => {
   return (
-    <div className='bg-gray-50'>
+    <div className='bg-slate-100'>
       <div className="p-4 sm:p-6 lg:p-8">
         <h1 className='font-bold text-2xl sm:text-3xl text-center text-blue-800 mb-4'>- All Services -</h1>
 

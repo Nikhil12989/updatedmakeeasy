@@ -1,10 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-const Addlinks = () => {
+const Add_image_links = () => {
     return (
         <div className='flex1'>
             <h2 className="mt-6 mb-6 ml-5 mr-5 text-2xl text-white text text-center bg-blue-900 p-6 rounded-lg shadow-lg transition-transform duration-300 ">
-                Add Video Link (For user Dashboard)
+                Add Image Link (For user Dashboard)
             </h2>
             <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -16,10 +16,10 @@ const Addlinks = () => {
                     <form>
                         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div>
-                                <label class="text-white font-semibold text-xl dark:text-gray-200" for="username">
-                                    Video Title<span class="text-red-500 ml-1">*</span>
+                                <label class="text-white font-semibold text-xl dark:text-gray-200" for="image">
+                                    Image Title<span class="text-red-500 ml-1">*</span>
                                 </label>
-                                <input id="username" type="text" placeholder='Enter Video Title...' class="block w-full px-4 py-2 mt-2 
+                                <input id="image" type="text" placeholder='Enter image Title...' class="block w-full px-4 py-2 mt-2 
      text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300
       dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 
       focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
@@ -27,8 +27,8 @@ const Addlinks = () => {
 
 
                             <div>
-                                <label class="text-white font-semibold text-xl dark:text-gray-200" for="videolinks">Video Link<span class="text-red-500 ml-1">*</span></label>
-                                <input id="videolinks" type="text" placeholder='Enter Video Link...' class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
+                                <label class="text-white font-semibold text-xl dark:text-gray-200" for="imagelinks">Add Image<span class="text-red-500 ml-1">*</span></label>
+                                <input id="imagelinks" type="file" placeholder='Enter Video Link...' class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
                             </div>
                         </div>
 
@@ -47,4 +47,4 @@ const Addlinks = () => {
     )
 }
 
-export default Addlinks
+export default Add_image_links

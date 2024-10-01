@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Application_domicile = () => {
+const Application_gazette_dob = () => {
     const { id } = useParams();
     const [licenseData, setLicenseData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const Application_domicile = () => {
     useEffect(() => {
         const fetchLicenseData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/domicileCertificate/getbyiddomicile-certificate/${id}`);
+                const response = await axios.get(`http://localhost:5000/api/gazetteDOBChange/getbyidgazette-dob-change/${id}`);
                 setLicenseData(response.data);
             } catch (err) {
                 setError('Error fetching license data');
@@ -40,7 +40,7 @@ const Application_domicile = () => {
 
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/domicileCertificate/updatedomicile-certificate/${id}`,
+                `http://localhost:5000/api/gazetteDOBChange/updategazette-dob-change/${id}`,
                 formData,
                 {
                     headers: {
@@ -69,34 +69,35 @@ const Application_domicile = () => {
 
     return (
         <div className="p-8 max-w-5xl mx-auto bg-gray-50 rounded-lg shadow-lg">
-            <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Permanent License Application</h1>
+            <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Gazette Date of Birth Change Application</h1>
 
-            {/* License Data */}
+            {/* Personal Information */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
                 <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
                     <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Personal Information</h2>
+                    <p className="text-gray-800"><strong className="text-gray-600">Application Type:</strong> {licenseData.application_type}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Form Price:</strong> {licenseData.formPrice}</p>
                     <p className="text-gray-800"><strong className="text-gray-600">Full Name:</strong> {licenseData.fullName}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Father's Full Name (English):</strong> {licenseData.fatherFullNameEnglish}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Father's Full Name (Marathi):</strong> {licenseData.fatherFullNameMarathi}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Date of Birth:</strong> {new Date(licenseData.dateOfBirth).toLocaleDateString()}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Caste Type:</strong> {licenseData.casteType}</p>
                     <p className="text-gray-800"><strong className="text-gray-600">Mobile Number:</strong> {licenseData.mobileNumber}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Occupation:</strong> {licenseData.occupation}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Email:</strong> {licenseData.email}</p>
                     <p className="text-gray-800"><strong className="text-gray-600">Address:</strong> {licenseData.address}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Gender:</strong> {licenseData.gender}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Old DOB:</strong> {licenseData.oldDOB}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">New DOB:</strong> {licenseData.newDOB}</p>
+                    <p className="text-gray-800"><strong className="text-gray-600">Reason for Change:</strong> {licenseData.reasonForChange}</p>
                 </div>
 
+                {/* Status and Notes */}
                 <div className="bg-white shadow-md p-6 rounded-lg space-y-4">
-                    <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Contact Information</h2>
-                    <p className="text-gray-800"><strong className="text-gray-600">District:</strong> {licenseData.district}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Tahsil:</strong> {licenseData.tahsil}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Relation:</strong> {licenseData.benificiaryRelation}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Full Name:</strong> {licenseData.benificiaryFullName}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary DOB:</strong> {new Date(licenseData.benificiaryDOB).toLocaleDateString()}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Mobile Number:</strong> {licenseData.benificiaryMobileNumber}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Education:</strong> {licenseData.benificiaryEducation}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary University:</strong> {licenseData.benificiaryUniversity}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Admission Year:</strong> {licenseData.benificiaryAdmissionYear}</p>
-                    <p className="text-gray-800"><strong className="text-gray-600">Beneficiary Completion Year:</strong> {licenseData.benificiaryCompelitionYear}</p>
+                    <h2 className="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Application Status</h2>
+                    <p className="text-gray-800"><strong className="text-gray-600">Status:</strong> {licenseData.Status}</p>
+                    {licenseData.Status === 'Rejected' && (
+                        <p className="text-gray-800"><strong className="text-gray-600">Rejection Note:</strong> {licenseData.rejectedNote}</p>
+                    )}
+                    {licenseData.Status === 'Completed' && (
+                        <p className="text-gray-800"><strong className="text-gray-600">Completion Note:</strong> {licenseData.completedNote}</p>
+                    )}
                 </div>
             </div>
 
@@ -139,7 +140,7 @@ const Application_domicile = () => {
 
             {/* Update Form */}
             <div className="bg-white shadow-md p-6 rounded-lg mb-10">
-                <h1 className="text-2xl font-bold text-gray-700 mb-6">Update License Application</h1>
+                <h1 className="text-2xl font-bold text-gray-700 mb-6">Update Application</h1>
                 <form onSubmit={handleUpdate} className="space-y-6">
                     <div className="space-y-4">
                         <label className="block text-gray-700 font-semibold">Status:</label>
@@ -173,7 +174,7 @@ const Application_domicile = () => {
                     )}
 
                     <button type="submit" className="block w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
-                        Update License
+                        Update Application
                     </button>
                 </form>
             </div>
@@ -183,4 +184,4 @@ const Application_domicile = () => {
     );
 };
 
-export default Application_domicile;
+export default Application_gazette_dob;

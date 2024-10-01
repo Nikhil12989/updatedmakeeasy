@@ -105,7 +105,7 @@ const Driving_Lic = () => {
           <div className="flex-1 flex justify-center items-center">
             <img
               src={dr1} // Replace with the correct path for the driving license image
-              alt="Driving License"
+              alt=" Make Driving License Sitting at Home"
               className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl object-contain transform transition-transform duration-500 hover:scale-110 hover:rotate-1 shadow-lg hover:shadow-2xl rounded-lg"
             />
           </div>

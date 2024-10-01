@@ -118,24 +118,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/admin/addlinks">
-                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
-                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
-                                        <AnimatePresence>
-                                            {isSidebarOpen && (
-                                                <motion.span
-                                                    className='ml-4 whitespace-nowrap text-black'
-                                                    initial={{ opacity: 0, width: 0 }}
-                                                    animate={{ opacity: 1, width: "auto" }}
-                                                    exit={{ opacity: 0, width: 0 }}
-                                                    transition={{ duration: 0.2, delay: 0.3 }}
-                                                >
-                                                    Add Links
-                                                </motion.span>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                </Link>
+                               
 
                                 <Link to="/admin/ccarousel1">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
@@ -191,6 +174,96 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
+                                <Link to="/admin/addlinks">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Add Video Links
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
+                                <Link to="/admin/Add_image_links">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Add Image Links
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
+                                <Link to="/admin/addbogs">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Add Blog's
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
+                                <Link to="/admin/addgallery">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Add Gallery
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
+                                <Link to="/admin/addreview">
+                                    <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
+                                        <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
+                                        <AnimatePresence>
+                                            {isSidebarOpen && (
+                                                <motion.span
+                                                    className='ml-4 whitespace-nowrap text-black'
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    animate={{ opacity: 1, width: "auto" }}
+                                                    exit={{ opacity: 0, width: 0 }}
+                                                    transition={{ duration: 0.2, delay: 0.3 }}
+                                                >
+                                                    Add Reviews
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                </Link>
                                 <Link to="/admin/addteam">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
@@ -209,7 +282,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                         </AnimatePresence>
                                     </motion.div>
                                 </Link>
-                                <Link to="/admin/changepassword">
+                                {/* <Link to="/admin/changepassword">
                                     <motion.div className='flex items-center p-2 text-sm font-medium rounded-lg transition-colors hover:bg-gray-400 mb-2'>
                                         <CircleEllipsis size={20} style={{ color: '#666', minWidth: "20px" }} />
                                         <AnimatePresence>
@@ -226,7 +299,7 @@ const Asidebar = ({ adminSidebarOpen, setAdminSidebarOpen }) => {
                                             )}
                                         </AnimatePresence>
                                     </motion.div>
-                                </Link>
+                                </Link> */}
                             </motion.div>
                         )}
                     </AnimatePresence>

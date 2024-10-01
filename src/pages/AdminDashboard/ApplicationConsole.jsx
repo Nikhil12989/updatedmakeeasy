@@ -115,6 +115,9 @@ const Applicationconsole = () => {
       case "Food Manufacturing License":  // Ensure this matches exactly
         navigate(`/admin/application_foodmanufacturing/${id}`);
         break;
+      case "Domicile Certificate":  // Ensure this matches exactly
+        navigate(`/admin/application_domicile/${id}`);
+        break;
       case "GST Registration":  // Ensure this matches exactly
         navigate(`/admin/application_gstregistration/${id}`);
         break;
@@ -123,6 +126,15 @@ const Applicationconsole = () => {
         break;
       case "Permanent License":
         navigate(`/admin/application_permanent/${id}`);
+        break;
+      case "Gazette Name Change":
+        navigate(`/admin/application_gazettenamechange/${id}`);
+        break;
+      case "Gazette DOB Change":
+        navigate(`/admin/application_gazettedobchange/${id}`);
+        break;
+      case "Gazette Religion Change":
+        navigate(`/admin/application_gazettereligionchange/${id}`);
         break;
       case "Udyam Aadhar":
         navigate(`/admin/application_udhyam/${id}`);

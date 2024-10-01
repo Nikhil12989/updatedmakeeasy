@@ -218,7 +218,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service6}
-                            alt="avatar"
+                            alt="Make Import Export Code Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -235,7 +235,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service7}
-                            alt="avatar"
+                            alt="Make Digital Signature Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -251,7 +251,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service8}
-                            alt="avatar"
+                            alt="Make Legal Consultancy Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -271,7 +271,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service9}
-                            alt="avatar"
+                            alt="Make ITR Filing Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -287,7 +287,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service10}
-                            alt="avatar"
+                            alt="Make FSSAI Annual return filling Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -303,7 +303,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service11}
-                            alt="avatar"
+                            alt="Make PF ESIC Registration Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -319,7 +319,7 @@ const Home = () => {
                         <img
                             className="object-cover w-full h-48"
                             src={service12}
-                            alt="avatar"
+                            alt="Make Mahsul Legal / revenu Sitting at Home"
                         />
                         <div className="py-4 text-center ml-3 mr-3">
                             <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -380,7 +380,7 @@ const Home = () => {
                         {/* Feature 1 */}
                         <div className="text-center border-2 border-gray-300 hover:border-gray-800 p-6 rounded-lg hover:shadow-lg transition-all">
                             <span className="inline-block p-2 bg-orange-500 rounded-full">
-                                <img className="w-12" src={feature1} alt="Recognized" />
+                                <img className="w-12" src={feature1} alt="Recognized by Govt. of India" />
                             </span>
                             <h5 className="mt-3 text-xl font-semibold">Recognized by Govt. of India</h5>
                             <hr className="my-3 mx-auto w-1/2 border-gray-300" />
@@ -416,7 +416,7 @@ const Home = () => {
                         {/* Feature 5 */}
                         <div className="text-center border-2 border-gray-300 hover:border-gray-800 p-6 rounded-lg hover:shadow-lg transition-all">
                             <span className="inline-block p-2 bg-green-500 rounded-full">
-                                <img className="w-14" src={feature5} alt="Experts" />
+                                <img className="w-14" src={feature5} alt="Trained & Professional Experts" />
                             </span>
                             <h5 className="mt-3 text-xl font-semibold">Trained & Professional Experts</h5>
                             <hr className="my-3 mx-auto w-1/2 border-gray-300" />

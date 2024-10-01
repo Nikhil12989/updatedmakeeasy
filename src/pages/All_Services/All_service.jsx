@@ -163,7 +163,7 @@ const All_service = () => {
               <hr className="w-8 mx-auto h-1 bg-black mt-2" />
             </Link>
             <Link
-              to="/domicile"
+              to="/domicie"
               className="bg-white text-center border p-2 shadow-lg hover:shadow-lg hover:-translate-y-2 transition-transform duration-300"
               style={{ boxShadow: '0 2px 3px rgba(0, 128, 0, 0.5)' }} // Green shadow initially
               onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover
@@ -387,7 +387,7 @@ const All_service = () => {
               <hr className="w-8 mx-auto h-1 bg-blue-700 mt-2" />
             </Link>
             <Link
-              to="/domicile"
+              to="/domicie"
               className="bg-white text-center border p-2 shadow-lg hover:shadow-lg hover:-translate-y-2 transition-transform duration-300"
               style={{ boxShadow: '0 2px 3px rgba(0, 128, 0, 0.5)' }} // Green shadow initially
               onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)')} // Black shadow on hover

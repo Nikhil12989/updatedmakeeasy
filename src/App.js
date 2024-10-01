@@ -32,7 +32,7 @@ import Tredmark from './pages/All_Services/Tredmark';
 import Import_Export from './pages/All_Services/Import_Export';
 import Digital_signature from './pages/All_Services/Digital_signature';
 import Legal_consultancy from './pages/All_Services/Legal_consultancy';
-import Online_acounting from './pages/All_Services/Online_acounting';
+import Domicile from './pages/All_Services/Domicile';
 // company registration
 import Appointment_director from './pages/Company_Registration/Appointment_director';
 import Business_registration from './pages/Company_Registration/Business_registration';
@@ -113,6 +113,7 @@ import Application_companypancard from "./pages/AdminDashboard/Application_compa
 import Application_permanent from './pages/AdminDashboard/Application_permanent';
 import Application_learning from './pages/AdminDashboard/Application_learning';
 import Application_gstregistration from "./pages/AdminDashboard/Application_gstregistration"
+import Application_passport_fresh from "./pages/AdminDashboard/Application_passport_fresh"
 import Userdetails from './pages/AdminDashboard/Userdetails';
 import Formprice from './pages/AdminDashboard/Formprice';
 import Addlinks from './pages/AdminDashboard/Addlinks';
@@ -126,6 +127,14 @@ import Application_udyam from './pages/AdminDashboard/Application_udyam';
 import Application_statefoodlicense from './pages/AdminDashboard/Application_statefoodlicense';
 import Application_manufacturingfoodlicense from './pages/AdminDashboard/Application_manufacturingfoodlicense';
 import Application_votternew from "./pages/AdminDashboard/Application_votternew"
+import Add_image_links from "./pages/AdminDashboard/Add_image_links"
+import Add_blogs from "./pages/AdminDashboard/Add_blogs"
+import Add_gallery from "./pages/AdminDashboard/Add_gallery"
+import Add_reviews from "./pages/AdminDashboard/Add_reviews"
+import Application_gazette_name from './pages/AdminDashboard/Application_gazette_name';
+import Application_gazette_dob from './pages/AdminDashboard/Application_gazette_dob';
+import Application_gazette_religon from "./pages/AdminDashboard/Application_gazette_religon"
+import Application_domicile from './pages/AdminDashboard/Application_domicile';
 
 
 
@@ -172,7 +181,7 @@ function App() {
         <Route path="/import_Export" element={<Import_Export />} />
         <Route path="/digital_signature" element={<Digital_signature />} />
         <Route path="/legal_consultancy" element={<Legal_consultancy />} />
-        <Route path="/online_acounting" element={<Online_acounting />} />
+        <Route path="/domicie" element={<Domicile />} />
 
         {/* company registration */}
         <Route path="/appointment_director" element={<Appointment_director />} />
@@ -293,6 +302,11 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='application_gstregistration/:id' element={<Application_gstregistration/>}/>
             <Route path='application_foodmanufacturing/:id' element={<Application_manufacturingfoodlicense/>}/>
             <Route path='application_newVoterid/:id' element={<Application_votternew/>}/>
+            <Route path='application_gazettenamechange/:id' element={<Application_gazette_name/>}/> 
+            <Route path='application_gazettedobchange/:id' element={<Application_gazette_dob/>}/>
+            <Route path='application_gazettereligionchange/:id' element={<Application_gazette_religon/>}/>
+            <Route path='application_domicile/:id' element={<Application_domicile/>}/>
+            <Route path='application_newpassport/:id' element={<Application_passport_fresh/>}/>
             <Route path='userdetails' element={< Userdetails />}/>
             <Route path='formprice' element={< Formprice />}/>
             <Route path='addlinks' element={< Addlinks />}/>
@@ -302,6 +316,10 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='addteam' element={< Add_team />}/>
             <Route path='report' element={< Reports />}/>
             <Route path='changepassword' element={< Change_password />}/>
+            <Route path='Add_image_links' element={< Add_image_links />}/>
+            <Route path='addbogs' element={< Add_blogs />}/>
+            <Route path='addgallery' element={< Add_gallery />}/>
+            <Route path='addreview' element={< Add_reviews />}/>
             </Routes>
         </main>
       </div>

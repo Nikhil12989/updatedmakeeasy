@@ -99,7 +99,7 @@ const GST_registration = () => {
           <div className="flex-1 flex justify-center items-center">
             <img
               src={pan} // Replace with the correct path for the driving license image
-              alt="Pan card"
+              alt="Gst registrtion from home"
               className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl object-contain transform transition-transform duration-500 hover:scale-110 hover:rotate-1 shadow-lg hover:shadow-2xl rounded-lg"
             />
           </div>

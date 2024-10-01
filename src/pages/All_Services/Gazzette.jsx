@@ -105,7 +105,7 @@ const Gazzette = () => {
           <div className="flex-1 flex justify-center items-center">
             <img
               src={gazzete} // Replace with the correct path for the driving license image
-              alt="gazzete registration"
+              alt="gazzete registration from home"
               className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl object-contain transform transition-transform duration-500 hover:scale-110 hover:rotate-1 shadow-lg hover:shadow-2xl rounded-lg"
             />
           </div>

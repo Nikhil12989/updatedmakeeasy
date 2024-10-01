@@ -159,7 +159,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal1}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -175,7 +175,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal2}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -191,7 +191,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal3}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -207,7 +207,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal4}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -228,7 +228,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal5}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -244,7 +244,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal6}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -260,7 +260,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal7}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
@@ -276,7 +276,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal8}
-                alt="avatar"
+                alt="legal consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">

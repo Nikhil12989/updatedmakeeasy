@@ -126,15 +126,14 @@ const Dl_Learning = () => {
         </div>
       </div>
 
+      <div>
+        <h2 className="text-green-600 text-center font-semibold text-2xl pt-8 sm:mt-0">- Learning Driving License -</h2>
+      </div>
+
       <form
         className="max-w-6xl mx-auto bg-white shadow-2xl rounded-md p-6 mt-10 mb-10"
         onSubmit={handleSubmit}
       >
-        <div className="mt-10 text-center">
-          <h2 className="text-green-600 font-semibold text-2xl">
-            - Learning Driving License -
-          </h2>
-        </div>
         <br />
         <br />
 

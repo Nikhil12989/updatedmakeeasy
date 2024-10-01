@@ -50,7 +50,7 @@ const MyApplications = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
+        <div className="min-h-screen bg-slate-100 p-4 sm:p-6">
             <div className="container mx-auto bg-white rounded-lg shadow-lg p-6">
                 <h1 className="text-2xl font-semibold text-gray-800 mb-6">My Applications</h1>
                 <div className="overflow-x-auto">

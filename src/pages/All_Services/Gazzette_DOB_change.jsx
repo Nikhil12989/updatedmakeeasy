@@ -5,7 +5,7 @@ import { IoArrowBackCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/auth'; // Adjust the path as needed
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const Gazzette_DOB_change = () => {
@@ -70,7 +70,7 @@ const Gazzette_DOB_change = () => {
     try {
       // Post form data to API
       const response = await axios.post(
-        'http://192.168.1.49:5000/api/gazetteDOBChange/creategazette-dob-change',
+        'http://192.168.1.50:5000/api/gazetteDOBChange/creategazette-dob-change',
         form,
         {
           headers: {
@@ -374,7 +374,7 @@ const Gazzette_DOB_change = () => {
           </button>
         </div>
       </form>
-
+      <ToastContainer/>
       <Footer />
     </div>
   )

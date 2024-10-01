@@ -11,36 +11,28 @@ import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for Toastify
 const RenewalLicense = () => {
   const [auth] = useAuth(); // Use authentication context
   const [formData, setFormData] = useState({
-    application_type: '',
-    formPrice: '',
     fullName: '',
     state: '',
     rto: '',
-    permanentLicenseNumber: '',
+    permanentlicenceNumber: '',
     vehicleType: '',
     fatherOrHusbandFullName: '',
     gender: '',
     dateOfBirth: '',
     qualification: '',
+    identificationMarks: '',
     bloodGroup: '',
-    email: '',
     emergencyContact: '',
+    email: '',
+    address: '',
     district: '',
     taluka: '',
-    rejectedNote: '',
-    submitNote: '',
-    completedNote: '',
-    rejectedAt: '',
-    submittedAt: '',
-    completedAt: '',
-    documents: {
-      addressProof: null,
-      adharCard: null,
-      drivingLicense: null,
-      passportPhoto: null,
-      signature: null,
-      medicalCertificate: null,
-    },
+    // Initialize files as null
+    addressProof: null,
+    passportPhoto: null,
+    signature: null,
+    medicalCertificate: null,
+    drivingLicence: null
   });
 
   // Handle form input changes
@@ -52,10 +44,7 @@ const RenewalLicense = () => {
   // Handle file changes
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      documents: { ...prevData.documents, [name]: files[0] },
-    }));
+    setFormData({ ...formData, [name]: files[0] });
   };
 
   const handleSubmit = async (e) => {
@@ -66,46 +55,58 @@ const RenewalLicense = () => {
       toast.error('Please login to fill out the form.');
       return;
     }
-
     // Create FormData object
     const form = new FormData();
     for (const key in formData) {
-      if (key !== 'documents') {
-        form.append(key, formData[key]);
-      } else {
-        for (const docKey in formData.documents) {
-          if (formData.documents[docKey] !== null) {
-            form.append(`documents.${docKey}`, formData.documents[docKey]);
-          }
-        }
+      if (formData[key] !== null) {
+        // Use 'documents.' prefix for file inputs to match backend
+        form.append(key.startsWith('addressProof') ? 'documents.addressProof' :
+          key.startsWith('passportPhoto') ? 'documents.passportPhoto' :
+            key.startsWith('signature') ? 'documents.signature' :
+              key.startsWith('medicalCertificate') ? 'documents.medicalCertificate' :
+                key, formData[key]);
       }
     }
 
     try {
       // Post form data to API
-      const response = await axios.post('http://192.168.1.49:5000/api/renewalLicense/createRenewalDL', form, {
+      const response = await axios.post('http://192.168.1.49:5000/api/learningLicense/createLearningDL', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${auth.token}`,
-        },
+          'Authorization': `Bearer ${auth.token}` // Use backticks for string interpolation
+        }
       });
 
       // Notify user of success
-      toast.success('Renewal application submitted successfully!');
+      toast.success('Application submitted successfully!');
     } catch (error) {
       // Notify user of error
-      toast.error('Error submitting renewal application.');
+      toast.error('Error submitting application.');
     }
   };
-
   return (
     <div>
       <Header />
-      <ToastContainer />
       {/* Page Title */}
       <div className="page-title py-6 bg-slate-300" data-aos="fade">
         <div className="container mx-auto px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-start lg:items-center">
-          <h1 className="text-black text-xl md:text-2xl font-semibold">Renewal Driving License</h1>
+          {/* Title */}
+          <h1 className="text-black text-xl md:text-2xl font-semibold">Renew Driving Licence</h1>
+
+          {/* Refund message */}
+          <style jsx>{`
+            @keyframes intenseBlink {
+              0%, 100% { opacity: 1; color: #f20000; }
+              20% { opacity: 1; color: #000000; }
+            }
+          `}</style>
+          <h1
+            className="text-lg md:text-xl font-bold underline underline-offset-8 mb-2 lg:mb-0 lg:ml-4 animate-[intenseBlink_1s_ease-in-out_infinite]"
+          >
+            100% Fees Refundable, if Service is not Completed!
+          </h1>
+
+          {/* Breadcrumbs */}
           <nav className="breadcrumbs">
             <ol className="flex space-x-4 text-sm">
               <li>
@@ -117,7 +118,7 @@ const RenewalLicense = () => {
               <li>
                 <Link to={'/driving_Lic'} className="flex items-center text-black hover:underline hover:text-black text-base">
                   Go Back
-                  <IoArrowBackCircle className="h-5 w-5 mr-2 ml-2" />
+                  <IoArrowBackCircle className="h-5 w-5 mr-2 ml-2" /> {/* Icon with margin */}
                 </Link>
               </li>
             </ol>
@@ -130,42 +131,14 @@ const RenewalLicense = () => {
         onSubmit={handleSubmit}
       >
         <div className="mt-10 text-center">
-          <h2 className="text-green-600 font-semibold text-2xl">- Renewal Driving License -</h2>
+          <h2 className="text-green-600 font-semibold text-2xl">
+            - Renew Driving License -
+          </h2>
         </div>
         <br />
         <br />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Application Type */}
-          <div className="form-group">
-            <label htmlFor="application_type" className="block text-gray-600 font-semibold mb-2">Application Type</label>
-            <input
-              type="text"
-              name="application_type"
-              id="application_type"
-              placeholder=" - - - "
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-              value={formData.application_type}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          {/* Form Price */}
-          <div className="form-group">
-            <label htmlFor="formPrice" className="block text-gray-600 font-semibold mb-2">Form Price</label>
-            <input
-              type="number"
-              name="formPrice"
-              id="formPrice"
-              placeholder=" - - - "
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-              value={formData.formPrice}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
           {/* Full Name */}
           <div className="form-group">
             <label htmlFor="fullName" className="block text-gray-600 font-semibold mb-2">Full Name</label>
@@ -214,17 +187,15 @@ const RenewalLicense = () => {
               <option value="RTO2">RTO2</option>
             </select>
           </div>
-
-          {/* Permanent License Number */}
           <div className="form-group">
-            <label htmlFor="permanentLicenseNumber" className="block text-gray-600 font-semibold mb-2">Permanent License Number</label>
+            <label htmlFor="permanentlicenceNumber" className="block text-gray-600 font-semibold mb-2">Permanent licence Number</label>
             <input
               type="text"
-              name="permanentLicenseNumber"
-              id="permanentLicenseNumber"
+              name="permanentlicenceNumber"
+              id="permanentlicenceNumber"
               placeholder=" - - - "
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-              value={formData.permanentLicenseNumber}
+              value={formData.fatherName}
               onChange={handleInputChange}
               required
             />
@@ -250,6 +221,239 @@ const RenewalLicense = () => {
             </select>
           </div>
 
+          {/* Father / Husband Full Name */}
+          <div className="form-group">
+            <label htmlFor="fatherName" className="block text-gray-600 font-semibold mb-2">Father / Husband Full Name</label>
+            <input
+              type="text"
+              name="fatherOrHusbandFullName"
+              id="fatherOrHusbandFullName"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.fatherName}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Gender */}
+          <div className="form-group">
+            <label className="block text-gray-600 font-semibold mb-2">Gender</label>
+            <div className="flex space-x-4">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  className="mr-2"
+                  checked={formData.gender === 'Male'}
+                  onChange={handleInputChange}
+                />
+                Male
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  className="mr-2"
+                  checked={formData.gender === 'Female'}
+                  onChange={handleInputChange}
+                />
+                Female
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Other"
+                  className="mr-2"
+                  checked={formData.gender === 'Other'}
+                  onChange={handleInputChange}
+                />
+                Other
+              </label>
+            </div>
+          </div>
+
+          {/* Date of Birth */}
+          <div className="form-group">
+            <label htmlFor="dateOfBirth" className="block text-gray-600 font-semibold mb-2">Date of Birth</label>
+            <input
+              type="date"
+              name="dateOfBirth"
+              id="dateOfBirth"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.dateOfBirth}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Qualification */}
+          <div className="form-group">
+            <label htmlFor="qualification" className="block text-gray-600 font-semibold mb-2">Qualification</label>
+            <input
+              type="text"
+              name="qualification"
+              id="qualification"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.qualification}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Identification Marks */}
+          <div className="form-group">
+            <label htmlFor="identificationMarks" className="block text-gray-600 font-semibold mb-2">Identification Marks</label>
+            <input
+              type="text"
+              name="identificationMarks"
+              id="identificationMarks"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.identificationMarks}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Blood Group */}
+          <div className="form-group">
+            <label htmlFor="bloodGroup" className="block text-gray-600 font-semibold mb-2">Blood Group</label>
+            <input
+              type="text"
+              name="bloodGroup"
+              id="bloodGroup"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.bloodGroup}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Emergency Number */}
+          <div className="form-group">
+            <label htmlFor="emergencyNumber" className="block text-gray-600 font-semibold mb-2">Emergency Contact Number</label>
+            <input
+              type="tel"
+              name="emergencyContact"
+              id="emergencyContact"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.emergencyNumber}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div className="form-group">
+            <label htmlFor="email" className="block text-gray-600 font-semibold mb-2">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Address */}
+          <div className="form-group">
+            <label htmlFor="address" className="block text-gray-600 font-semibold mb-2">Address</label>
+            <textarea
+              name="address"
+              id="address"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* District */}
+          <div className="form-group">
+            <label htmlFor="district" className="block text-gray-600 font-semibold mb-2">District</label>
+            <input
+              type="text"
+              name="district"
+              id="district"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.district}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          {/* Taluka */}
+          <div className="form-group">
+            <label htmlFor="taluka" className="block text-gray-600 font-semibold mb-2">Taluka</label>
+            <input
+              type="text"
+              name="taluka"
+              id="taluka"
+              placeholder=" - - - "
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              value={formData.taluka}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="mt-10 text-center">
+          <h2 className="text-green-600 font-semibold text-2xl">
+            - Upload Required Documents -
+          </h2>
+        </div> <br />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Address Proof */}
+          <div className="form-group">
+            <label htmlFor="addressProof" className="block text-gray-600 font-semibold mb-2">Address Proof</label>
+            <input
+              type="file"
+              name="addressProof"
+              id="addressProof"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              onChange={handleFileChange}
+              required
+            />
+          </div>
+
+          {/* Passport Photo */}
+          <div className="form-group">
+            <label htmlFor="passportPhoto" className="block text-gray-600 font-semibold mb-2">Passport Photo</label>
+            <input
+              type="file"
+              name="passportPhoto"
+              id="passportPhoto"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              onChange={handleFileChange}
+              required
+            />
+          </div>
+
+          {/* Signature */}
+          <div className="form-group">
+            <label htmlFor="signature" className="block text-gray-600 font-semibold mb-2">Signature</label>
+            <input
+              type="file"
+              name="signature"
+              id="signature"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              onChange={handleFileChange}
+              required
+            />
+          </div>
+
           {/* Medical Certificate */}
           <div className="form-group">
             <label htmlFor="medicalCertificate" className="block text-gray-600 font-semibold mb-2">Medical Certificate</label>
@@ -257,22 +461,44 @@ const RenewalLicense = () => {
               type="file"
               name="medicalCertificate"
               id="medicalCertificate"
-              className="w-full border border-gray-300 rounded"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
               onChange={handleFileChange}
+              required
             />
           </div>
-
-          {/* Submit Button */}
-          <div className="form-group mt-4">
-            <button
-              type="submit"
-              className="w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 focus:outline-none"
-            >
-              Submit
-            </button>
+          <div className="form-group">
+            <label htmlFor="drivingLicence" className="block text-gray-600 font-semibold mb-2">Driving Licence</label>
+            <input
+              type="file"
+              name="drivingLicence"
+              id="drivingLicence"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+              onChange={handleFileChange}
+              required
+            />
           </div>
+          <br />
+
+
+        </div>
+        <br />
+        <div>
+          <h2 className='text-center'> <span className='text-red-500 font-bold'>*</span> <span className='font-semibold'>Note</span> - तुमचे लायसन्स संपून एक वर्ष झाले असल्यास पुन्हा लायसन्स टेस्ट करावी लागते.</h2>
+          <br />
+          <h2 className='text-center'> <span className='text-red-500 font-bold'>*</span> <span className='font-semibold'>Note</span> - If it has been a year since your license expired, you have to take the license test again.</h2>
+        </div>
+        <div className="text-center mt-8">
+          <button
+            type="submit"
+            className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-300"
+          >
+            Submit
+          </button>
         </div>
       </form>
+
+      <ToastContainer />
+      <Footer />
     </div>
   );
 };
