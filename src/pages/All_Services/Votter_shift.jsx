@@ -3,6 +3,10 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom';
 import { IoArrowBackCircle } from 'react-icons/io5';
+import { useAuth } from '../../context/auth';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for Toastify
 
 const Votter_shift = () => {
 
@@ -11,17 +15,18 @@ const Votter_shift = () => {
     gender: "",
     dateOfBirth: "",
     mobileNumber: "",
-    emailId: "",
+    email: "",
     placeOfBirth: "",
     birthState: "",
     birthDistrict: "",
     relation: "",
     relationName: "",
+    relationAddress: "",
     fullAddress: "",
     tehsil: "",
     relationPincode: "",
     livingAddressSince: "",
-    oldVoterId: "",
+    oldVoterIDNumber: "",
     previousConstituencyState: "",
     previousConstituency: "",
     aadharCard: null,
@@ -30,6 +35,9 @@ const Votter_shift = () => {
     photo: null,
     signature: null,
   });
+
+  const [auth] = useAuth();
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,10 +49,54 @@ const Votter_shift = () => {
     setFormData({ ...formData, [name]: e.target.files[0] });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    // Check if user is authenticated
+    if (!auth.token) {
+      toast.error('Please login to submit the form.');
+      return;
+    }
+
+    // Create FormData object
+    const form = new FormData();
+    for (const key in formData) {
+      if (formData[key] !== null) {
+        form.append(
+          key.startsWith('aadharCard') ? 'documents.aadharCard' :
+            key.startsWith('photo') ? 'documents.photo' :
+              key.startsWith('signature') ? 'documents.signature' :
+                key.startsWith('panCard') ? 'documents.panCard' :
+                  key.startsWith('passport') ? 'documents.passport' :
+                    key,
+          formData[key]
+        );
+      }
+    }
+
+    try {
+      // Post form data to API
+      const response = await axios.post(
+        'http://localhost:5000/api/shiftVoterID/createShiftVoterID',
+        form,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${auth.token}`
+          }
+        }
+      );
+
+      // Notify user of success
+      toast.success('Voter ID application submitted successfully!');
+    } catch (error) {
+      // Notify user of error
+      toast.error('Error submitting Voter ID application.');
+      console.error('Error:', error.response ? error.response.data : error.message);
+    }
   };
+
+  
   return (
     <div>
     <Header />
@@ -103,9 +155,9 @@ const Votter_shift = () => {
             required
           >
             <option value="" disabled>Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
@@ -137,14 +189,14 @@ const Votter_shift = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="emailId" className="block text-gray-600 font-semibold mb-2">Email Id</label>
+          <label htmlFor="email" className="block text-gray-600 font-semibold mb-2">Email Id</label>
           <input
             type="email"
-            name="emailId"
-            id="emailId"
+            name="email"
+            id="email"
             placeholder=" - - - "
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-            value={formData.emailId}
+            value={formData.email}
             onChange={handleInputChange}
             required
           />
@@ -224,6 +276,19 @@ const Votter_shift = () => {
             required
           />
         </div>
+        <div className="form-group">
+          <label htmlFor="relationAddress" className="block text-gray-600 font-semibold mb-2">Relation Name</label>
+          <input
+            type="text"
+            name="relationAddress"
+            id="relationAddress"
+            placeholder=" - - - "
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+            value={formData.relationAddress}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
         <div className="form-group">
           <label htmlFor="fullAddress" className="block text-gray-600 font-semibold mb-2">Full Address</label>
@@ -270,14 +335,14 @@ const Votter_shift = () => {
 
         
         <div className="form-group">
-          <label htmlFor="oldVoterId" className="block text-gray-600 font-semibold mb-2">Old Voter ID Number</label>
+          <label htmlFor="oldVoterIDNumber" className="block text-gray-600 font-semibold mb-2">Old Voter ID Number</label>
           <input
             type="text"
-            name="oldVoterId"
-            id="oldVoterId"
+            name="oldVoterIDNumber"
+            id="oldVoterIDNumber"
             placeholder=" - - - "
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
-            value={formData.oldVoterId}
+            value={formData.oldVoterIDNumber}
             onChange={handleInputChange}
             required
           />
@@ -388,7 +453,7 @@ const Votter_shift = () => {
         </button>
       </div>
     </form>
-    
+    <ToastContainer/>
     <Footer />
   </div>
   )

@@ -142,6 +142,9 @@ const Applicationconsole = () => {
       case "Gazette Religion Change":
         navigate(`/admin/application_gazettereligionchange/${id}`);
         break;
+      case "Shift Voter ID":
+        navigate(`/admin/Application_votershift/${id}`);
+        break;
       case "Udyam Aadhar":
         navigate(`/admin/application_udhyam/${id}`);
         break;
