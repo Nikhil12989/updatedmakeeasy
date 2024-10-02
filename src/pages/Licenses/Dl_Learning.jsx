@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { IoArrowBackCircle } from 'react-icons/io5';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -7,9 +7,27 @@ import axios from 'axios';
 import { useAuth } from '../../context/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for Toastify
+import LoginModal from '../../components/LoginModel'; // Import the modal
 
 const Dl_Learning = () => {
-  const [auth] = useAuth(); // Use authentication context
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [auth] = useAuth(); // Access auth state from context
+  const isLoggedIn = Boolean(auth.token); // Determine if user is logged in based on token
+
+  useEffect(() => {
+    // Show the modal if the user is not logged in
+    if (!isLoggedIn) {
+      setIsModalOpen(true); // Show the modal if not logged in
+    }
+  }, [isLoggedIn]); // Run effect whenever isLoggedIn changes
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Function to close modal
+  };
+
+
   const [formData, setFormData] = useState({
     fullName: '',
     state: '',
@@ -464,7 +482,8 @@ const Dl_Learning = () => {
           </button>
         </div>
       </form>
-
+  {/* Render Login Modal only if not logged in */}
+  {!isLoggedIn && isModalOpen && <LoginModal closeModal={closeModal} />}
       <ToastContainer />
       <Footer />
     </div>

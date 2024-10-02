@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
@@ -17,8 +17,9 @@ import foo11 from "../../assets/food/11.webp";
 import foo12 from "../../assets/food/12.webp";
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'; // Import the simpler icon
 
-
 const Food_lic = () => {
+
+
   const categories = [
     { name: "", icon: foo1 },
     { name: "", icon: foo2 },

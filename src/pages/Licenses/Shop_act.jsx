@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
@@ -6,6 +6,7 @@ import shop from '../../assets/services/shop.png'
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'
 
 const Shop_act = () => {
+
   return (
     <div>
       <Header />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom';
@@ -7,9 +7,23 @@ import { useAuth } from '../../context/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for Toastify
 import axios from 'axios';
+import LoginModal from '../../components/LoginModel'; // Import the modal
 
 const Food_Central = () => {
-  const [auth] = useAuth(); // Use authentication context
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [auth] = useAuth(); // Access auth state from context
+  const isLoggedIn = Boolean(auth.token); // Determine if user is logged in based on token
+
+  useEffect(() => {
+    // Show the modal if the user is not logged in
+    if (!isLoggedIn) {
+      setIsModalOpen(true); // Show the modal if not logged in
+    }
+  }, [isLoggedIn]); // Run effect whenever isLoggedIn changes
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Function to close modal
+  };
 
   const [formData, setFormData] = useState({
     licenseRequireYears: "",
@@ -125,15 +139,14 @@ const Food_Central = () => {
           </nav>
         </div>
       </div>
+      <div>
+        <h2 className="text-green-600 text-center font-semibold text-2xl pt-8 sm:mt-0">- Central  Food License / Registration -</h2>
+      </div>
       <form
         className="max-w-6xl mx-auto bg-white shadow-2xl rounded-md p-6 mt-10 mb-10"
         onSubmit={handleSubmit}
       >
-        <div className="mt-10 text-center">
-          <h2 className="text-green-600 font-semibold text-2xl">
-            - Central  Food License / Registration-
-          </h2>
-        </div> <br /> <br />
+         <br /> <br />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -359,6 +372,8 @@ const Food_Central = () => {
           </button>
         </div>
       </form>
+        {/* Render Login Modal only if not logged in */}
+        {!isLoggedIn && isModalOpen && <LoginModal closeModal={closeModal} />}
         <ToastContainer/>
       <Footer />
     </div>

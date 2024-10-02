@@ -121,11 +121,11 @@ const Footer = () => {
             <div>
                 {/* Telephone Button */}
                 <a href="tel:+919168741515" target="_blank" rel="noopener noreferrer">
-                    <div className="fixed bottom-20 left-3 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,3)] transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <div className="fixed bottom-20 left-3 z-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white w-12 h-12 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,3)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
+                            width="25"
+                            height="25"
                             fill="currentColor"
                             className="bi bi-telephone"
                             viewBox="0 0 16 16"
@@ -137,7 +137,7 @@ const Footer = () => {
 
                 {/* WhatsApp Button */}
                 <a href="https://wa.me/9168741515" target="_blank" rel="noopener noreferrer">
-                    <div className="fixed bottom-20 right-3 z-50 bg-gradient-to-r from-green-500 to-green-600 text-white w-16 h-16 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <div className="fixed bottom-20 right-3 z-50 bg-gradient-to-r from-green-500 to-green-600 text-white w-12 h-12 rounded-full flex justify-center items-center shadow-[0_5px_10px_rgba(1,1,1,1)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-in-out transform hover:scale-105">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
@@ -156,7 +156,7 @@ const Footer = () => {
             {isVisible && (
                 <div
                     onClick={scrollToTop}
-                    className="fixed bottom-5 right-5 z-50 bg-[#FD3400] w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transition-opacity duration-400 opacity-100 hover:bg-green-500">
+                    className="fixed bottom-5 right-3 z-50 bg-[#FD3400] w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transition-opacity duration-400 opacity-100 hover:bg-green-500">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

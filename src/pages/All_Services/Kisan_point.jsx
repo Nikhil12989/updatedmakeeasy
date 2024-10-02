@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { useAuth } from '../../context/auth';
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import LoginModal from '../../components/LoginModel'; // Import the modal
+import { useAuth } from '../../context/auth'; // Import the useAuth hook
 
 const Kisan_point = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [auth] = useAuth(); // Access auth state from context
+  const isLoggedIn = Boolean(auth.token); // Determine if user is logged in based on token
+
+  useEffect(() => {
+    // Show the modal if the user is not logged in
+    if (!isLoggedIn) {
+      setIsModalOpen(true); // Show the modal if not logged in
+    }
+  }, [isLoggedIn]); // Run effect whenever isLoggedIn changes
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Function to close modal
+  };
   // Define the initial form data
   const initialFormData = {
     kissanPointType: '',
@@ -27,7 +42,6 @@ const Kisan_point = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const [auth] = useAuth(); // Get authentication status from your context
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -367,29 +381,31 @@ animate-[intenseBlink_1s_ease-in-out_infinite]
             </form>
           </div>
 
-          {/* Right side - Content */ }
-<div>
-  <h1 className='font-semibold text-2xl'>Make Easy Agro Market :</h1> <br />
-  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-    <h3 className="text-xl font-semibold text-orange-600 mb-2 text-center">
-      Your Kisan Point for Farm Fresh Solutions!
-    </h3>
-    <h3 className="text-lg font-semibold text-green-600 mb-2 text-center">
-      * Do Enquiry For Apply : -
-    </h3>
+          {/* Right side - Content */}
+          <div>
+            <h1 className='font-semibold text-2xl'>Make Easy Agro Market :</h1> <br />
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <h3 className="text-xl font-semibold text-orange-600 mb-2 text-center">
+                Your Kisan Point for Farm Fresh Solutions!
+              </h3>
+              <h3 className="text-lg font-semibold text-green-600 mb-2 text-center">
+                * Do Enquiry For Apply : -
+              </h3>
 
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 list-inside text-gray-600 mt-2">
-      <li>✔ Digital 7 / 12</li>
-      <li>✔ Fair Far</li>
-      <li>✔ 8 अ उत्तरा</li>
-      <li>✔ PM kisan Nidhi Yojana</li>
-      <li>✔ पिक विमा</li>
-    </ul>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 list-inside text-gray-600 mt-2">
+                <li>✔ Digital 7 / 12</li>
+                <li>✔ Fair Far</li>
+                <li>✔ 8 अ उत्तरा</li>
+                <li>✔ PM kisan Nidhi Yojana</li>
+                <li>✔ पिक विमा</li>
+              </ul>
 
-  </div>
-</div>
+            </div>
+          </div>
         </div>
       </div>
+      {/* Render Login Modal only if not logged in */}
+      {!isLoggedIn && isModalOpen && <LoginModal closeModal={closeModal} />}
       <ToastContainer />
       <Footer />
     </div>

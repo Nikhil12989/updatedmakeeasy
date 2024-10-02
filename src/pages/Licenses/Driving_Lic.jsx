@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import dr1 from '../../assets/services/dr.jpg'
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'; // Import the simpler icon
 
+
 const Driving_Lic = () => {
+  
+
   return (
     <div>
       <Header />
@@ -113,7 +116,6 @@ const Driving_Lic = () => {
         </div>
 
       </div>
-
       <Footer />
     </div>
   )

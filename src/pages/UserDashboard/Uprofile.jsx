@@ -3,8 +3,7 @@ import { useAuth } from '../../context/auth'; // Adjust the import path based on
 import axios from 'axios';
 import logo from "../../assets/logo.png";
 const Uprofile = () => {
-  const [auth, setAuth] = useAuth();
-  const { user } = auth; // Destructure the user from the auth context
+  const [auth] = useAuth();
   const [profileData, setProfileData] = React.useState(null); // State to hold profile data
 
   useEffect(() => {
@@ -12,7 +11,7 @@ const Uprofile = () => {
       try {
         const response = await axios.get('http://192.168.1.50:5000/api/auth/profile', {
           headers: {
-            Authorization:  `Bearer ${auth.token}` // Use token from context
+            Authorization: `Bearer ${auth.token}`, // Use token from context
           },
         });
         setProfileData(response.data.user);
@@ -28,10 +27,8 @@ const Uprofile = () => {
 
   return (
     <div className="">
-      <h2 className="mt-6 mb-6 mx-5 text-2xl text-white text-center bg-blue-900 p-6 rounded-lg shadow-lg transition-transform duration-300">
-        User Profile Details
-      </h2>
-      <div className='flex flex-col items-center justify-center'>
+
+      <div className='flex pt-14 flex-col items-center justify-center'>
 
         <div className="w-full max-w-4xl bg-white rounded-lg shadow-md overflow-hidden">
           {/* Header */}
@@ -47,25 +44,27 @@ const Uprofile = () => {
 
 
           {/* User Info */}
-          <div className="flex p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className=" rounded-lg p-6 m-4 sm:m-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
 
-
-            <div className="mt-4 sm:mt-0 sm:ml-6 text-center sm:text-left">
-              <h1 className="text-2xl font-bold">{profileData ? profileData.firstname + ' ' + profileData.lastname : 'Loading...'}</h1>
-              <p className="text-sm text-gray-200 mt-1">{profileData ? profileData.email : 'Loading...'}</p>
-              <p className="text-xl">User Of Make Easy Documents </p>
+            {/* User Profile Section */}
+            <div className="flex flex-col justify-center items-center sm:items-start">
+              <h1 className="text-3xl font-bold text-blue-900">{profileData ? profileData.firstname + ' ' + profileData.lastname : 'Loading...'}</h1>
+              <p className="text-sm mt-1 text-gray-600">{profileData ? profileData.email : 'Loading...'}</p>
+              <p className="text-lg text-blue-600 mt-2">User Of Make Easy Documents</p>
             </div>
 
-            <div>
-              <h2 className="font-semibold text-gray-700">Contact Information</h2>
-              <ul className="mt-2 space-y-2 text-sm text-gray-600">
-                <li><strong>Phone:</strong> {profileData ? profileData.phone : 'Loading...'}</li>
-                <li><strong>Address:</strong> {profileData ? profileData.address : 'Loading...'}</li>
-                <li><strong>Website:</strong> {profileData ? profileData.website : 'Loading...'}</li>
+            {/* Contact Information Section */}
+            <div className="bg-gray-50 p-4 rounded-lg shadow-inner">
+              <h2 className="font-semibold text-gray-800 text-lg border-b pb-2">Contact Information</h2>
+              <ul className="mt-4 space-y-3 text-gray-700">
+                <li><strong>Phone : </strong> {profileData ? profileData.phone : 'Loading...'}</li>
+                <li><strong>Address : </strong> {profileData ? profileData.address : 'Loading...'}</li>
+                <li><strong>Website : </strong> www.makeeasydocuments.com</li>
               </ul>
             </div>
 
           </div>
+
 
           {/* Profile Actions */}
           <div className="bg-gray-50 p-6 border-t flex justify-end space-x-3">

@@ -12,6 +12,7 @@ import brand2 from '../assets/brands/brand2.png';
 import brand3 from '../assets/brands/brand3.png';
 import brand4 from '../assets/brands/brand4.png';
 import brand5 from '../assets/brands/brand6.png';
+import brand6 from '../assets/brands/brand5.png';
 // why us img
 import feature1 from '../assets/why/recognized.svg'
 import feature2 from '../assets/why/happy_customers.svg'
@@ -100,7 +101,7 @@ const Home = () => {
                                 to={'/contact'}
                                 className="cta-btn bg-orange-600 text-white font-medium text-lg px-8 py-4 rounded-lg border-2 border-white hover:bg-white hover:text-orange-600 transition-all duration-300"
                             >
-                                Call To Action
+                                Call Us To  Action
                             </Link>
 
                             {/* All Services Button */}
@@ -338,28 +339,36 @@ const Home = () => {
             <div className="bg-slate-100 mt-5 mb-5">
                 <h3 className="text-4xl font-semibold text-orange-900 text-center pt-5">Our Brands</h3>
                 <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-x-10 md:space-y-0">
-                    <img
-                        className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
-                        src={brand1}
-                        alt="maharashtra e seva"
+                    
+                <img
+                        className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
+                        src={brand5}
+                        alt="Viransh global legal"
                     />
                     <img
                         className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
                         src={brand2}
                         alt="Make easy Documents"
                     />
+                    
+
                     <img
                         className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
                         src={brand3}
                         alt="Ambiance"
                     />
                     <img
-                        className="w-32 md:w-48 transition-transform duration-300 hover:scale-105"
-                        src={brand5}
-                        alt="Viransh global legal"
+                        className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
+                        src={brand1}
+                        alt="maharashtra e seva"
                     />
                     <img
-                        className="w-32 md:w-40 transition-transform duration-300 hover:scale-105"
+                        className="w-24 md:w-28 transition-transform duration-300 hover:scale-105"
+                        src={brand6}
+                        alt="7/12 maza"
+                    />
+                    <img
+                        className="w-24 md:w-32 transition-transform duration-300 hover:scale-105"
                         src={brand4}
                         alt="Digital legal india"
                     />

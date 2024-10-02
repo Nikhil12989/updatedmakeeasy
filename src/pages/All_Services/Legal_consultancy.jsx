@@ -72,7 +72,7 @@ const LegalConsultancy = () => {
       linkText: 'Learn more',
     },
     {
-      image: 'https://via.placeholder.com/300',
+      image: '',
       title: 'Joint Venture Deed',
       description: 'Lawyer of Online Legal India can assist you to draft Joint Venture Agreement online.',
       linkText: 'Learn more',
@@ -276,7 +276,7 @@ const Legal_consultancy = () => {
               <img
                 className="object-cover w-full h-48"
                 src={legal8}
-                alt="legal consultancy"
+                alt="legal_consultancy"
               />
               <div className="py-4 text-center ml-3 mr-3">
                 <div className="block text-lg font-bold text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors duration-300">

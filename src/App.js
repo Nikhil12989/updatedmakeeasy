@@ -138,6 +138,7 @@ import Application_domicile from './pages/AdminDashboard/Application_domicile';
 import Application_passport_reissue from './pages/AdminDashboard/Application_passport_reissue';
 import Application_vottershift from "./pages/AdminDashboard/Application_vottershift"
 import User_Udyam from './pages/UserDashboard/User_Udyam';
+import User_shiftvoter from './pages/UserDashboard/User_shiftvoter';
 
 
 function App() {
@@ -277,6 +278,7 @@ function Dashboardroutes({ sidebarOpen, setSidebarOpen }) {
             <Route path="my_application" element={<MyApplications />} />
             <Route path="transactionHistory" element={<TransactionHistory />} />
             <Route path='user_udyam/:id' element={<User_Udyam/>}/>
+            <Route path="user_shiftvoter/:id" element={<User_shiftvoter/>}/>
           </Routes>
         </main>
       </div>

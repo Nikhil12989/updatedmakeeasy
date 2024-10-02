@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import dr1 from '../../assets/services/dr.jpg';
+import shop from '../../assets/services/shop.png'
 
 const blogs = [
   {
     id: 1,
     title: 'The Future of Real Estate',
     description: 'Exploring the technological trends shaping the future of property buying.',
-    image: 'https://via.placeholder.com/300',
+    image: dr1,
     date: 'September 14, 2024',
   },
   {
@@ -46,17 +48,19 @@ const Blogs = () => {
               key={blog.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
             >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col justify-between h-full">
+              <div className="w-full">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4 flex flex-col justify-between">
                 <div>
                   <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
                   <p className="text-gray-600 mb-4">{blog.description}</p>
-                </div>
                 <p className="text-sm text-gray-500">{blog.date}</p>
+                </div>
               </div>
             </div>
           ))}

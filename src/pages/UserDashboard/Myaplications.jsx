@@ -126,9 +126,12 @@ const MyApplications = () => {
                 navigate(`/admin/application_gazettereligionchange/${id}`);
                 break;
             case "Shift Voter ID":
-                navigate(`/admin/Application_votershift/${id}`);
+                navigate(`/dashboard/user_shiftvoter/${id}`);
                 break;
             case "Udyam Aadhar":
+                navigate(`/dashboard/user_udyam/${id}`);
+                break;
+            case "Income Certificate":
                 navigate(`/dashboard/user_udyam/${id}`);
                 break;
             default:

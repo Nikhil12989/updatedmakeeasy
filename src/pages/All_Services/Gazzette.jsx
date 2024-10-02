@@ -53,7 +53,8 @@ const Gazzette = () => {
         {/* Main Container */}
         <div className="text-center mb-8">
           <h2 className="text-2xl lg:text-3xl font-bold border-b-4 border-red-600 inline-block pb-2">
-            Company Registration
+          Gazette Rajpatra
+
 
           </h2>
         </div>

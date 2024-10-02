@@ -11,9 +11,8 @@ function Usidebar({ sidebarOpen, setSidebarOpen }) {
 
   return (
     <div
-      className={`${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
+      className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } fixed inset-y-0 left-0 z-50 w-64 bg-blue-100 shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
     >
       <div className="flex items-center justify-between h-16 bg-blue-900 px-4">
         <span className="text-white text-2xl font-bold text-center">User Panel</span>
@@ -24,34 +23,31 @@ function Usidebar({ sidebarOpen, setSidebarOpen }) {
       <nav className="mt-5">
         <Link
           to="/dashboard/dashboard"
-          className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-200 ${
-            isActive('/dashboard/dashboard') ? 'bg-blue-100 text-blue-800' : 'text-gray-700'
-          }`}
+          className={`flex items-center px-6 py-3 text-gray-600 hover:bg-green-400 ${isActive('/dashboard/dashboard') ? 'bg-orange-300 text-blue-800' : 'text-gray-700'
+            }`}
         >
           <Home className="h-5 w-5 mr-3" />
           Dashboard
         </Link>
         <Link
           to="/dashboard/my_application"
-          className={`flex items-center px-6 py-3 mt-2 ${
-            isActive('/dashboard/my_application') ? 'bg-blue-100 text-blue-800' : 'text-gray-600'
-          } hover:bg-gray-200`}
+          className={`flex items-center px-6 py-3 mt-2 ${isActive('/dashboard/my_application') ? 'bg-orange-300 text-blue-800' : 'text-gray-600'
+            } hover:bg-green-400`}
         >
           <BarChart2 className="h-5 w-5 mr-3" />
           My Applications
         </Link>
         <Link
           to="/dashboard/allServices"
-          className={`flex items-center px-6 py-3 mt-2 ${
-            isActive('/dashboard/allServices') ? 'bg-blue-100 text-blue-800' : 'text-gray-600'
-          } hover:bg-gray-200`}
+          className={`flex items-center px-6 py-3 mt-2 ${isActive('/dashboard/allServices') ? 'bg-orange-300 text-blue-800' : 'text-gray-600'
+            } hover:bg-green-400`}
         >
           <Folder className="h-5 w-5 mr-3" />
           All Services
         </Link>
         <div className="relative">
           <button
-            className="flex items-center px-6 py-3 mt-2 text-gray-600 hover:bg-gray-200 w-full text-left"
+            className="flex items-center px-6 py-3 mt-2 text-gray-600 hover:bg-green-400 w-full text-left"
             onClick={() => setReportDropdownOpen(!reportDropdownOpen)}
           >
             <Settings className="h-5 w-5 mr-3" />
@@ -63,7 +59,7 @@ function Usidebar({ sidebarOpen, setSidebarOpen }) {
             )}
           </button>
           {reportDropdownOpen && (
-            <div className="absolute left-0 mt-2 w-full bg-gray-100 border border-gray-300 rounded-lg shadow-lg z-10">
+            <div className="absolute left-0 mt-2 w-full bg-orange-100 border border-gray-300 rounded-lg shadow-lg z-10">
               <Link to="/dashboard/transactionHistory">
                 <button
                   className="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200 w-full text-left rounded-t-lg"
@@ -79,14 +75,13 @@ function Usidebar({ sidebarOpen, setSidebarOpen }) {
 
         {/* Add 'Go to Website' button */}
         <Link
-  to="/"
-  className={`flex items-center justify-center px-4 py-3 mt-9 text-green-700 font-semibold rounded-lg shadow-md transition-all duration-300 mx-8 ${
-    isActive('/') ? 'bg-green-500 text-white' : 'bg-green-200 text-green-800'
-  } hover:bg-orange-500 hover:text-white hover:shadow-lg transform hover:scale-105`}
->
-  <Globe className="h-5 w-5 mr-2" />
-  Go to Website
-</Link>
+          to="/"
+          className={`flex items-center justify-center px-4 py-3 mt-9 text-green-700 font-semibold rounded-lg shadow-md transition-all duration-300 mx-8 ${('/') ? 'bg-green-500 text-white' : 'bg-green-200 text-green-800'
+            } hover:bg-orange-500 hover:text-white hover:shadow-lg transform hover:scale-105`}
+        >
+          <Globe className="h-5 w-5 mr-2" />
+          Go to Website
+        </Link>
 
       </nav>
       <div className="lg:hidden absolute bottom-4 left-4 right-4">

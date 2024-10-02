@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
+
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
@@ -11,8 +12,10 @@ import gst6 from '../../assets/gst/6.jpg'
 import gst7 from '../../assets/gst/7.jpg'
 import gst8 from '../../assets/gst/8.jpg'
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'
+import LoginModal from '../../components/LoginModel'; // Import the modal
 
 const GST = () => {
+
   return (
     <div>
       <Header />

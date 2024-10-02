@@ -69,7 +69,7 @@ const Application_votternew = () => {
 
     return (
       <div className="p-8 max-w-5xl mx-auto bg-gray-50 rounded-lg shadow-lg">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Permanent License Application</h1>
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Votter ID New Application</h1>
 
         {/* License Data */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">

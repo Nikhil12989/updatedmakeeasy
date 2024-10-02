@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
@@ -8,9 +8,23 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../context/auth';
+import LoginModal from '../../components/LoginModel'; // Import the modal
 
 const Gst_return_filing = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [auth] = useAuth(); // Access auth state from context
+  const isLoggedIn = Boolean(auth.token); // Determine if user is logged in based on token
 
+  useEffect(() => {
+    // Show the modal if the user is not logged in
+    if (!isLoggedIn) {
+      setIsModalOpen(true); // Show the modal if not logged in
+    }
+  }, [isLoggedIn]); // Run effect whenever isLoggedIn changes
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Function to close modal
+  };
   // Define the initial form data
   const initialFormData = {
     gstnumber: '',
@@ -24,7 +38,6 @@ const Gst_return_filing = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const [auth] = useAuth(); // Get authentication status from your context
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -231,6 +244,8 @@ const Gst_return_filing = () => {
         </div>
 
       </div>
+        {/* Render Login Modal only if not logged in */}
+        {!isLoggedIn && isModalOpen && <LoginModal closeModal={closeModal} />}
       <ToastContainer />
       <Footer />
     </div>

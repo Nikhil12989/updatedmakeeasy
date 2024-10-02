@@ -1,12 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import dr1 from '../../assets/gst/6.jpg'
 import { AiFillHome, AiOutlineAppstore } from 'react-icons/ai'; // Import the simpler icon
 import Common_form from '../../components/Common_form'
+import LoginModal from '../../components/LoginModel'; // Import the modal
+import { useAuth } from '../../context/auth'; // Import the useAuth hook
 
 const Gstr = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+    const [auth] = useAuth(); // Access auth state from context
+    const isLoggedIn = Boolean(auth.token); // Determine if user is logged in based on token
+  
+    useEffect(() => {
+      // Show the modal if the user is not logged in
+      if (!isLoggedIn) {
+        setIsModalOpen(true); // Show the modal if not logged in
+      }
+    }, [isLoggedIn]); // Run effect whenever isLoggedIn changes
+  
+    const closeModal = () => {
+      setIsModalOpen(false); // Function to close modal
+    };
     return (
         <div>
             <Header />
@@ -77,7 +93,8 @@ const Gstr = () => {
                 </div>
 
             </div>
-
+  {/* Render Login Modal only if not logged in */}
+  {!isLoggedIn && isModalOpen && <LoginModal closeModal={closeModal} />}
             <Footer />
         </div>
     )
