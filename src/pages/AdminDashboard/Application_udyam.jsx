@@ -16,7 +16,7 @@ const Application_udyam = () => {
   useEffect(() => {
     const fetchLicenseData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/udyamAadhar/getbyidudyam-aadhar/${id}`);
+        const response = await axios.get(`http://192.168.1.50:5000/api/udyamAadhar/getbyidudyam-aadhar/${id}`);
         console.log(response)
         setLicenseData(response.data);
       } catch (err) {
@@ -41,7 +41,7 @@ const Application_udyam = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/udyamAadhar/updateudyam-aadhar/${id}`,
+        `http://192.168.1.50:5000/api/udyamAadhar/updateudyam-aadhar/${id}`,
         formData,
         {
           headers: {

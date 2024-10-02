@@ -137,6 +137,7 @@ import Application_gazette_religon from "./pages/AdminDashboard/Application_gaze
 import Application_domicile from './pages/AdminDashboard/Application_domicile';
 import Application_passport_reissue from './pages/AdminDashboard/Application_passport_reissue';
 import Application_vottershift from "./pages/AdminDashboard/Application_vottershift"
+import User_Udyam from './pages/UserDashboard/User_Udyam';
 
 
 function App() {
@@ -275,6 +276,7 @@ function Dashboardroutes({ sidebarOpen, setSidebarOpen }) {
             <Route path="uprofile" element={<Uprofile />} />
             <Route path="my_application" element={<MyApplications />} />
             <Route path="transactionHistory" element={<TransactionHistory />} />
+            <Route path='user_udyam/:id' element={<User_Udyam/>}/>
           </Routes>
         </main>
       </div>

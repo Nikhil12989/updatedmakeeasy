@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth'; // Import the useAuth hook
 
 const statusStyles = {
     "In-Progress": 'bg-yellow-200 text-yellow-800 py-1 px-2 text-xs font-semibold rounded',
     "Completed": 'bg-green-200 text-green-800 py-1 px-2 text-xs font-semibold rounded',
     "Rejected": 'bg-red-200 text-red-800 py-1 px-2 text-xs font-semibold rounded',
+    "Submitted": 'bg-blue-200 text-blue-800 py-1 px-2 text-xs font-semibold rounded'
 };
 
 const MyApplications = () => {
@@ -15,8 +17,8 @@ const MyApplications = () => {
     const [error, setError] = useState(null); // State for errors
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10; // Number of items per page
-
     const [auth] = useAuth(); // Use the Auth context to get user data
+    const navigate = useNavigate(); // Navigation for handling routing
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,6 +64,78 @@ const MyApplications = () => {
         setCurrentPage(pageNumber);
     };
 
+    const handleApplicationTypeClick = (applicationType, id) => {
+        const trimmedApplicationType = applicationType.trim(); // Trim the application type
+        console.log("Navigating to:", trimmedApplicationType, "with ID:", id); // Debugging line
+        switch (trimmedApplicationType) {
+            case "Voter Card":
+                navigate(`/admin/application_votercard/${id}`);
+                break;
+            case "Shop Act":
+                navigate(`/admin/application_shopact/${id}`);
+                break;
+            case "Learning License":
+                navigate(`/admin/application_learning/${id}`);
+                break;
+            case "Company GST":
+                navigate(`/admin/application_companygst/${id}`);
+                break;
+            case "Individual GST":
+                navigate(`/admin/application_individualgst/${id}`);
+                break;
+            case "Local Food License":
+                navigate(`/admin/application_localfoodlicense/${id}`);
+                break;
+            case "State Food License":
+                navigate(`/admin/application_statefoodlicense/${id}`);
+                break;
+            case "Central Food License":  // Ensure this matches exactly
+                navigate(`/admin/application_centralfoodlicense/${id}`);
+                break;
+            case "New VoterCard":  // Ensure this matches exactly
+                navigate(`/admin/application_newVoterid/${id}`);
+                break;
+            case "Food Manufacturing License":  // Ensure this matches exactly
+                navigate(`/admin/application_foodmanufacturing/${id}`);
+                break;
+            case "Domicile Certificate":  // Ensure this matches exactly
+                navigate(`/admin/application_domicile/${id}`);
+                break;
+            case "GST Registration":  // Ensure this matches exactly
+                navigate(`/admin/application_gstregistration/${id}`);
+                break;
+            case "Company Pancard":
+                navigate(`/admin/application_companypancard/${id}`);
+                break;
+            case "Fresh Passport":
+                navigate(`/admin/Application_passport_fresh/${id}`);
+                break;
+            case "Re-Issue Passport":
+                navigate(`/admin/Application_passport_reissue/${id}`);
+                break;
+            case "Permanent License":
+                navigate(`/admin/application_permanent/${id}`);
+                break;
+            case "Gazette Name Change":
+                navigate(`/admin/application_gazettenamechange/${id}`);
+                break;
+            case "Gazette DOB Change":
+                navigate(`/admin/application_gazettedobchange/${id}`);
+                break;
+            case "Gazette Religion Change":
+                navigate(`/admin/application_gazettereligionchange/${id}`);
+                break;
+            case "Shift Voter ID":
+                navigate(`/admin/Application_votershift/${id}`);
+                break;
+            case "Udyam Aadhar":
+                navigate(`/dashboard/user_udyam/${id}`);
+                break;
+            default:
+                console.log("Unknown application type:", trimmedApplicationType); // Logging unknown types
+        }
+    };
+
     if (loading) return <div>Loading...</div>; // Show loading message
     if (error) return <div>{error}</div>; // Show error message
 
@@ -85,7 +159,12 @@ const MyApplications = () => {
                         <tbody className="bg-white">
                             {currentItems.map((app) => (
                                 <tr key={app._id} className="hover:bg-gray-50">
-                                    <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{app.application_type}</td> {/* Display application name */}
+                                    <td
+                                        className="px-4 py-3 text-sm text-blue-600 border border-gray-300 cursor-pointer"
+                                        onClick={() => handleApplicationTypeClick(app.application_type, app._id)} // Handle routing on click
+                                    >
+                                        {app.application_type}
+                                    </td>
                                     <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.firstname}</td>
                                     <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.lastname}</td>
                                     <td className="px-4 py-3 text-sm text-gray-800 border border-gray-300">{auth.user.email}</td>
@@ -111,9 +190,7 @@ const MyApplications = () => {
                     >
                         Previous
                     </button>
-                    <span className="text-gray-700 font-medium">
-                        Page {currentPage} of {totalPages}
-                    </span>
+                    <span>Page {currentPage} of {totalPages}</span>
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
