@@ -69,61 +69,68 @@ const MyApplications = () => {
         console.log("Navigating to:", trimmedApplicationType, "with ID:", id); // Debugging line
         switch (trimmedApplicationType) {
             case "Voter Card":
-                navigate(`/admin/application_votercard/${id}`);
+                navigate(`/dashboard/application_votercard/${id}`);
                 break;
             case "Shop Act":
-                navigate(`/admin/application_shopact/${id}`);
+                navigate(`/dashboard/application_shopact/${id}`);
                 break;
-            case "Learning License":
-                navigate(`/admin/application_learning/${id}`);
-                break;
+            
             case "Company GST":
-                navigate(`/admin/application_companygst/${id}`);
+                navigate(`/dashboard/application_companygst/${id}`);
+                break;
+            case "Company Registration":
+                navigate(`/dashboard/User_companyregistration/${id}`);
                 break;
             case "Individual GST":
-                navigate(`/admin/application_individualgst/${id}`);
+                navigate(`/dashboard/application_individualgst/${id}`);
                 break;
             case "Local Food License":
-                navigate(`/admin/application_localfoodlicense/${id}`);
+                navigate(`/dashboard/User_localfoodlicense/${id}`);
                 break;
             case "State Food License":
-                navigate(`/admin/application_statefoodlicense/${id}`);
+                navigate(`/dashboard/User_statefoodlicense/${id}`);
                 break;
             case "Central Food License":  // Ensure this matches exactly
-                navigate(`/admin/application_centralfoodlicense/${id}`);
+                navigate(`/dashboard/User_centralfoodlicense/${id}`);
                 break;
             case "New VoterCard":  // Ensure this matches exactly
-                navigate(`/admin/application_newVoterid/${id}`);
+                navigate(`/dashboard/application_newVoterid/${id}`);
                 break;
             case "Food Manufacturing License":  // Ensure this matches exactly
-                navigate(`/admin/application_foodmanufacturing/${id}`);
+                navigate(`/dashboard/User_foodmanufacturinglicense/${id}`);
                 break;
             case "Domicile Certificate":  // Ensure this matches exactly
-                navigate(`/admin/application_domicile/${id}`);
+                navigate(`/dashboard/application_domicile/${id}`);
                 break;
             case "GST Registration":  // Ensure this matches exactly
-                navigate(`/admin/application_gstregistration/${id}`);
+                navigate(`/dashboard/application_gstregistration/${id}`);
                 break;
             case "Company Pancard":
-                navigate(`/admin/application_companypancard/${id}`);
+                navigate(`/dashboard/User_companypancard/${id}`);
+                break;
+            case "Individual Pancard":
+                navigate(`/dashboard/user_individualpancard/${id}`);
                 break;
             case "Fresh Passport":
-                navigate(`/admin/Application_passport_fresh/${id}`);
+                navigate(`/dashboard/Application_passport_fresh/${id}`);
                 break;
             case "Re-Issue Passport":
-                navigate(`/admin/Application_passport_reissue/${id}`);
+                navigate(`/dashboard/Application_passport_reissue/${id}`);
                 break;
             case "Permanent License":
-                navigate(`/admin/application_permanent/${id}`);
+                navigate(`/dashboard/User_permanentlicense/${id}`);
+                break;
+            case "Learning License":
+                navigate(`/dashboard/User_learninglicense/${id}`);
                 break;
             case "Gazette Name Change":
-                navigate(`/admin/application_gazettenamechange/${id}`);
+                navigate(`/dashboard/User_gazettenamechange/${id}`);
                 break;
             case "Gazette DOB Change":
-                navigate(`/admin/application_gazettedobchange/${id}`);
+                navigate(`/dashboard/User_gazettedobchange/${id}`);
                 break;
             case "Gazette Religion Change":
-                navigate(`/admin/application_gazettereligionchange/${id}`);
+                navigate(`/dashboard/User_gazettedreligionchange/${id}`);
                 break;
             case "Shift Voter ID":
                 navigate(`/dashboard/user_shiftvoter/${id}`);
@@ -132,7 +139,7 @@ const MyApplications = () => {
                 navigate(`/dashboard/user_udyam/${id}`);
                 break;
             case "Income Certificate":
-                navigate(`/dashboard/user_udyam/${id}`);
+                navigate(`/dashboard/User_incomecertificate/${id}`);
                 break;
             default:
                 console.log("Unknown application type:", trimmedApplicationType); // Logging unknown types

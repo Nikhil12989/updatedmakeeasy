@@ -4,520 +4,303 @@ import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const User_centralfoodlicense = () => {
   const { id } = useParams();
-  const [licenseData, setLicenseData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [files, setFiles] = useState({});
-  const [showDocument, setShowDocument] = useState(null);
-  const statusEnum = ["In-Progress", "Submitted", "Rejected", "Completed"];
+    const [licenseData, setLicenseData] = useState({
+      fullName: "",
+      businessName: "",
+      natureOfBusiness: "",
+      ownerQualification: "",
+      email: "",
+      mobileNumber: "",
+      businessAddress: "",
+      licenseRequireYears: "",
+      formPrice: "",
+      application_type: "",
+      submitNote: "",
+      completedNote: "",
+      Status: "In-Progress",
+    });
 
-  useEffect(() => {
-    const fetchLicenseData = async () => {
+    const [documents, setDocuments] = useState({
+      aadharCard: null,
+      panCard: null,
+      photo: null,
+      electricBill: null,
+      rentAggrement: null,
+      shopActLicense: null,
+      uddyamAadhar: null,
+    });
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const statusEnum = ["In-Progress", "Submitted", "Rejected", "Completed"];
+
+    useEffect(() => {
+      const fetchLicenseData = async () => {
+        try {
+          setLoading(true);
+          const response = await axios.get(
+            `http://192.168.1.50:5000/api/centralFoodLicense/getCentralFoodLicense/${id}`
+          );
+          const data = response.data;
+          setLicenseData({
+            fullName: data.fullName || "",
+            businessName: data.businessName || "",
+            natureOfBusiness: data.natureOfBusiness || "",
+            ownerQualification: data.ownerQualification || "",
+            email: data.email || "",
+            mobileNumber: data.mobileNumber || "",
+            businessAddress: data.businessAddress || "",
+            licenseRequireYears: data.licenseRequireYears || "",
+            formPrice: data.formPrice || "",
+            application_type: data.application_type || "",
+            submitNote: data.submitNote || "",
+            completedNote: data.completedNote || "",
+            Status: data.Status || "In-Progress",
+            rejectedNote: data.rejectedNote || "",
+          });
+        } catch (err) {
+          setError("Error fetching license data");
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchLicenseData();
+    }, [id]);
+
+    const handleUpdate = async (event) => {
+      event.preventDefault();
+      const formData = new FormData();
+      for (const key in licenseData) {
+        formData.append(key, licenseData[key]);
+      }
+      for (const key in documents) {
+        if (documents[key]) {
+          formData.append(key, documents[key]);
+        }
+      }
       try {
-        const response = await axios.get(
-          `http://192.168.1.50:5000/api/shiftVoterID/getShiftVoterID/${id}`
+        const response = await axios.put(
+          `http://192.168.1.50:5000/api/centralFoodLicense/updatecentralfoodlicense/${id}`,
+          formData,
+          { headers: { "Content-Type": "multipart/form-data" } }
         );
-        console.log(response);
-        setLicenseData(response.data);
-      } catch (err) {
-        setError("Error fetching license data");
-      } finally {
-        setLoading(false);
+        toast.success(response.data.message);
+      } catch (error) {
+        toast.error("Failed to update license.");
       }
     };
 
-    fetchLicenseData();
-  }, [id]);
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setLicenseData({ ...licenseData, [name]: value });
+    };
 
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+    const handleFileChange = (e) => {
+      const { name, files } = e.target;
+      if (files && files[0]) {
+        setDocuments({ ...documents, [name]: files[0] });
+      }
+    };
 
-    // Append all fields from licenseData to formData
-    formData.append("fullName", licenseData.fullName);
-    formData.append("gender", licenseData.gender);
-    formData.append("dateOfBirth", licenseData.dateOfBirth);
-    formData.append("mobileNumber", licenseData.mobileNumber);
-    formData.append("email", licenseData.email);
-    formData.append("birthState", licenseData.birthState);
-    formData.append("birthDistrict", licenseData.birthDistrict);
-    formData.append("relation", licenseData.relation);
-    formData.append("relationName", licenseData.relationName);
-    formData.append("relationAddress", licenseData.relationAddress);
-    formData.append("relationPincode", licenseData.relationPincode);
-    formData.append("livingAddressSince", licenseData.livingAddressSince);
-    formData.append("oldVoterIDNumber", licenseData.oldVoterIDNumber);
-    formData.append("previousConstituencyState", licenseData.previousConstituencyState);
-    formData.append("previousConstituency", licenseData.previousConstituency);
-    formData.append("rejectedNote", licenseData.rejectedNote);
-    formData.append("submitNote", licenseData.submitNote);
-    formData.append("completedNote", licenseData.completedNote);
-    formData.append("rejectedAt", licenseData.rejectedAt);
-    formData.append("submitedAt", licenseData.submitedAt);
-    formData.append("CompletedAt", licenseData.CompletedAt);
-    formData.append("Status", licenseData.Status);
+    if (loading) return <div className="text-center mt-10">Loading...</div>;
+    if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
 
-    // Append files to formData
-    for (const [key, value] of Object.entries(files)) {
-      formData.append(`documents.${key}`, value);
-    }
-
-    try {
-      const response = await axios.put(
-        `http://192.168.1.50:5000/api/shiftVoterID/updateShiftVoterID/${id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      toast.success(response.data.message);
-    } catch (error) {
-      toast.error("Failed to update license.");
-    }
-  };
-
-  const renderImage = (imageData) => {
-    if (
-      imageData &&
-      imageData.contentType &&
-      imageData.data &&
-      imageData.data.data
-    ) {
-      const byteArray = new Uint8Array(imageData.data.data);
-      const base64String = btoa(String.fromCharCode(...byteArray));
-      return `data:${imageData.contentType};base64,${base64String}`;
-    }
-    return null;
-  };
-
-  if (loading) return <div className="text-center mt-10">Loading...</div>;
-  if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
-  if (!licenseData) return <div>No data found</div>;
-
-  const inputClass = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm";
-  const labelClass = "block text-sm font-medium text-gray-700";
-
+    const inputClass = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm";
+    const labelClass = "block text-sm font-medium text-gray-700";
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="px-4 py-5 sm:p-6">
-            <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Central food license
-            </h1>
-
-            <form onSubmit={handleUpdate} className="space-y-6">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {/* Personal Information Section */}
-                <div className="col-span-2">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                    Personal Information
-                  </h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="px-4 py-5 sm:p-6">
+                <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">State Food License</h1>
+                <form onSubmit={handleUpdate} className="space-y-6">
+                    {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className={labelClass}>
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        className={inputClass}
-                        value={licenseData.fullName}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            fullName: e.target.value,
-                          })
-                        }
-                        placeholder="Enter full name"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="gender" className={labelClass}>
-                        Gender
-                      </label>
-                      <select
-                        id="gender"
-                        className={inputClass}
-                        value={licenseData.gender}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            gender: e.target.value,
-                          })
-                        }
-                        required
-                      >
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="dateOfBirth" className={labelClass}>
-                        Date of Birth
-                      </label>
-                      <input
-                        type="date"
-                        id="dateOfBirth"
-                        className={inputClass}
-                        value={licenseData.dateOfBirth}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            dateOfBirth: e.target.value,
-                          })
-                        }
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="mobileNumber" className={labelClass}>
-                        Mobile Number
-                      </label>
-                      <input
-                        type="number"
-                        id="mobileNumber"
-                        className={inputClass}
-                        value={licenseData.mobileNumber}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            mobileNumber: e.target.value,
-                          })
-                        }
-                        placeholder="Enter mobile number"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className={labelClass}>
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className={inputClass}
-                        value={licenseData.email}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            email: e.target.value,
-                          })
-                        }
-                        placeholder="Enter email"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="birthState" className={labelClass}>
-                        Birth State
-                      </label>
-                      <input
-                        type="text"
-                        id="birthState"
-                        className={inputClass}
-                        value={licenseData.birthState}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            birthState: e.target.value,
-                          })
-                        }
-                        placeholder="Enter birth state"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="birthDistrict" className={labelClass}>
-                        Birth District
-                      </label>
-                      <input
-                        type="text"
-                        id="birthDistrict"
-                        className={inputClass}
-                        value={licenseData.birthDistrict}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            birthDistrict: e.target.value,
-                          })
-                        }
-                        placeholder="Enter birth district"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Relation Information Section */}
-                <div className="col-span-2">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                    Relation Information
-                  </h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="relation" className={labelClass}>
-                        Relation
-                      </label>
-                      <input
-                        type="text"
-                        id="relation"
-                        className={inputClass}
-                        value={licenseData.relation}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            relation: e.target.value,
-                          })
-                        }
-                        placeholder="Enter relation"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="relationName" className={labelClass}>
-                        Relation Name
-                      </label>
-                      <input
-                        type="text"
-                        id="relationName"
-                        className={inputClass}
-                        value={licenseData.relationName}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            relationName: e.target.value,
-                          })
-                        }
-                        placeholder="Enter relation name"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="relationAddress" className={labelClass}>
-                        Relation Address
-                      </label>
-                      <input
-                        type="text"
-                        id="relationAddress"
-                        className={inputClass}
-                        value={licenseData.relationAddress}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            relationAddress: e.target.value,
-                          })
-                        }
-                        placeholder="Enter relation address"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="relationPincode" className={labelClass}>
-                        Relation Pincode
-                      </label>
-                      <input
-                        type="text"
-                        id="relationPincode"
-                        className={inputClass}
-                        value={licenseData.relationPincode}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            relationPincode: e.target.value,
-                          })
-                        }
-                        placeholder="Enter relation pincode"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Additional Information Section */}
-                <div className="col-span-2">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                    Additional Information
-                  </h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="livingAddressSince" className={labelClass}>
-                        Living Address Since
-                      </label>
-                      <input
-                        type="date"
-                        id="livingAddressSince"
-                        className={inputClass}
-                        value={licenseData.livingAddressSince}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            livingAddressSince: e.target.value,
-                          })
-                        }
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="oldVoterIDNumber" className={labelClass}>
-                        Old Voter ID Number
-                      </label>
-                      <input
-                        type="text"
-                        id="oldVoterIDNumber"
-                        className={inputClass}
-                        value={licenseData.oldVoterIDNumber}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            oldVoterIDNumber: e.target.value,
-                          })
-                        }
-                        placeholder="Enter old Voter ID number"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="previousConstituencyState" className={labelClass}>
-                        Previous Constituency State
-                      </label>
-                      <input
-                        type="text"
-                        id="previousConstituencyState"
-                        className={inputClass}
-                        value={licenseData.previousConstituencyState}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            previousConstituencyState: e.target.value,
-                          })
-                        }
-                        placeholder="Enter previous constituency state"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="previousConstituency" className={labelClass}>
-                        Previous Constituency
-                      </label>
-                      <input
-                        type="text"
-                        id="previousConstituency"
-                        className={inputClass}
-                        value={licenseData.previousConstituency}
-                        onChange={(e) =>
-                          setLicenseData({
-                            ...licenseData,
-                            previousConstituency: e.target.value,
-                          })
-                        }
-                        placeholder="Enter previous constituency"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Document Upload Section */}
-                <div className="col-span-2">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                    Documents
-                  </h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    {['aadhaarCard', 'voterID', 'addressProof', 'photo'].map((doc) => (
-                      <div key={doc}>
-                        <label htmlFor={doc} className={labelClass}>
-                          {doc.replace(/([A-Z])/g, ' $1').toUpperCase()}
-                        </label>
+                        <label className={labelClass} htmlFor="fullName">Full Name</label>
                         <input
-                          type="file"
-                          id={doc}
-                          className={inputClass}
-                          onChange={(e) => setFiles({ ...files, [doc]: e.target.files[0] })}
-                          accept=".jpg,.jpeg,.png,.pdf"
+                            id="fullName"
+                            name="fullName"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.fullName}
+                            onChange={handleInputChange}
+                            required
                         />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="Status" className={labelClass}>
-                    Status{" "}
-                  </label>
-                  <input
-                    disabled
-                    type="text"
-                    id="Status"
-                    className={inputClass}
-                    value={licenseData.Status}
-                    onChange={(e) =>
-                      setLicenseData({
-                        ...licenseData,
-                        Status: e.target.value,
-                      })
-                    }
-                    placeholder="Status"
-                    required
-                  />
-                </div>
-                {licenseData.Status === "Rejected" && (
-                  <div>
-                    <label htmlFor="rejectedNote" className={labelClass}>
-                      Rejected Note
-                    </label>
-                    <input
-                      disabled
-                      type="text"
-                      id="rejectedNote"
-                      className={inputClass}
-                      value={licenseData.rejectedNote}
-                      required
-                    />
-                  </div>
-                )}
+                    </div>
 
+                    {/* Business Name */}
+                    <div>
+                        <label className={labelClass} htmlFor="businessName">Business Name</label>
+                        <input
+                            id="businessName"
+                            name="businessName"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.businessName}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
 
+                    {/* Nature of Business */}
+                    <div>
+                        <label className={labelClass} htmlFor="natureOfBusiness">Nature of Business</label>
+                        <input
+                            id="natureOfBusiness"
+                            name="natureOfBusiness"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.natureOfBusiness}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
 
-                {/* Status Section */}
+                    {/* Owner Qualification */}
+                    <div>
+                        <label className={labelClass} htmlFor="ownerQualification">Owner Qualification</label>
+                        <input
+                            id="ownerQualification"
+                            name="ownerQualification"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.ownerQualification}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
 
+                    {/* Mobile Number */}
+                    <div>
+                        <label className={labelClass} htmlFor="mobileNumber">Mobile Number</label>
+                        <input
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.mobileNumber}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
 
-                {/* Update Button */}
-                <div className="col-span-2">
-                  <button
-                    type="submit"
-                    className="w-full rounded-md bg-indigo-600 py-2 px-4 text-white font-semibold shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Update
-                  </button>
-                </div>
-              </div>
-            </form>
+                    {/* Business Address */}
+                    <div>
+                        <label className={labelClass} htmlFor="businessAddress">Business Address</label>
+                        <input
+                            id="businessAddress"
+                            name="businessAddress"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.businessAddress}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
 
-            <ToastContainer />
-          </div>
+                    {/* License Require Years */}
+                    <div>
+                        <label className={labelClass} htmlFor="licenseRequireYears">License Require Years</label>
+                        <input
+                            id="licenseRequireYears"
+                            name="licenseRequireYears"
+                            type="text"
+                            className={inputClass}
+                            value={licenseData.licenseRequireYears}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+
+                    {/* Status */}
+                    <div>
+                        <label className={labelClass} htmlFor="Status">Status</label>
+                        <select
+                        disabled
+                            id="Status"
+                            name="Status"
+                            className={inputClass}
+                            value={licenseData.Status}
+                            onChange={handleInputChange}
+                            required
+                        >
+                            {statusEnum.map((status) => (
+                                <option key={status} value={status}>{status}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Rejected Note */}
+                    {licenseData.Status === "Rejected" && (
+                        <div>
+                            <label className={labelClass} htmlFor="rejectedNote">Rejected Note</label>
+                            <textarea
+                            disabled
+                                id="rejectedNote"
+                                name="rejectedNote"
+                                className={inputClass}
+                                value={licenseData.rejectedNote}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    )}
+
+                    {/* Document Uploads */}
+                    <div>
+                        <label className={labelClass} htmlFor="aadharCard">Aadhar Card</label>
+                        <input
+                            id="aadharCard"
+                            name="aadharCard"
+                            type="file"
+                            className={inputClass}
+                            accept="image/*"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+
+                    <div>
+                        <label className={labelClass} htmlFor="panCard">Pan Card</label>
+                        <input
+                            id="panCard"
+                            name="panCard"
+                            type="file"
+                            className={inputClass}
+                            accept="image/*"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+
+                    <div>
+                        <label className={labelClass} htmlFor="photo">Photo</label>
+                        <input
+                            id="photo"
+                            name="photo"
+                            type="file"
+                            className={inputClass}
+                            accept="image/*"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div>
+                        <button
+                            type="submit"
+                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                        >
+                            Update License
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
+    <ToastContainer />
+</div>
   )
 }
 

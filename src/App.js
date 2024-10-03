@@ -139,6 +139,22 @@ import Application_passport_reissue from './pages/AdminDashboard/Application_pas
 import Application_vottershift from "./pages/AdminDashboard/Application_vottershift"
 import User_Udyam from './pages/UserDashboard/User_Udyam';
 import User_shiftvoter from './pages/UserDashboard/User_shiftvoter';
+import User_individualpancard from './pages/UserDashboard/User_individualpancard';
+import User_companypancard from './pages/UserDashboard/User_companypancard';
+import Application_individualpancard from './pages/AdminDashboard/Application_individualpancard';
+import User_Learning from './pages/UserDashboard/User_Learning';
+import User_Permanent from './pages/UserDashboard/User_Permanent';
+import User_localfoodlicense from "./pages/UserDashboard/User_localfoodlicense"
+import User_statefoodlicense from "./pages/UserDashboard/User_statefoodlicense"
+import User_centralfoodlicense from "./pages/UserDashboard/User_centralfoodlicense"
+import User_manufacturingfoodlicense from './pages/UserDashboard/User_manufacturingfoodlicense';
+import User_incomecertificate from "./pages/UserDashboard/User_incomecertificate"
+import Application_incomecertificate from "./pages/AdminDashboard/Application_incomecertificate"
+import User_companyregistration from './pages/UserDashboard/User_companyregistration';
+import Application_companyregistration from './pages/AdminDashboard/Application_companyregistration';
+import User_gazette_name from './pages/UserDashboard/User_gazette_name';
+import User_gazette_dob from "./pages/UserDashboard/User_gazette_dob"
+import User_gazette_religon from "./pages/UserDashboard/User_gazette_religon"
 
 
 function App() {
@@ -279,10 +295,23 @@ function Dashboardroutes({ sidebarOpen, setSidebarOpen }) {
             <Route path="transactionHistory" element={<TransactionHistory />} />
             <Route path='user_udyam/:id' element={<User_Udyam/>}/>
             <Route path="user_shiftvoter/:id" element={<User_shiftvoter/>}/>
+            <Route path='user_individualpancard/:id' element={<User_individualpancard/>}/>
+            <Route path="User_companypancard/:id" element={<User_companypancard/>}/>
+            <Route path='User_learninglicense/:id' element={<User_Learning/>}/>
+            <Route path='User_permanentlicense/:id' element={<User_Permanent/>}/>
+            <Route path='User_localfoodlicense/:id' element={<User_localfoodlicense/>}/>
+            <Route path='User_statefoodlicense/:id' element={<User_statefoodlicense/>}/>
+            <Route path='User_centralfoodlicense/:id' element={<User_centralfoodlicense/>}/>
+            <Route path='User_foodmanufacturinglicense/:id' element={<User_manufacturingfoodlicense/>}/>
+            <Route path='User_incomecertificate/:id' element={<User_incomecertificate/>}/>
+            <Route path='User_companyregistration/:id' element={<User_companyregistration/>}/>
+            <Route path='User_gazettenamechange/:id' element={<User_gazette_name/>}/>
+            <Route path='User_gazettedobchange/:id' element={<User_gazette_dob/>}/>
+            <Route path='User_gazettedreligionchange/:id' element={<User_gazette_religon/>}/>
           </Routes>
         </main>
       </div>
-    </div>
+    </div>  
   );
 }
 
@@ -300,6 +329,7 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='application_localfoodlicense/:id' element={<Application_localfoodlicense/>}/>
             <Route path='application_centralfoodlicense/:id' element={<Application_centralfoodlicense/>}/>
             <Route path='application_companypancard/:id' element={<Application_companypancard/>}/>
+            <Route path='application_individualpancard/:id' element={<Application_individualpancard/>}/>
             <Route path='application_permanent/:id' element={<Application_permanent/>}/>
             <Route path='application_learning/:id' element={<Application_learning/>}/>
             <Route path='application_udhyam/:id' element={<Application_udyam/>}/>
@@ -314,6 +344,8 @@ function AdminDashboardroutes({ adminSidebarOpen, setAdminSidebarOpen }) {
             <Route path='Application_passport_fresh/:id' element={<Application_passport_fresh/>}/>
             <Route path='Application_passport_reissue/:id' element={<Application_passport_reissue/>}/>
             <Route path='Application_votershift/:id' element={<Application_vottershift/>}/>
+            <Route path='Application_incomecertificate/:id' element={<Application_incomecertificate/>}/>
+            <Route path='Application_companyregistration/:id' element={<Application_companyregistration/>}/>
             <Route path='userdetails' element={< Userdetails />}/>
             <Route path='formprice' element={< Formprice />}/>
             <Route path='addlinks' element={< Addlinks />}/>

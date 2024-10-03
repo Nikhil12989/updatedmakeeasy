@@ -17,17 +17,19 @@ const Application_companypancard = () => {
     const fetchLicenseData = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/companyPancard/getCompanyPancard/${id}`);
-        setLicenseData(response.data.pancard);  // Accessing pancard object from response
+        console.log(response.data); // Debugging line
+        setLicenseData(response.data); // Adjusted to access the right data
       } catch (err) {
+        console.error(err); // Debugging line
         setError('Error fetching license data');
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchLicenseData();
   }, [id]);
-
+  
   const handleUpdate = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -63,6 +65,16 @@ const Application_companypancard = () => {
     return null;
   };
 
+  // Handle document viewing
+  const handleViewDocument = (document) => {
+    const image = renderImage(document);
+    setShowDocument(image);
+  };
+
+  const closeDocumentViewer = () => {
+    setShowDocument(null);
+  };
+
   if (loading) return <div className="text-center mt-10">Loading...</div>;
   if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
   if (!licenseData) return <div>No data found</div>;
@@ -92,17 +104,17 @@ const Application_companypancard = () => {
         </div>
       </div>
 
-      {/* Application Status */}
+      {/* Document Section */}
       <div className="bg-white shadow-md p-6 rounded-lg mb-10">
         <h2 className="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">Documents</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {licenseData.documents ? (
+          {licenseData.documents && Object.entries(licenseData.documents).length > 0 ? (
             Object.entries(licenseData.documents).map(([key, value]) => (
               <div key={key} className="border p-4 rounded-lg text-center bg-gray-100 shadow">
                 <h3 className="font-semibold mb-2 text-gray-700">{key.charAt(0).toUpperCase() + key.slice(1)}</h3>
                 <button
                   className="bg-blue-600 text-white py-1 px-4 rounded hover:bg-blue-700"
-                  onClick={() => setShowDocument(renderImage(value))}
+                  onClick={() => handleViewDocument(value)}
                 >
                   View Document
                 </button>
@@ -114,17 +126,14 @@ const Application_companypancard = () => {
         </div>
       </div>
 
-      {/* Modal for Viewing Document */}
+      {/* Document Viewer Modal */}
       {showDocument && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <img src={showDocument} alt="Document" className="max-w-full max-h-screen" />
-            <button
-              className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
-              onClick={() => setShowDocument(null)}
-            >
-              Close
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="bg-white p-4 rounded-lg">
+            <button onClick={closeDocumentViewer} className="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
+              &times;
             </button>
+            <img src={showDocument} alt="Document" className="max-w-full max-h-screen" />
           </div>
         </div>
       )}
@@ -173,6 +182,6 @@ const Application_companypancard = () => {
       <ToastContainer />
     </div>
   );
-};
+}
 
 export default Application_companypancard;

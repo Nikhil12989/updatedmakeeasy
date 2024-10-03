@@ -29,7 +29,7 @@ const Applicationconsole = () => {
         const modifiedData = response.data.map((item) => ({
           id: item._id,
           application_type: item.application_type,
-          applicantName: item.fullName || item.companyFullName || item.ownerFullName ,
+          applicantName: item.fullName || item.companyFullName || item.ownerFullName || item.fullNameEnglish ,
           Status: item.Status || "In-Progress",
           viewed: item.viewed || false, // Assuming you have a 'viewed' property
           createdAt: item.createdAt,
@@ -97,6 +97,9 @@ const Applicationconsole = () => {
       case "Company GST":
         navigate(`/admin/application_companygst/${id}`);
         break;
+      case "Company Registration":
+        navigate(`/admin/Application_companyregistration/${id}`);
+        break;
       case "Individual GST":
         navigate(`/admin/application_individualgst/${id}`);
         break;
@@ -124,6 +127,9 @@ const Applicationconsole = () => {
       case "Company Pancard":
         navigate(`/admin/application_companypancard/${id}`);
         break;
+      case "Individual Pancard":
+        navigate(`/admin/application_individualpancard/${id}`);
+        break;
       case "Fresh Passport":
         navigate(`/admin/Application_passport_fresh/${id}`);
         break;
@@ -147,6 +153,9 @@ const Applicationconsole = () => {
         break;
       case "Udyam Aadhar":
         navigate(`/admin/application_udhyam/${id}`);
+        break;
+      case "Income Certificate":
+        navigate(`/admin/Application_incomecertificate/${id}`);
         break;
       default:
         console.log("Unknown application type:", trimmedApplicationType); // Logging unknown types
